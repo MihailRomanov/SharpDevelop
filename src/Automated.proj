@@ -45,6 +45,7 @@
 		<CallTarget Targets="clean1"/>
 		
 		<CallTarget Targets="build"/>
+		<CallTarget Targets="copyprecompiled"/>
 		<CallTarget Targets="createsetup"/>
 		<CallTarget Targets="createxcopydeployablezip"/>
 		
@@ -75,6 +76,18 @@
 		
 		<Exec WorkingDirectory="$(ProjectDir)"
 		      Command="$(MSBuildExecutable) SharpDevelop.sln $(BuildProperties)"/>
+	</Target>
+	
+	<Target Name="copyprecompiled">
+		<ItemGroup>
+			<Precompiled Include="$(SharpDevelopSrc)\Libraries\ProfilerHook\*.*">
+				<DestinationFolder>$(ProjectDir)\AddIns\Misc\Profiler</DestinationFolder>
+			</Precompiled>
+		</ItemGroup>
+
+		<Copy SourceFiles="@(Precompiled)"
+			  DestinationFolder="%(DestinationFolder)"
+		/>
 	</Target>
 	
 	<Target Name="buildunittests">
