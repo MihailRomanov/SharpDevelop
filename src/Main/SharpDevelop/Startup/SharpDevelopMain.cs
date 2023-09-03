@@ -20,6 +20,7 @@ using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -108,6 +109,7 @@ namespace ICSharpCode.SharpDevelop.Startup
 			
 			Application.SetCompatibleTextRenderingDefault(false);
 			SplashScreenForm.SetCommandLineArgs(commandLineArgs);
+			ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 			
 			foreach (string parameter in SplashScreenForm.GetParameterList()) {
 				if ("nologo".Equals(parameter, StringComparison.OrdinalIgnoreCase))
