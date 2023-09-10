@@ -138,7 +138,7 @@ namespace PackageManagement.Tests
 			
 			var expectedSources = new List<PackageSource>();
 			expectedSources.Add(packageSource);
-				expectedSources.Add(new PackageSource("https://www.nuget.org/api/v2/", "nuget.org"));
+				expectedSources.Add(new PackageSource("https://www.nuget.org/api/v2/", "nuget.org v2"));
 			
 			Assert.AreEqual(expectedSources, actualSources);
 		}
@@ -581,7 +581,7 @@ namespace PackageManagement.Tests
 			int count = 0;
 			Assert.DoesNotThrow(() => count = options.PackageSources.Count);
 			Assert.AreEqual(1, count);
-			Assert.AreEqual(options.PackageSources[0], new PackageSource("https://www.nuget.org/api/v2/", "nuget.org"));
+			Assert.AreEqual(options.PackageSources[0], new PackageSource("https://www.nuget.org/api/v2/", "nuget.org v2"));
 		}
 		
 		[Test]
