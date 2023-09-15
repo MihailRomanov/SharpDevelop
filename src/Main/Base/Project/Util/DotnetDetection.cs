@@ -68,8 +68,60 @@ namespace ICSharpCode.SharpDevelop
 		
 		public static bool IsDotnet46Installed()
 		{
-			// 393273 is .NET 4.6 on my Win7 machine with VS 2015 RC installed
-			return GetDotnet4Release() >= 393273;
+			// 393295 - On Windows 10
+			// 393297 - On all other Windows operating systems
+			return GetDotnet4Release() >= 393295;
+		}
+
+		public static bool IsDotnet461Installed()
+		{
+			// 394254 - On Windows 10 November Update systems
+			// 394271 - On all other Windows operating systems (including Windows 10)
+			return GetDotnet4Release() >= 394254;
+		}
+		
+		public static bool IsDotnet462Installed()
+		{
+			// 394802 - On Windows 10 Anniversary Update and Windows Server 2016
+			// 394806 - On all other Windows operating systems (including other Windows 10 operating systems)
+			return GetDotnet4Release() >= 394802;
+		}
+		
+		public static bool IsDotnet47Installed()
+		{
+			// 460798 - On Windows 10 Creators Update
+			// 460805- On all other Windows operating systems (including other Windows 10 operating systems)
+			return GetDotnet4Release() >= 460798;
+		}
+		
+		public static bool IsDotnet471Installed()
+		{
+			// 461308 - On Windows 10 Fall Creators Update and Windows Server, version 1709
+			// 461310 - On all other Windows operating systems (including other Windows 10 operating systems)
+			return GetDotnet4Release() >= 461308;
+		}
+		
+		public static bool IsDotnet472Installed()
+		{
+			// 461808 - On Windows 10 April 2018 Update and Windows Server, version 1803
+			// 461814 - On all Windows operating systems other than Windows 10 April 2018 Update and Windows Server, version 1803
+			return GetDotnet4Release() >= 461808;
+		}
+		
+		public static bool IsDotnet48Installed()
+		{
+			// 528040 - On Windows 10 May 2019 Update and Windows 10 November 2019 Update
+			// 528049 - On all other Windows operating systems (including other Windows 10 operating systems)
+			// 528372 - On Windows 10 May 2020 Update, October 2020 Update, May 2021 Update, November 2021 Update, and 2022 Update
+			// 528449 - On Windows 11 and Windows Server 2022
+			return GetDotnet4Release() >= 528040;
+		}
+		
+		public static bool IsDotnet481Installed()
+		{
+			// 533320 - On Windows 11 2022 Update
+			// 533325 - All other Windows operating systems
+			return GetDotnet4Release() >= 533320;
 		}
 		
 		/// <summary>

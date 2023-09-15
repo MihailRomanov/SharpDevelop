@@ -17,12 +17,8 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Xml;
-using System.Xml.Linq;
 using ICSharpCode.NRefactory;
 using ICSharpCode.SharpDevelop.Parser;
 
@@ -75,8 +71,9 @@ namespace ICSharpCode.SharpDevelop.Project.PortableLibrary
 					case "v4.0":
 						return Versions.V4_0;
 					case "v4.5":
-					default:
 						return Versions.V4_5;
+					default:
+						return Versions.V4_6;
 				}
 			}
 		}
@@ -89,7 +86,7 @@ namespace ICSharpCode.SharpDevelop.Project.PortableLibrary
 		
 		public override bool Equals(object obj)
 		{
-			PortableTargetFramework other = obj as PortableTargetFramework;
+			var other = obj as PortableTargetFramework;
 			if (other == null)
 				return false;
 			return this.TargetFrameworkVersion == other.TargetFrameworkVersion && this.TargetFrameworkProfile == other.TargetFrameworkProfile;
