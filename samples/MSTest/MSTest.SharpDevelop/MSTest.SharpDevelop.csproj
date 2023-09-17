@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ICSharpCode.MSTest</RootNamespace>
     <AssemblyName>MSTest.SharpDevelop</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <OutputPath>..\..\..\AddIns\Samples\MSTest</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>

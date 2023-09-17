@@ -18,7 +18,7 @@
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <NoWarn>0618</NoWarn>
     <ApplicationIcon>..\ComponentInspector.Core\BitmapResources\CompInsp.ico</ApplicationIcon>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <NoWin32Manifest>False</NoWin32Manifest>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>

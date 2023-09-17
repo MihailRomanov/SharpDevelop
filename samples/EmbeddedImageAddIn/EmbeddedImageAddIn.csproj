@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>EmbeddedImageAddIn</RootNamespace>
     <AssemblyName>EmbeddedImageAddIn</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <OutputPath>..\..\AddIns\Samples\EmbeddedImage\</OutputPath>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
     <NoStdLib>False</NoStdLib>
