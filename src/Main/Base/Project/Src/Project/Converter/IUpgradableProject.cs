@@ -19,6 +19,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using ICSharpCode.Core;
 
 namespace ICSharpCode.SharpDevelop.Project.Converter
 {
@@ -57,6 +58,11 @@ namespace ICSharpCode.SharpDevelop.Project.Converter
 		/// Gets the current target framework.
 		/// </summary>
 		TargetFramework CurrentTargetFramework { get; }
+		
+		/// <summary>
+		/// Gets full path to project file.
+		/// </summary>
+		FileName FileName { get; }
 		
 		/// <summary>
 		/// Upgrades the selected compiler and target framework.

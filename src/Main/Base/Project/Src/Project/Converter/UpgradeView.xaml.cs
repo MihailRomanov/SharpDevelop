@@ -331,6 +331,10 @@ namespace ICSharpCode.SharpDevelop.Project.Converter
 				return this.Name;
 			}
 			
+			public string FileName {
+				get { return this.Project.FileName.ToString(); }
+			}
+			
 			public CompilerVersion CompilerVersion;
 			public TargetFramework TargetFramework;
 			

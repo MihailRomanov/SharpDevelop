@@ -49,6 +49,9 @@
 					<core:SortableGridViewColumn
 						DisplayMemberBinding="{Binding TargetFrameworkName}"
 						Header="{core:Localize ICSharpCode.SharpDevelop.Project.UpgradeView.TargetFramework}" />
+					<core:SortableGridViewColumn
+						DisplayMemberBinding="{Binding FileName}"
+						Header="{core:Localize ICSharpCode.SharpDevelop.Project.UpgradeView.FileName}" />
 				</GridView>
 			</ListView.View>
 		</ListView>
