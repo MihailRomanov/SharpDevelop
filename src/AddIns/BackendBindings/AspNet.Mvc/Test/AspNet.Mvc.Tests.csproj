@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>AspNet.Mvc.Tests</RootNamespace>
     <AssemblyName>AspNet.Mvc.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <OutputPath>..\..\..\..\..\bin\UnitTests\</OutputPath>
     <TargetFrameworkProfile />
