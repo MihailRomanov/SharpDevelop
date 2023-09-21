@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-# SharpDevelop 5.0
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# SharpDevelop 5.2
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILAsmBinding", "Project\ILAsmBinding.csproj", "{6E59AF58-F635-459A-9A35-C9AC41C00339}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILAsmBuildTask", "ILAsmBuildTask\ILAsmBuildTask.csproj", "{77827AD7-1023-4352-A7E8-5CC3CE8FB133}"

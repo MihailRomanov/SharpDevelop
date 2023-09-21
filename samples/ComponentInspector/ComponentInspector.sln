@@ -1,7 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-# SharpDevelop 5.0
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+# SharpDevelop 5.2
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentInspector", "ComponentInspector\ComponentInspector.csproj", "{000E4F64-5D0D-4EB1-B0BF-1A62ADBC6EAD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentInspector.AddIn", "ComponentInspector.AddIn\ComponentInspector.AddIn.csproj", "{869951D5-A0D6-4DC6-9F1D-E6B9A12AC446}"
