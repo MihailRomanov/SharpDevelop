@@ -249,11 +249,50 @@
 									<Component Id="OpenCoverLog4netDll" Guid="DFF17E8D-D634-49D2-B53B-B0F190C12245" DiskId="1">
 										<File Id="OpenCover.log4net.dll" Name="log4net.dll" Source="..\..\bin\Tools\OpenCover\log4net.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.log4net.dll" AssemblyManifest="OpenCover.log4net.dll" />
 									</Component>
+									<Component Id="OpenCoverMicrosoftBclAsyncInterfacesDll" Guid="BAFC0BAC-775D-40BF-9857-282675853E45" DiskId="1">
+										<File Id="OpenCover.Microsoft.Bcl.AsyncInterfaces.dll" Name="Microsoft.Bcl.AsyncInterfaces.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Bcl.AsyncInterfaces.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Bcl.AsyncInterfaces.dll" AssemblyManifest="OpenCover.Microsoft.Bcl.AsyncInterfaces.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsConfigurationAbstractionsDll" Guid="C47EB03B-A9DD-40E1-AA61-7BC8E51919D7" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Configuration.Abstractions.dll" Name="Microsoft.Extensions.Configuration.Abstractions.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Configuration.Abstractions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Configuration.Abstractions.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Configuration.Abstractions.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsConfigurationBinderDll" Guid="1BAFAA92-F6B3-422B-8424-0D2E1C8C5D6C" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Configuration.Binder.dll" Name="Microsoft.Extensions.Configuration.Binder.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Configuration.Binder.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Configuration.Binder.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Configuration.Binder.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsConfigurationDll" Guid="496A453E-1B94-4BA7-9EC0-8BD3D06E87D7" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Configuration.dll" Name="Microsoft.Extensions.Configuration.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Configuration.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Configuration.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Configuration.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsConfigurationFileExtensionsDll" Guid="CC34E799-E26A-4C12-AB06-D55512F5A5C2" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Configuration.FileExtensions.dll" Name="Microsoft.Extensions.Configuration.FileExtensions.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Configuration.FileExtensions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Configuration.FileExtensions.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Configuration.FileExtensions.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsConfigurationJsonDll" Guid="5C264F7F-FF8B-44AE-9A7C-EFFE1000691E" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Configuration.Json.dll" Name="Microsoft.Extensions.Configuration.Json.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Configuration.Json.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Configuration.Json.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Configuration.Json.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsFileProvidersAbstractionsDll" Guid="68FB2816-2188-4B6C-8A1C-3467A13F9BE9" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.FileProviders.Abstractions.dll" Name="Microsoft.Extensions.FileProviders.Abstractions.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.FileProviders.Abstractions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.FileProviders.Abstractions.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.FileProviders.Abstractions.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsFileProvidersPhysicalDll" Guid="87D4DA46-430E-4080-9E8D-BB8D7327E440" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.FileProviders.Physical.dll" Name="Microsoft.Extensions.FileProviders.Physical.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.FileProviders.Physical.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.FileProviders.Physical.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.FileProviders.Physical.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsFileSystemGlobbingDll" Guid="936AB780-140A-4EA3-8EB3-38F7E3B8A218" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.FileSystemGlobbing.dll" Name="Microsoft.Extensions.FileSystemGlobbing.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.FileSystemGlobbing.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.FileSystemGlobbing.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.FileSystemGlobbing.dll" />
+									</Component>									
+									<Component Id="OpenCoverMicrosoftExtensionsPrimitivesDll" Guid="82BA4B38-D41A-461E-81D4-F5D17533CD2E" DiskId="1">
+										<File Id="OpenCover.Microsoft.Extensions.Primitives.dll" Name="Microsoft.Extensions.Primitives.dll" Source="..\..\bin\Tools\OpenCover\Microsoft.Extensions.Primitives.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Microsoft.Extensions.Primitives.dll" AssemblyManifest="OpenCover.Microsoft.Extensions.Primitives.dll" />
+									</Component>									
+									<Component Id="OpenCoverNewtonsoftJsonDll" Guid="AA2A56DF-0385-4951-AE74-8BC8CC2F07A7" DiskId="1">
+										<File Id="OpenCover.Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="..\..\bin\Tools\OpenCover\Newtonsoft.Json.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Newtonsoft.Json.dll" AssemblyManifest="OpenCover.Newtonsoft.Json.dll" />
+									</Component>									
 									<Component Id="OpenCoverMonoCecilDll" Guid="8B24DEA5-45FB-4D99-A9EE-71CACDA1993B" DiskId="1">
 										<File Id="OpenCover.Mono.Cecil.dll" Name="Mono.Cecil.dll" Source="..\..\bin\Tools\OpenCover\Mono.Cecil.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Mono.Cecil.dll" AssemblyManifest="OpenCover.Mono.Cecil.dll" />
 									</Component>
 									<Component Id="OpenCoverMonoCecilPdbDll" Guid="90837FF2-4834-499C-BF34-BF8298A4C511" DiskId="1">
 										<File Id="OpenCover.Mono.Cecil.Pdb.dll" Name="Mono.Cecil.Pdb.dll" Source="..\..\bin\Tools\OpenCover\Mono.Cecil.Pdb.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Mono.Cecil.Pdb.dll" AssemblyManifest="OpenCover.Mono.Cecil.Pdb.dll" />
+									</Component>
+									<Component Id="OpenCoverMonoCecilMdbDll" Guid="4F564A2B-F3C8-4B73-BF8E-3624C22E3FDB" DiskId="1">
+										<File Id="OpenCover.Mono.Cecil.Mdb.dll" Name="Mono.Cecil.Mdb.dll" Source="..\..\bin\Tools\OpenCover\Mono.Cecil.Mdb.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Mono.Cecil.Mdb.dll" AssemblyManifest="OpenCover.Mono.Cecil.Mdb.dll" />
+									</Component>
+									<Component Id="OpenCoverMonoCecilRocksDll" Guid="3802B8C6-FE2A-44CC-AB7E-DD45C444F271" DiskId="1">
+										<File Id="OpenCover.Mono.Cecil.Rocks.dll" Name="Mono.Cecil.Rocks.dll" Source="..\..\bin\Tools\OpenCover\Mono.Cecil.Rocks.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Mono.Cecil.Rocks.dll" AssemblyManifest="OpenCover.Mono.Cecil.Rocks.dll" />
 									</Component>
 									<Component Id="OpenCoverConsoleExe" Guid="C829811E-893A-44EE-AC8F-DC1FD1C67649" DiskId="1">
 										<File Id="OpenCover.Console.exe" Name="OpenCover.Console.exe" Source="..\..\bin\Tools\OpenCover\OpenCover.Console.exe" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Console.exe" AssemblyManifest="OpenCover.Console.exe" />
@@ -263,6 +302,9 @@
 									</Component>
 									<Component Id="OpenCoverFrameworkDll" Guid="05BACE6F-B879-4CB6-80FC-55BA44D1A39E" DiskId="1">
 										<File Id="OpenCover.Framework.dll" Name="OpenCover.Framework.dll" Source="..\..\bin\Tools\OpenCover\OpenCover.Framework.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Framework.dll" AssemblyManifest="OpenCover.Framework.dll" />
+									</Component>
+									<Component Id="OpenCoverExtensionsDll" Guid="C0E73A83-C37B-4C71-834D-9D1626F2F1AA" DiskId="1">
+										<File Id="OpenCover.Extensions.dll" Name="OpenCover.Extensions.dll" Source="..\..\bin\Tools\OpenCover\OpenCover.Extensions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Extensions.dll" AssemblyManifest="OpenCover.Extensions.dll" />
 									</Component>
 									<Directory Id="OpenCoverX64Folder" Name="x64">
 										<Component Id="OpenCoverProfilerX64Dll" Guid="58F8307C-E52C-4814-BDB6-8913E45309EB" DiskId="1">
@@ -280,9 +322,48 @@
 									<Component Id="OpenCoverAutofacDll" Guid="31671972-7979-4E76-8508-246B23267391" DiskId="1">
 										<File Id="OpenCover.Autofac.dll" Name="Autofac.dll" Source="..\..\bin\Tools\OpenCover\Autofac.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Autofac.dll" AssemblyManifest="OpenCover.Autofac.dll" />
 									</Component>
-									<Component Id="OpenCoverExtensionsDll" Guid="C0E73A83-C37B-4C71-834D-9D1626F2F1AA" DiskId="1">
-										<File Id="OpenCover.Extensions.dll" Name="OpenCover.Extensions.dll" Source="..\..\bin\Tools\OpenCover\OpenCover.Extensions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Extensions.dll" AssemblyManifest="OpenCover.Extensions.dll" />
+									<Component Id="OpenCoverAutofacJson" Guid="1DC31C09-0428-4A95-B718-7FE556FB4CC4" DiskId="1">
+										<File Id="OpenCover.Autofac.json" Name="autofac.json" Source="..\..\bin\Tools\OpenCover\autofac.json" KeyPath="yes" />
 									</Component>
+									<Component Id="OpenCoverSentryDll" Guid="3B824355-4453-470C-A9F1-768CF6DD82B2" DiskId="1">
+										<File Id="OpenCover.Sentry.dll" Name="Sentry.dll" Source="..\..\bin\Tools\OpenCover\Sentry.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Sentry.dll" AssemblyManifest="OpenCover.Sentry.dll" />
+									</Component>									
+									<Component Id="OpenCoverSentryPlatformAbstractionsDll" Guid="DE5A1EFB-B02B-4841-9762-C05B6362D43A" DiskId="1">
+										<File Id="OpenCover.Sentry.PlatformAbstractions.dll" Name="Sentry.PlatformAbstractions.dll" Source="..\..\bin\Tools\OpenCover\Sentry.PlatformAbstractions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Sentry.PlatformAbstractions.dll" AssemblyManifest="OpenCover.Sentry.PlatformAbstractions.dll" />
+									</Component>									
+									<Component Id="OpenCoverSentryProtocolDll" Guid="57E7B704-0D26-482E-AF87-1482406EE274" DiskId="1">
+										<File Id="OpenCover.Sentry.Protocol.dll" Name="Sentry.Protocol.dll" Source="..\..\bin\Tools\OpenCover\Sentry.Protocol.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.Sentry.Protocol.dll" AssemblyManifest="OpenCover.Sentry.Protocol.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemBuffersDll" Guid="B07486E7-3157-4ABE-BCEF-63A7695E7A9C" DiskId="1">
+										<File Id="OpenCover.System.Buffers.dll" Name="System.Buffers.dll" Source="..\..\bin\Tools\OpenCover\System.Buffers.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Buffers.dll" AssemblyManifest="OpenCover.System.Buffers.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemCollectionsImmutableDll" Guid="4C0BEA43-7CFA-450A-9B40-DA1C56A091D4" DiskId="1">
+										<File Id="OpenCover.System.Collections.Immutable.dll" Name="System.Collections.Immutable.dll" Source="..\..\bin\Tools\OpenCover\System.Collections.Immutable.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Collections.Immutable.dll" AssemblyManifest="OpenCover.System.Collections.Immutable.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemDiagnosticsDiagnosticSourceDll" Guid="3A9ADCBF-E703-4CEC-B738-7E0EB165DD90" DiskId="1">
+										<File Id="OpenCover.System.Diagnostics.DiagnosticSource.dll" Name="System.Diagnostics.DiagnosticSource.dll" Source="..\..\bin\Tools\OpenCover\System.Diagnostics.DiagnosticSource.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Diagnostics.DiagnosticSource.dll" AssemblyManifest="OpenCover.System.Diagnostics.DiagnosticSource.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemMemoryDll" Guid="CE737FD6-9CE4-4FC2-997D-11630848AE98" DiskId="1">
+										<File Id="OpenCover.System.Memory.dll" Name="System.Memory.dll" Source="..\..\bin\Tools\OpenCover\System.Memory.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Memory.dll" AssemblyManifest="OpenCover.System.Memory.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemNumericsVectorsDll" Guid="41A8F803-7083-4519-9ED4-5DDA53DAD2B0" DiskId="1">
+										<File Id="OpenCover.System.Numerics.Vectors.dll" Name="System.Numerics.Vectors.dll" Source="..\..\bin\Tools\OpenCover\System.Numerics.Vectors.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Numerics.Vectors.dll" AssemblyManifest="OpenCover.System.Numerics.Vectors.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemRuntimeCompilerServicesUnsafeDll" Guid="3C836603-8A66-488F-BBA4-BDA802A7956F" DiskId="1">
+										<File Id="OpenCover.System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="..\..\bin\Tools\OpenCover\System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Runtime.CompilerServices.Unsafe.dll" AssemblyManifest="OpenCover.System.Runtime.CompilerServices.Unsafe.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemTextEncodingsWebDll" Guid="BF5D3E87-3261-443D-823D-2CCA1F53DDE9" DiskId="1">
+										<File Id="OpenCover.System.Text.Encodings.Web.dll" Name="System.Text.Encodings.Web.dll" Source="..\..\bin\Tools\OpenCover\System.Text.Encodings.Web.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Text.Encodings.Web.dll" AssemblyManifest="OpenCover.System.Text.Encodings.Web.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemTextJsonDll" Guid="47BAE7F6-0B61-464A-ABE9-569303153815" DiskId="1">
+										<File Id="OpenCover.System.Text.Json.dll" Name="System.Text.Json.dll" Source="..\..\bin\Tools\OpenCover\System.Text.Json.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Text.Json.dll" AssemblyManifest="OpenCover.System.Text.Json.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemThreadingTasksExtensionsDll" Guid="0C971949-EB4A-485F-9F09-56AE6BCB0388" DiskId="1">
+										<File Id="OpenCover.System.Threading.Tasks.Extensions.dll" Name="System.Threading.Tasks.Extensions.dll" Source="..\..\bin\Tools\OpenCover\System.Threading.Tasks.Extensions.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.Threading.Tasks.Extensions.dll" AssemblyManifest="OpenCover.System.Threading.Tasks.Extensions.dll" />
+									</Component>									
+									<Component Id="OpenCoverSystemValueTupleDll" Guid="A5B7AC7B-7493-4537-B494-8F973FA1B501" DiskId="1">
+										<File Id="OpenCover.System.ValueTuple.dll" Name="System.ValueTuple.dll" Source="..\..\bin\Tools\OpenCover\System.ValueTuple.dll" KeyPath="yes" Assembly=".net" AssemblyApplication="OpenCover.System.ValueTuple.dll" AssemblyManifest="OpenCover.System.ValueTuple.dll" />
+									</Component>									
 								</Directory>
 							</Directory>
 							<Component Guid="2EC34D8A-CF14-4E1F-A512-9A596A1C256D" Id="ICSharpCodeCoreWinFormsDll" DiskId="1">
