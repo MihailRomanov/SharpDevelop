@@ -165,7 +165,7 @@ namespace UnitTesting.Tests.NUnit
 			app.XmlOutputFile = @"C:\NUnit.xml";
 			app.NoXmlOutputFile = false;
 			
-			string expectedCommandLine = "\"C:\\Projects\\MyTests\\MyTests.dll\" /xml=\"C:\\NUnit.xml\"";
+			string expectedCommandLine = "\"C:\\Projects\\MyTests\\MyTests.dll\" /result=\"C:\\NUnit.xml\"";
 			Assert.AreEqual(expectedCommandLine, app.GetArguments());
 		}
 		
@@ -178,7 +178,7 @@ namespace UnitTesting.Tests.NUnit
 			app.XmlOutputFile = @"C:\NUnit.xml";
 			app.NoXmlOutputFile = true;
 			
-			string expectedCommandLine = "\"C:\\Projects\\MyTests\\MyTests.dll\" /noxml";
+			string expectedCommandLine = "\"C:\\Projects\\MyTests\\MyTests.dll\" /noresult";
 			Assert.AreEqual(expectedCommandLine, app.GetArguments());
 		}
 		
@@ -306,7 +306,7 @@ namespace MyTests {
 			
 			string expectedCommandLine =
 				"\"C:\\Projects\\MyTests\\MyTests.dll\" " +
-				"/xml=\"C:\\Projects\\MyTests\\MyTests-TestResult.xml\" " +
+				"/result=\"C:\\Projects\\MyTests\\MyTests-TestResult.xml\" " +
 				"/run=\"MyTests.TestFixture.MyTest\"";
 			Assert.AreEqual(expectedCommandLine, app.GetArguments());
 		}

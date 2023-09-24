@@ -133,7 +133,7 @@
 //			string expectedCommandLine =
 //				"-register:user -target:\"d:\\sharpdevelop\\bin\\Tools\\NUnit\\nunit-console-x86.exe\" " +
 //				"-targetdir:\"c:\\projects\\MyTests\\bin\\Debug\" " +
-//				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noxml /results=\\\"d:\\temp\\results.txt\\\"\" " +
+//				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noresult /results=\\\"d:\\temp\\results.txt\\\"\" " +
 //				"-output:\"c:\\projects\\MyTests\\OpenCover\\coverage.xml\" " +
 //				"-filter:\"+[MyTests]* \"";
 //			
@@ -233,7 +233,7 @@
 //				"\"d:\\sharpdevelop\\bin\\Tools\\OpenCover\\OpenCover.Console.exe\" -register:user " +
 //				"-target:\"d:\\sharpdevelop\\bin\\Tools\\NUnit\\nunit-console-x86.exe\" " +
 //				"-targetdir:\"c:\\projects\\MyTests\\bin\\Debug\" " +
-//				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noxml\" " + 
+//				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noresult\" " + 
 //				"-output:\"c:\\projects\\MyTests\\OpenCover\\coverage.xml\" " +
 //				"-filter:\"+[*]* \"";
 //		}

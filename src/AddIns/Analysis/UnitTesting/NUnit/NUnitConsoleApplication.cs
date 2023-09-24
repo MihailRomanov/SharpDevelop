@@ -141,7 +141,7 @@ namespace ICSharpCode.UnitTesting
 		public string XmlOutputFile;
 		
 		/// <summary>
-		/// Use /noxml.
+		/// Use /noresult.
 		/// </summary>
 		public bool NoXmlOutputFile = true;
 		

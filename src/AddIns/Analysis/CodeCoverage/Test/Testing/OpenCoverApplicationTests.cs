@@ -165,7 +165,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Testing
 			string expectedCommandLine =
 				"-register:user -mergebyhash -target:\"d:\\sharpdevelop\\bin\\Tools\\NUnit\\nunit-console-x86.exe\" " +
 				"-targetdir:\"c:\\projects\\MyTests\\bin\\Debug\" " +
-				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noxml\" " + 
+				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noresult\" " + 
 				"-output:\"c:\\projects\\MyTests\\OpenCover\\coverage.xml\" " +
 				"-filter:\"+[*]* \"";
 
@@ -189,7 +189,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Testing
 			string expectedCommandLine =
 				"-register:user -mergebyhash -target:\"d:\\sharpdevelop\\bin\\Tools\\NUnit\\nunit-console-x86.exe\" " +
 				"-targetdir:\"c:\\projects\\MyTests\\bin\\Debug\" " +
-				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noxml\" " + 
+				"-targetargs:\"\\\"c:\\projects\\MyTests\\bin\\Debug\\MyTests.dll\\\" /noresult\" " + 
 				"-output:\"c:\\projects\\MyTests\\OpenCover\\coverage.xml\" " +
 				"-filter:\"+[MyTests]* " +
 				"+[MoreTests]* " +
