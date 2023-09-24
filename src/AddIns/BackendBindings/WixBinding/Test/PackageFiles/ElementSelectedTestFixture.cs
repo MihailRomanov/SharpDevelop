@@ -34,7 +34,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		WixXmlAttribute idAttribute;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

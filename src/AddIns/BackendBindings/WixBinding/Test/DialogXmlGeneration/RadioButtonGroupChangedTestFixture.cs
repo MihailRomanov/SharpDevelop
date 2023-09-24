@@ -38,7 +38,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 		XmlElement acceptRadioButtonElement;
 		XmlElement declineRadioButtonElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

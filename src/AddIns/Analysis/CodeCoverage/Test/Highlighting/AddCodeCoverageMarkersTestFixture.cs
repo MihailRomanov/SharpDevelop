@@ -37,7 +37,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Highlighting
 		IDocument document;
 		ITextMarkerService markerStrategy;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.FixtureSetUp();

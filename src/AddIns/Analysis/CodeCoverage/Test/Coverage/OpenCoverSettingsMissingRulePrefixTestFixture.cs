@@ -32,7 +32,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 	{
 		OpenCoverSettings settings;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			string xml = "<OpenCoverSettings>\r\n" +

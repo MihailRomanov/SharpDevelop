@@ -31,7 +31,7 @@ namespace WixBinding.Tests.Project
 	[TestFixture]
 	public class CloneWixLibraryTests
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			SD.InitializeForUnitTests();

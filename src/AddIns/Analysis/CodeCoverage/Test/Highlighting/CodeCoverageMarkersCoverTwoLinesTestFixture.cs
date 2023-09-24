@@ -37,7 +37,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Highlighting
 		ITextMarker markerTwo;
 		ITextMarker markerThree;
 	
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			IDocument document = MockTextMarkerService.CreateDocumentWithMockService();

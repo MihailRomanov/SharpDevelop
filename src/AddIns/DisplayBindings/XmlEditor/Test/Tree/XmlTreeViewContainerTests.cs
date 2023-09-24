@@ -46,7 +46,7 @@ namespace XmlEditor.Tests.Tree
 		XmlElementTreeNode htmlTreeNode;
 		XmlTextTreeNode textTreeNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			// Need to initialize the properties service.

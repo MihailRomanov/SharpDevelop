@@ -30,7 +30,7 @@ namespace ICSharpCode.SharpDevelop.Tests.NavigationServiceTests
 		INavigationPoint p1;
 		INavigationPoint p2;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init()
 		{
 			int line = 3;

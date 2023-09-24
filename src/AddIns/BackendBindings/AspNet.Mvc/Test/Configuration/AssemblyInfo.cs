@@ -17,6 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System.Reflection;
+using System.Threading;
 using NUnit.Framework;
 
 // Information about this assembly is defined by the following
@@ -30,4 +31,4 @@ using NUnit.Framework;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: RequiresSTA]
+[assembly: Apartment(ApartmentState.STA)]

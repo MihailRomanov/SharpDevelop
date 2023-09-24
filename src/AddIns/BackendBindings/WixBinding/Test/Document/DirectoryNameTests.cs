@@ -29,7 +29,7 @@ namespace WixBinding.Tests.Document
 	[TestFixture]
 	public class DirectoryNameTests
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetupFixture()
 		{
 			SD.InitializeForUnitTests();

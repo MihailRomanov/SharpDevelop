@@ -34,20 +34,18 @@ namespace ICSharpCode.SharpDevelop.Tests
 		}
 		
 		[Test]
-		[ExpectedException(typeof(Win32Exception))]
 		//  "The system cannot find the file specified")] - Message depends on system language.
 		public void Run()
 		{
-			runner.Start("foo.exe");
+			Assert.Throws<Win32Exception>(() => runner.Start("foo.exe"));
 		}
 		
 		[Test]
-		[ExpectedException(typeof(Win32Exception))]
 		//                   "The parameter is incorrect.")]
 		//					 - Message depends on system language.
 		public void RunBlankProcessFilename()
 		{
-			runner.Start("");
+			Assert.Throws<Win32Exception>(() => runner.Start(""));
 		}
 	}
 }

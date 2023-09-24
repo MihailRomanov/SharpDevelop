@@ -42,7 +42,7 @@ namespace WixBinding.Tests.DialogLoading
 		Size size;
 		bool hasImage;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

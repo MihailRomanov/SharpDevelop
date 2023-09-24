@@ -40,7 +40,7 @@ namespace WixBinding.Tests.Gui
 		WixLibraryProjectItem wixLibraryItem;
 		WixLibraryNode wixLibraryNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

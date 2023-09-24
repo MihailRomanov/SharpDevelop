@@ -45,7 +45,7 @@ namespace WixBinding.Tests.DialogLoading
 		Size acceptRadioButtonSize;
 		Size declineRadioButtonSize;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

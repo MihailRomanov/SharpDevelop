@@ -33,7 +33,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		MockWixPackageFilesView view;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

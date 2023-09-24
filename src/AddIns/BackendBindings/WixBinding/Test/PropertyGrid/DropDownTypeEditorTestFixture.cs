@@ -37,7 +37,7 @@ namespace WixBinding.Tests.PropertyGrid
 		MockWindowsFormsEditorService mockWindowsFormsEditorService;
 		Type expectedControlType;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			editor = new WixDropDownEditor();

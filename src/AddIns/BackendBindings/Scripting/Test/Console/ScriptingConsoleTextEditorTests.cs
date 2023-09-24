@@ -30,13 +30,13 @@ using NUnit.Framework;
 namespace ICSharpCode.Scripting.Tests.Console
 {
 	[TestFixture]
-	[RequiresSTA]
+	[Apartment(ApartmentState.STA)]
 	public class ScriptingConsoleTextEditorTests
 	{
 		ScriptingConsoleTextEditor consoleTextEditor;
 		TextEditor avalonEditTextEditor;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			avalonEditTextEditor = new TextEditor();

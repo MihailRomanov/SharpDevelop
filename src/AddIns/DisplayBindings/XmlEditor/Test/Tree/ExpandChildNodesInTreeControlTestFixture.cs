@@ -44,7 +44,7 @@ namespace XmlEditor.Tests.Tree
 		XmlText textContentBefore;
 		XmlText textContentAfter;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			doc = new XmlDocument();

@@ -35,7 +35,7 @@ namespace WixBinding.Tests.Document
 		WixDocument doc;
 		string prefixBeforeLoad;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			doc = new WixDocument();

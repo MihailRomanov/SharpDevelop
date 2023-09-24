@@ -34,7 +34,7 @@ namespace WixBinding.Tests.Gui
 	[TestFixture]
 	public class NoDialogIdSpecifiedForDesignerLoaderTestFixture : IWixDialogDesigner
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetupFixture()
 		{
 			SD.InitializeForUnitTests();
@@ -42,11 +42,14 @@ namespace WixBinding.Tests.Gui
 		}
 		
 		[Test]
-		[ExpectedException(typeof(FormsDesignerLoadException), ExpectedMessage = "No setup dialog selected in Wix document. Please move the cursor inside a dialog element or use the Setup Dialogs window to open a dialog.")]
 		public void NoDialogIdSpecified()
 		{
-			WixDialogDesignerLoader loader = new WixDialogDesignerLoader(this);
-			loader.BeginLoad(new MockDesignerLoaderHost());
+			var ex = Assert.Throws<FormsDesignerLoadException>(
+				() => {
+					WixDialogDesignerLoader loader = new WixDialogDesignerLoader(this);
+					loader.BeginLoad(new MockDesignerLoaderHost());
+				});
+			Assert.AreEqual(ex.Message, "No setup dialog selected in Wix document. Please move the cursor inside a dialog element or use the Setup Dialogs window to open a dialog.");
 		}
 		
 		string IWixDialogDesigner.DialogId {

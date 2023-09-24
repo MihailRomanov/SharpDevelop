@@ -36,7 +36,7 @@ namespace WixBinding.Tests.PropertyGrid
 		MockWindowsFormsEditorService mockWindowsFormsEditorService;
 		Type expectedGuidControlType;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			editor = new GuidEditor();

@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogLoading
 		Point location;
 		Size size;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CreatedComponents.Clear();

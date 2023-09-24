@@ -32,12 +32,12 @@ namespace WixBinding.Tests.Gui
 {
 	/// <summary>
 	/// Tests that a WixDialogDesignerLoader reports that the dialog id cannot be found
-	/// in the Wix document. 
+	/// in the Wix document.
 	/// </summary>
 	[TestFixture]
 	public class MissingDialogIdDesignerLoaderTestFixture : IWixDialogDesigner
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetupFixture()
 		{
 			SD.InitializeForUnitTests();
@@ -45,12 +45,16 @@ namespace WixBinding.Tests.Gui
 		}
 		
 		[Test]
-		[ExpectedException(typeof(FormsDesignerLoadException), ExpectedMessage = "Unable to find dialog with an id of 'MissingDialog'.")]
+		//[ExpectedException(typeof(FormsDesignerLoadException), ExpectedMessage = "Unable to find dialog with an id of 'MissingDialog'.")]
 		public void LoadMissingDialog()
 		{
-			WixDialogDesignerLoader loader = new WixDialogDesignerLoader(this);
-			MockDesignerLoaderHost loaderHost = new MockDesignerLoaderHost();
-			loader.BeginLoad(loaderHost);
+			var ex = Assert.Throws<FormsDesignerLoadException>(
+				() => {
+					WixDialogDesignerLoader loader = new WixDialogDesignerLoader(this);
+					MockDesignerLoaderHost loaderHost = new MockDesignerLoaderHost();
+					loader.BeginLoad(loaderHost);
+				});
+			Assert.AreEqual(ex.Message, "Unable to find dialog with an id of 'MissingDialog'.");
 		}
 		
 		string IWixDialogDesigner.DialogId {

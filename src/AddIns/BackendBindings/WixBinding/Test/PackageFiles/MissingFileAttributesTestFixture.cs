@@ -30,7 +30,7 @@ namespace WixBinding.Tests.PackageFiles
 		WixDocument doc;
 		WixSchemaCompletion schema = new WixSchemaCompletion();
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			doc = new WixDocument();

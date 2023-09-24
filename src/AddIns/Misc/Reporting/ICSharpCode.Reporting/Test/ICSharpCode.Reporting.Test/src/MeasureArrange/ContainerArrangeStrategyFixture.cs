@@ -169,7 +169,7 @@ namespace ICSharpCode.Reporting.Test.MeasureArrange
 			return container;
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init()
 		{
 			strategy = new ContainerArrangeStrategy();

@@ -29,7 +29,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 	{
 		WixDialogElement dialogElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

@@ -38,7 +38,7 @@ namespace WixBinding.Tests.PackageFiles
 		XmlElement secondSelectedElement;
 		XmlElement secondDirectoryElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

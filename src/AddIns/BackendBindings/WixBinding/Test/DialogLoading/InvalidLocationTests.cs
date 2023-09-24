@@ -38,7 +38,7 @@ namespace WixBinding.Tests.DialogLoading
 	[TestFixture]
 	public class InvalidLocationTests
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetupFixture()
 		{
 			SD.InitializeForUnitTests();

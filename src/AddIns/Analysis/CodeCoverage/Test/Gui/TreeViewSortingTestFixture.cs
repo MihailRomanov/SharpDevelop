@@ -44,7 +44,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Gui
 		CodeCoverageTreeNode addNodeTestTreeNode;
 		CodeCoverageTreeNode removeMarkersTestTreeNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			treeView = new CodeCoverageTreeView();
@@ -126,7 +126,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Gui
 			anotherTestFixtureTreeNode.PerformInitialization();
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TearDownFixture()
 		{
 			treeView.Dispose();

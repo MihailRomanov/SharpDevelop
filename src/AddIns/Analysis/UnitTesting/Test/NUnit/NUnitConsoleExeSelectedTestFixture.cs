@@ -45,14 +45,14 @@ namespace UnitTesting.Tests.NUnit
 			SD.ProjectService.Stub(p => p.TargetFrameworks).Return(new[] { TargetFramework.Net20, TargetFramework.Net30, TargetFramework.Net35, TargetFramework.Net35Client, TargetFramework.Net40Client, TargetFramework.Net40 });
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			oldRootPath = FileUtility.ApplicationRootPath;
 			FileUtility.ApplicationRootPath = @"D:\SharpDevelop";
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TearDownFixture()
 		{
 			FileUtility.ApplicationRootPath = oldRootPath;

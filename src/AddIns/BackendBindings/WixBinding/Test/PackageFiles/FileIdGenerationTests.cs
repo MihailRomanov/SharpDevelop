@@ -30,7 +30,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		WixDocument doc;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetupFixture()
 		{
 			SD.InitializeForUnitTests();

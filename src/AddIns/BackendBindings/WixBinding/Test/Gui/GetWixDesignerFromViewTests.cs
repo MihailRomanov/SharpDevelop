@@ -36,7 +36,7 @@ namespace WixBinding.Tests.Gui
 	[TestFixture]
 	public class GetWixDesignerFromViewTests
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			SD.InitializeForUnitTests();
@@ -47,7 +47,7 @@ namespace WixBinding.Tests.Gui
 			SD.Services.AddService(typeof(IProjectService), MockRepository.GenerateStub<IProjectService>());
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			SD.TearDownForUnitTests();

@@ -36,7 +36,7 @@ namespace ICSharpCode.SharpDevelop.Tests.WebReferences
 
 		string projectDirectory = "c:\\projects\\test";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			MSBuildBasedProject project = WebReferenceTestHelper.CreateTestProject("C#");

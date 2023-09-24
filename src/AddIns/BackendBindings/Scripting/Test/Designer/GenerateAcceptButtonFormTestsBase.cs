@@ -32,7 +32,7 @@
 //{
 //	public abstract class GenerateAcceptButtonFormTestsBase : GenerateDesignerCodeTestsBase
 //	{
-//		[TestFixtureSetUp]
+//		[OneTimeSetUp]
 //		public void SetUpFixture()
 //		{
 //			using (DesignSurface designSurface = new DesignSurface(typeof(Form))) {

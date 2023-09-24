@@ -34,7 +34,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		XmlElement directoryElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

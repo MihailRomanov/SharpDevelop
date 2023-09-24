@@ -27,7 +27,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 	[TestFixture]
 	public class InvalidSequencePointDataTestFixture : CodeCoverageResultsTestsBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			string xml =

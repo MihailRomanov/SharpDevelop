@@ -35,7 +35,7 @@ namespace WixBinding.Tests.DialogLoading
 	{
 		string dialogTitle;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

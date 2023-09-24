@@ -31,7 +31,7 @@ namespace WixBinding.Tests.Gui
 	{
 		WixFileTreeNode fileNameSpecifiedNode;
 	
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

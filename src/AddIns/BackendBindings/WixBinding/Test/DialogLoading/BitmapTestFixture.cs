@@ -38,7 +38,7 @@ namespace WixBinding.Tests.DialogLoading
 		bool hasImage;
 		PictureBoxSizeMode sizeMode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

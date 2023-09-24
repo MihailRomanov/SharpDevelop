@@ -36,7 +36,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 		string listBoxItem1Text;
 		int listBoxItemCount;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

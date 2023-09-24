@@ -29,7 +29,7 @@ namespace XmlEditor.Tests.Schema
 		string namespaceURI = "http://www.w3.org/1999/XSL/Transform";
 		XmlSchemaCompletion schemaCompletion;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			schemaCompletion = new XmlSchemaCompletion(ResourceManager.ReadXsltSchema());

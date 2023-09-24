@@ -31,7 +31,7 @@ namespace ICSharpCode.SharpDevelop.Tests
 	{
 		Mutex mutex;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			// Avoid test failure on build server when unit tests for several branches are run concurrently.
@@ -44,7 +44,7 @@ namespace ICSharpCode.SharpDevelop.Tests
 			}
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			mutex.ReleaseMutex();

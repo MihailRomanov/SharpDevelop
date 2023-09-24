@@ -58,7 +58,7 @@ namespace WixBinding.Tests.Gui
 		bool hasErrors;
 		bool hasErrorsAtStart;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			List<string> dialogs = new List<string>();

@@ -34,7 +34,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		WixDocument docWritten;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

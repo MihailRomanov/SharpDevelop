@@ -32,7 +32,7 @@ namespace WixBinding.Tests.PropertyGrid
 		WixXmlAttributePropertyDescriptor propertyDescriptor;
 		EditorAttribute editorAttribute;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixXmlAttribute attribute = new WixXmlAttribute("Id", WixXmlAttributeType.ComponentGuid);

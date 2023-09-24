@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 		string item1Text;
 		string item2Text;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

@@ -41,7 +41,7 @@ namespace WixBinding.Tests.DirectoryImport
 		string directory = @"C:\Projects\Setup\MyApplication";
 		string[] files = new string[] {"MyApp.exe", "readme.txt"};
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

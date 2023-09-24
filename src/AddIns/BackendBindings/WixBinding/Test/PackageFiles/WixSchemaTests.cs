@@ -29,7 +29,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		WixSchemaCompletion schema;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			schema = new WixSchemaCompletion();

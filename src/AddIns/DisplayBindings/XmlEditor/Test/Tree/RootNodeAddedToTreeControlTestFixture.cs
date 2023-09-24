@@ -37,7 +37,7 @@ namespace XmlEditor.Tests.Tree
 		bool initialIsElementSelected;
 		XmlNode documentElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			using (DerivedXmlTreeViewContainerControl treeViewContainer = new DerivedXmlTreeViewContainerControl()) {

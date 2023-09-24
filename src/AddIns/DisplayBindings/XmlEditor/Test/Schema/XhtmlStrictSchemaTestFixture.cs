@@ -36,7 +36,7 @@ namespace XmlEditor.Tests.Schema
 		XmlCompletionItemCollection h1Attributes;
 		string namespaceURI = "http://www.w3.org/1999/xhtml";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureInit()
 		{
 			schemaCompletion = new XmlSchemaCompletion(ResourceManager.ReadXhtmlStrictSchema());

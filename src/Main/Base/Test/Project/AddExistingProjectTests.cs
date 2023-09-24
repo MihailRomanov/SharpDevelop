@@ -75,14 +75,17 @@ namespace ICSharpCode.SharpDevelop.Project
 			Assert.AreEqual(projectGuid, project.IdGuid);
 		}
 		
-		[Test, ExpectedException(typeof(ProjectLoadException))]
+		[Test]
 		public void AddDuplicateProject()
 		{
-			var solution = CreateSolution();
-			// add project1 twice:
-			solution.AddExistingProject(project1FileName);
-			solution.AddExistingProject(project1FileName);
-		}
+			Assert.Throws<ProjectLoadException>(
+				() => {
+					var solution = CreateSolution();
+					// add project1 twice:
+					solution.AddExistingProject(project1FileName);
+					solution.AddExistingProject(project1FileName);
+				});
+			}
 		
 		[Test]
 		public void AddTwoProjectsWithSameGUID()

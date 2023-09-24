@@ -27,7 +27,7 @@ namespace XmlEditor.Tests.Paths
 	{
 		XmlElementPath path;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			path = new XmlElementPath();

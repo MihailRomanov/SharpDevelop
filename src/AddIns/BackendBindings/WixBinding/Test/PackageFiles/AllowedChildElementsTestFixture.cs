@@ -38,7 +38,7 @@ namespace WixBinding.Tests.PackageFiles
 		StringCollection childElementsAllowedWhenDirectoryElementSelected;
 		string[] expectedDirectoryChildElementNames;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

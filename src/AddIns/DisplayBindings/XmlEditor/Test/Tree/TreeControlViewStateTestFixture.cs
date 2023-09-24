@@ -32,7 +32,7 @@ namespace XmlEditor.Tests.Tree
 		Properties restoredProperties = new Properties();
 		string expectedSavedViewState;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			XmlDocument doc = new XmlDocument();

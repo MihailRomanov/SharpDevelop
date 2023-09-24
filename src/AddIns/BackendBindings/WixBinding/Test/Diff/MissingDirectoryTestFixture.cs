@@ -34,7 +34,7 @@ namespace WixBinding.Tests.Diff
 	{
 		WixPackageFilesDiffResult[] diffResults;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

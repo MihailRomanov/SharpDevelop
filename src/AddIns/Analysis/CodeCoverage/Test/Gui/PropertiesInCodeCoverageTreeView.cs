@@ -55,7 +55,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Gui
 			return CodeCoverageMethodXElementBuilder.CreateIntegerPropertyGetter(className, propertyName);
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			List<CodeCoverageModule> modules = new List<CodeCoverageModule>();

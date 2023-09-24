@@ -18,6 +18,7 @@
 
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using NUnit.Framework;
 
 // Information about this assembly is defined by the following
@@ -44,4 +45,4 @@ using NUnit.Framework;
 
 [assembly: AssemblyVersion("2.0.0.1")]
 // Run unit tests on STA thread.
-[assembly: RequiresSTA]
+[assembly: Apartment(ApartmentState.STA)]

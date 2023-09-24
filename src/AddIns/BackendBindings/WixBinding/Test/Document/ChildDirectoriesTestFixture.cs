@@ -41,7 +41,7 @@ namespace WixBinding.Tests.Document
 		WixDirectoryElement[] rootChildDirectories;
 		WixDirectoryElement[] programFilesChildDirectories;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

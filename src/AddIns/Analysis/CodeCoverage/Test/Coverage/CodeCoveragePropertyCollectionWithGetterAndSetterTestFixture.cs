@@ -48,7 +48,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 			return CodeCoverageMethodXElementBuilder.CreatePropertyGetter(className, propertyName, "System.Int32");
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			properties = new CodeCoveragePropertyCollection();

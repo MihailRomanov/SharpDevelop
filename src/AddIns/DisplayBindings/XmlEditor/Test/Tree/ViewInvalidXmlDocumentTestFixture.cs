@@ -31,7 +31,7 @@ namespace XmlEditor.Tests.Tree
 	[TestFixture]
 	public class ViewInvalidXmlDocumentTestFixture : XmlTreeViewTestFixtureBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

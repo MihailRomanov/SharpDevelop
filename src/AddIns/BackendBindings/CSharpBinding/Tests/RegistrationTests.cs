@@ -56,7 +56,7 @@ namespace CSharpBinding.Tests
 			return CSharpBinding.GetType(@class, false) ?? NRCSharpRefactoring.GetType(@class, false);
 		}
 		
-		[TestFixtureSetUpAttribute]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			var addInTree = MockRepository.GenerateStub<IAddInTree>();

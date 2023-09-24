@@ -38,7 +38,7 @@ namespace WixBinding.Tests.DialogLoading
 		BorderStyle lineBorder;
 		Size lineSize;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CreatedComponents.Clear();

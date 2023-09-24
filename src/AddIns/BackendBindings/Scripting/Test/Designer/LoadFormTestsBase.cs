@@ -32,7 +32,7 @@
 //		MockComponentCreator componentCreator = new MockComponentCreator();
 //		Form form;
 //				
-//		[TestFixtureSetUp]
+//		[OneTimeSetUp]
 //		public void SetUpFixture()
 //		{			
 //			BeforeSetUpFixture();
@@ -40,7 +40,7 @@
 //			form = walker.CreateComponent(Code) as Form;
 //		}
 //
-//		[TestFixtureTearDown]
+//		[OneTimeTearDown]
 //		public void TearDownFixture()
 //		{
 //			if (form != null) {

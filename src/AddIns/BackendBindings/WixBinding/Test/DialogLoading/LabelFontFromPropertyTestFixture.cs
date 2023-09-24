@@ -41,7 +41,7 @@ namespace WixBinding.Tests.DialogLoading
 		double descLabelFontSize;
 		bool descLabelFontBold;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();
