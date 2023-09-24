@@ -44,7 +44,7 @@ namespace XmlEditor.Tests.Schema
 		/// </summary>
 		/// <remarks>Calls <see cref="FixtureInit"/> at the end of the method.
 		/// </remarks>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureInitBase()
 		{
 			schemaCompletion = CreateSchemaCompletionObject();

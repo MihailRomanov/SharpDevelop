@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 		int radioButtonElementCount;
 		XmlElement radioButtonElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

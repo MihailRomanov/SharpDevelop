@@ -34,7 +34,7 @@ namespace XmlEditor.Tests.Schema.Includes
 	[TestFixture]
 	public class TwoElementSchemaIncludeTestFixture : TwoElementSchemaTestFixture
 	{
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			SchemaIncludeTestFixtureHelper.FixtureTearDown();

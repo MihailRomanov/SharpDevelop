@@ -35,7 +35,7 @@ namespace WixBinding.Tests.Project
 		WixProjectNodeBuilder wixNodeBuilder;
 		MSBuildBasedProject project;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

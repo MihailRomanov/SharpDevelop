@@ -40,7 +40,7 @@ namespace XmlEditor.Tests.Completion
 		XmlCompletionItemCollection completionItems;
 		XmlSchemaCompletion defaultSchema;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			defaultSchema = new XmlSchemaCompletion(ResourceManager.ReadXhtmlStrictSchema());

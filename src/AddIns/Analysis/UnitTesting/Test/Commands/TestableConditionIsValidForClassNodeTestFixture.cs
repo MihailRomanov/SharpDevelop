@@ -34,7 +34,7 @@ namespace UnitTesting.Tests.Commands
 		MockClass classWithTestAttribute;
 		MockRegisteredTestFrameworks testFrameworks;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			ResourceManager.Initialize();

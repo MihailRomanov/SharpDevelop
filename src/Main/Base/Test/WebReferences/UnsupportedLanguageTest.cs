@@ -45,28 +45,30 @@ namespace ICSharpCode.SharpDevelop.Tests.WebReferences
 		string updateFromUrl = "http://localhost/test.asmx";
 		
 		[Test]
-		[ExpectedException(typeof(NotSupportedException))]
 		public void NotSupportedProjectLanguage()
 		{
-			project = WebReferenceTestHelper.CreateTestProject("Foo");
+			Assert.Throws<NotSupportedException>(
+				() => {
+					project = WebReferenceTestHelper.CreateTestProject("Foo");
 
-			protocol = new DiscoveryClientProtocol();
-			DiscoveryDocumentReference discoveryRef = new DiscoveryDocumentReference();
-			discoveryRef.Url = updateFromUrl;
-			protocol.References.Add(discoveryRef);
-			
-			ContractReference contractRef = new ContractReference();
-			contractRef.Url = "http://localhost/test.asmx?wsdl";
-			contractRef.ClientProtocol = new DiscoveryClientProtocol();
-			ServiceDescription desc = new ServiceDescription();
-			contractRef.ClientProtocol.Documents.Add(contractRef.Url, desc);
-			protocol.References.Add(contractRef);
-			
-			WebReferenceTestHelper.InitializeProjectBindings();
-			
-			webReference = new Gui.WebReference(project, updateFromUrl, name, proxyNamespace, protocol);
-			
-			proxyFileProjectItem = WebReferenceTestHelper.GetFileProjectItem(webReference.Items, "Web References\\localhost\\Reference.vb", ItemType.Compile);
-		}
+					protocol = new DiscoveryClientProtocol();
+					DiscoveryDocumentReference discoveryRef = new DiscoveryDocumentReference();
+					discoveryRef.Url = updateFromUrl;
+					protocol.References.Add(discoveryRef);
+					
+					ContractReference contractRef = new ContractReference();
+					contractRef.Url = "http://localhost/test.asmx?wsdl";
+					contractRef.ClientProtocol = new DiscoveryClientProtocol();
+					ServiceDescription desc = new ServiceDescription();
+					contractRef.ClientProtocol.Documents.Add(contractRef.Url, desc);
+					protocol.References.Add(contractRef);
+					
+					WebReferenceTestHelper.InitializeProjectBindings();
+					
+					webReference = new Gui.WebReference(project, updateFromUrl, name, proxyNamespace, protocol);
+					
+					proxyFileProjectItem = WebReferenceTestHelper.GetFileProjectItem(webReference.Items, "Web References\\localhost\\Reference.vb", ItemType.Compile);
+				});
+			}
 	}
 }

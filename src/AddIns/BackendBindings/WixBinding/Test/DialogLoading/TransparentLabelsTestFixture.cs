@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogLoading
 		Color titleLabelColor;
 		Color descriptionLabelColor;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CreatedComponents.Clear();

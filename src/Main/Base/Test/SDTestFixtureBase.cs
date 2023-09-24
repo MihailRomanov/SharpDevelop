@@ -28,13 +28,13 @@ namespace ICSharpCode.SharpDevelop
 	/// </summary>
 	public class SDTestFixtureBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public virtual void FixtureSetUp()
 		{
 			SD.InitializeForUnitTests();
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public virtual void FixtureTearDown()
 		{
 			SD.TearDownForUnitTests();

@@ -36,7 +36,7 @@ namespace Profiler.Tests.Controller.Data
 		
 		const string databaseFileName = "test.sdps";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			if (File.Exists(databaseFileName))
@@ -102,7 +102,7 @@ namespace Profiler.Tests.Controller.Data
 			provider = ProfilingDataSQLiteProvider.UpgradeFromOldVersion(databaseFileName);
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureCleanUp()
 		{
 			provider.Dispose();

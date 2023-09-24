@@ -37,7 +37,7 @@ namespace WixBinding.Tests.Document
 		WixBinaries binaries;
 		string projectDirectory;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

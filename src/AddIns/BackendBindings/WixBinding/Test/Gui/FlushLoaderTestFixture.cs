@@ -55,7 +55,7 @@ namespace WixBinding.Tests.Gui
 		string newDialogTitle;
 		string dialogId;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			newDialogTitle = String.Empty;

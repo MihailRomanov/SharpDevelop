@@ -44,7 +44,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 	{
 		List<string> childNamespaces = new List<string>();
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CodeCoverageModule module = new CodeCoverageModule("Root.Tests");

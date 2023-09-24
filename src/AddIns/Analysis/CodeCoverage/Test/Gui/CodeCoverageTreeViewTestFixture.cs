@@ -44,7 +44,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Gui
 		CodeCoverageNamespaceTreeNode fooTestsNamespaceTreeNode;
 		CodeCoverageNamespaceTreeNode fooTestsUtilNamespaceTreeNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			List<CodeCoverageModule> modules = new List<CodeCoverageModule>();

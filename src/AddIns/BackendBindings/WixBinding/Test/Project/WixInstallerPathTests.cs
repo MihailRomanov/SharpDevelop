@@ -31,7 +31,7 @@ namespace WixBinding.Tests.Project
 	[TestFixture]
 	public class WixInstallerPathTestFixture
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			SD.InitializeForUnitTests();

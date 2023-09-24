@@ -38,7 +38,7 @@ namespace WixBinding.Tests.Gui
 		Form formCreated;
 		MockDesignerLoaderHost loaderHost;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDialogDesignerLoader loader = new WixDialogDesignerLoader(this, fileLoader: this);
@@ -48,7 +48,7 @@ namespace WixBinding.Tests.Gui
 			formCreated = (Form)rootComponent;
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TearDownFixture()
 		{
 			if (formCreated != null) {

@@ -37,24 +37,21 @@ namespace ICSharpCode.SharpDevelop.Tests
 		}
 		
 		[Test]
-		[ExpectedException(typeof(InvalidOperationException))]
 		public void ExitCode()
 		{
-			int exit = runner.ExitCode;
+			Assert.Throws<InvalidOperationException>(() => { int exit = runner.ExitCode; });
 		}
 		
 		[Test]
-		[ExpectedException(typeof(InvalidOperationException))]
 		public void WaitForExit()
 		{
-			runner.WaitForExit();
+			Assert.Throws<InvalidOperationException>(() => runner.WaitForExit());
 		}
 		
 		[Test]
-		[ExpectedException(typeof(InvalidOperationException))]
 		public void WaitForExitAsync()
 		{
-			runner.WaitForExitAsync();
+			Assert.Throws<InvalidOperationException>(() => runner.WaitForExitAsync());
 		}
 	}
 }

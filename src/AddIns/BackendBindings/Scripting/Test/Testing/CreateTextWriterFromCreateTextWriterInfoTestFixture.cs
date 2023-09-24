@@ -30,7 +30,7 @@ namespace ICSharpCode.Scripting.Tests.Testing
 	{
 		TextWriter textWriter;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			string fileName = Path.GetTempFileName();
@@ -38,7 +38,7 @@ namespace ICSharpCode.Scripting.Tests.Testing
 			textWriter = info.CreateTextWriter();
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TearDownFixture()
 		{
 			textWriter.Dispose();

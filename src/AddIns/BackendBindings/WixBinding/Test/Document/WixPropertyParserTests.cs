@@ -28,7 +28,7 @@ namespace WixBinding.Tests.Document
 	{
 		NameValuePairCollection tags;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			tags = new NameValuePairCollection();

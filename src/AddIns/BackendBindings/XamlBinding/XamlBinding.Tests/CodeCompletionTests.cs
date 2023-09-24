@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
+using System.Threading;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
@@ -36,7 +37,7 @@ using Rhino.Mocks;
 namespace ICSharpCode.XamlBinding.Tests
 {
 	[TestFixture]
-	[RequiresSTA]
+	[Apartment(ApartmentState.STA)]
 	public class CodeCompletionTests : TextEditorBasedTests
 	{
 		#region CtrlSpace

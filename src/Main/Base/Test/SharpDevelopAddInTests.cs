@@ -31,7 +31,7 @@ namespace ICSharpCode.SharpDevelop
 	{
 		List<XDocument> addInFiles;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			string dir = @"..\..\AddIns";

@@ -56,7 +56,7 @@ namespace XmlEditor.Tests.Parser
 		XmlElementPath designSurfacePath2;
 		QualifiedName designSurfaceNameAttribute;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			// Get the path for the DesignSurface element.

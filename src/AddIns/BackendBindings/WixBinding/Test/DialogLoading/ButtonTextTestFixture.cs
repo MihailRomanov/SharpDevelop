@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogLoading
 		string nextButtonText;
 		string cancelButtonText;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

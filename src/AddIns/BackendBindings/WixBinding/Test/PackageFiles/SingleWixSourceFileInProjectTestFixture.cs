@@ -35,7 +35,7 @@ namespace WixBinding.Tests.PackageFiles
 		string wixDocumentFileName;
 		string expectedWixDocumentFileName;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

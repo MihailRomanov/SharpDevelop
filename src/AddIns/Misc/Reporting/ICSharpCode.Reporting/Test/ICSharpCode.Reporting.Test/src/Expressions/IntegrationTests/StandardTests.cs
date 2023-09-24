@@ -100,7 +100,7 @@ namespace ICSharpCode.Reporting.Test.Expressions.InterationTests {
 		}
 			
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Setup() {
 			expressionVisitor = new ExpressionVisitor(new ReportSettings());
 		}

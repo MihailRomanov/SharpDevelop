@@ -36,7 +36,7 @@ namespace WixBinding.Tests.DialogLoading
 		CreatedComponent formComponent;
 		string formName;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

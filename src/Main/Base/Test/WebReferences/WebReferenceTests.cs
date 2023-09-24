@@ -51,7 +51,7 @@ namespace ICSharpCode.SharpDevelop.Tests.WebReferences
 		string proxyNamespace = "WebReferenceNamespace";
 		string updateFromUrl = "http://localhost/test.asmx";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			project = WebReferenceTestHelper.CreateTestProject("C#");

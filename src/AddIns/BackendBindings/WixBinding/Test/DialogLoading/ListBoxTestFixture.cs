@@ -40,7 +40,7 @@ namespace WixBinding.Tests.DialogLoading
 		string listItem1Text;
 		string listItem2Text;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CreatedComponents.Clear();

@@ -32,47 +32,51 @@ namespace Profiler.Interprocess
 		IntPtr memoryStart;
 		int memoryLength;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			memoryLength = 1024;
 			memoryStart = Marshal.AllocHGlobal(1024);
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void TearDown()
 		{
 			Marshal.FreeHGlobal(memoryStart);
 		}
 		
 		[Test]
-		[ExpectedException(typeof(TimeoutException))]
 		public void ReadFromEmptyBufferCausesTimeout()
 		{
-			using (UnmanagedCircularBuffer ncb = UnmanagedCircularBuffer.Create(memoryStart, memoryLength)) {
-				using (Stream s = ncb.CreateReadingStream()) {
-					s.ReadTimeout = 100;
-					s.ReadByte();
-				}
-			}
+			Assert.Throws<TimeoutException>(
+				() => {
+					using (UnmanagedCircularBuffer ncb = UnmanagedCircularBuffer.Create(memoryStart, memoryLength)) {
+						using (Stream s = ncb.CreateReadingStream()) {
+							s.ReadTimeout = 100;
+							s.ReadByte();
+						}
+					}}
+			);
 		}
 		
 		[Test]
-		[ExpectedException(typeof(TimeoutException))]
 		public void WriteToFullBufferCausesTimeout()
 		{
-			using (UnmanagedCircularBuffer ncb = UnmanagedCircularBuffer.Create(memoryStart, UnmanagedCircularBuffer.SynchronizationOverheadSize + 3)) {
-				using (Stream s = ncb.CreateWritingStream()) {
-					s.WriteTimeout = 100;
-					try {
-						s.WriteByte(1);
-						s.WriteByte(2);
-					} catch (TimeoutException) {
-						Assert.Fail("The first two calls should work");
-					}
-					s.WriteByte(3);
-				}
-			}
+			Assert.Throws<TimeoutException>(
+				() => {
+					using (UnmanagedCircularBuffer ncb = UnmanagedCircularBuffer.Create(memoryStart, UnmanagedCircularBuffer.SynchronizationOverheadSize + 3)) {
+						using (Stream s = ncb.CreateWritingStream()) {
+							s.WriteTimeout = 100;
+							try {
+								s.WriteByte(1);
+								s.WriteByte(2);
+							} catch (TimeoutException) {
+								Assert.Fail("The first two calls should work");
+							}
+							s.WriteByte(3);
+						}
+					}}
+			);
 		}
 		
 		[Test]

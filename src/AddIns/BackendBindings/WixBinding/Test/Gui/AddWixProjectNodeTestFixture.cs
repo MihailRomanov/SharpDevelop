@@ -42,7 +42,7 @@ namespace WixBinding.Tests.Gui
 		WixExtensionFolderNode wixExtensionFolderNode;
 		ReferenceFolder referenceFolderNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

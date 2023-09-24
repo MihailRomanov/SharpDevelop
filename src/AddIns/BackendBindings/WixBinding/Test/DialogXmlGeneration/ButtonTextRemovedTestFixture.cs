@@ -36,7 +36,7 @@ namespace WixBinding.Tests.DialogXmlGeneration
 		XmlElement nextButtonElement;
 		XmlElement cancelButtonElement;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

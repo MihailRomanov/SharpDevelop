@@ -29,7 +29,7 @@
 //{
 //	public abstract class GenerateEnabledUsingPropertyDescriptorTestsBase : GenerateDesignerCodeTestsBase
 //	{
-//		[TestFixtureSetUp]
+//		[OneTimeSetUp]
 //		public void SetUpFixture()
 //		{
 //			using (DesignSurface designSurface = new DesignSurface(typeof(Form))) {

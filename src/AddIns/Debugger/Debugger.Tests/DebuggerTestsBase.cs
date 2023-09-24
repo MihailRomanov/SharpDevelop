@@ -63,14 +63,14 @@ namespace Debugger.Tests
 			process.Continue();
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public virtual void TestFixtureSetUp()
 		{
 			debugger = new NDebugger();
 			debugger.MTA2STA.CallMethod = CallMethod.Manual;
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public virtual void TestFixtureTearDown()
 		{
 			

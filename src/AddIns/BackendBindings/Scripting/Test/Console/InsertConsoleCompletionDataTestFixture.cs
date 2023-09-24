@@ -17,6 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
+using System.Threading;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.Scripting;
@@ -25,7 +26,7 @@ using NUnit.Framework;
 namespace ICSharpCode.Scripting.Tests.Console
 {
 	[TestFixture]
-	[RequiresSTA]
+	[Apartment(ApartmentState.STA)]
 	public class InsertConsoleCompletionDataTestFixture
 	{
 		ScriptingConsoleCompletionData completionData;

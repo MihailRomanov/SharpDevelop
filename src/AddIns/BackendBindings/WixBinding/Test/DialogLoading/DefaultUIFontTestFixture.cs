@@ -37,7 +37,7 @@ namespace WixBinding.Tests.DialogLoading
 		double fontSize;
 		FontStyle fontStyle;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

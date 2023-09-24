@@ -36,7 +36,7 @@ namespace ICSharpCode.Scripting.Tests.Console
 		string prompt = ">>> ";
 		bool showCompletionWindowCalledBeforeDotTypedIn;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.CreateConsole();

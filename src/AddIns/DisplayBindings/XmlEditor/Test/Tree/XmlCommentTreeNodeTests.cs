@@ -31,7 +31,7 @@ namespace XmlEditor.Tests.Tree
 	{
 		XmlDocument doc;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			doc = new XmlDocument();

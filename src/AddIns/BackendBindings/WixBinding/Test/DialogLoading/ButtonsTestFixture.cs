@@ -42,7 +42,7 @@ namespace WixBinding.Tests.DialogLoading
 		string dialogAcceptButtonName;
 		string dialogCancelButtonName;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

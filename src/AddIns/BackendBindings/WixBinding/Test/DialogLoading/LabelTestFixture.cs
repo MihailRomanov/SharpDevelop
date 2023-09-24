@@ -41,7 +41,7 @@ namespace WixBinding.Tests.DialogLoading
 		double labelFontSize;
 		bool labelFontBold;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			CreatedComponents.Clear();

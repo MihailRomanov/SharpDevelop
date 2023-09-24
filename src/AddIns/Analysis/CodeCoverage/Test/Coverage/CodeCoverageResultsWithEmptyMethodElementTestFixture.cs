@@ -26,7 +26,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 	[TestFixture]
 	public class CodeCoverageResultsWithEmptyMethodElementTestFixture : CodeCoverageResultsTestsBase
 	{	
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			string xml =

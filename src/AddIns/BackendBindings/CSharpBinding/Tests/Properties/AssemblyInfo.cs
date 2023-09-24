@@ -22,6 +22,7 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
+using System.Threading;
 using NUnit.Framework;
 
 #endregion
@@ -51,4 +52,4 @@ using NUnit.Framework;
 [assembly: AssemblyVersion("1.0.*")]
 
 // Run unit tests on STA thread.
-[assembly: RequiresSTA]
+[assembly: Apartment(ApartmentState.STA)]

@@ -41,7 +41,7 @@ namespace WixBinding.Tests.DialogLoading
 		bool minimizeBox;
 		WixDocument doc;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			doc = new WixDocument();

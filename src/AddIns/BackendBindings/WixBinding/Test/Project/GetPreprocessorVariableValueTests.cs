@@ -33,7 +33,7 @@ namespace WixBinding.Tests.Project
 	[TestFixture]
 	public class GetPreprocessorVariableValueTests
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			SD.InitializeForUnitTests();

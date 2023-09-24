@@ -34,7 +34,7 @@ using Rhino.Mocks;
 namespace ICSharpCode.XamlBinding.Tests
 {
 	[TestFixture]
-	[RequiresSTA]
+	[Apartment(ApartmentState.STA)]
 	public class ResolveContextTests : TextEditorBasedTests
 	{
 		void SetUpWithCode(FileName fileName, ITextSource textSource)

@@ -79,7 +79,7 @@ namespace WixBinding.Tests.Project
 			}
 		}
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			SD.InitializeForUnitTests();

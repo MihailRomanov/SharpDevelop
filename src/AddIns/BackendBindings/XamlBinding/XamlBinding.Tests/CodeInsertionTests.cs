@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
+using System.Threading;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor.CodeCompletion;
 using NUnit.Framework;
@@ -28,7 +29,7 @@ using NUnit.Framework;
 namespace ICSharpCode.XamlBinding.Tests
 {
 	[TestFixture]
-	[RequiresSTA]
+	[Apartment(ApartmentState.STA)]
 	public class CodeInsertionTests : TextEditorBasedTests
 	{
 		#region TextInsertionTests		

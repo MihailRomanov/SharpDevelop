@@ -32,7 +32,7 @@ namespace WixBinding.Tests.PackageFiles
 		int progFilesChildNodeCount;
 		XmlElement installDir;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

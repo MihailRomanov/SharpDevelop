@@ -38,7 +38,7 @@ namespace WixBinding.Tests.Document
 		string projectDirectory;
 		bool hasImage;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

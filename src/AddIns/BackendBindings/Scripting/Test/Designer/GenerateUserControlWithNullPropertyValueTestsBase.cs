@@ -31,7 +31,7 @@
 //{
 //	public abstract class GenerateUserControlWithNullPropertyValueTestsBase : GenerateDesignerCodeTestsBase
 //	{
-//		[TestFixtureSetUp]
+//		[OneTimeSetUp]
 //		public void SetUpFixture()
 //		{
 //			using (DesignSurface designSurface = new DesignSurface(typeof(UserControl))) {

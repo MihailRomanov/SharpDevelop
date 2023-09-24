@@ -215,9 +215,9 @@ namespace ICSharpCode.UnitTesting
 			if (NoDots) 
 				b.Append(" /nodots");
 			if (NoXmlOutputFile) {
-				b.Append(" /noxml");
+				b.Append(" /noresult");
 			} else if (XmlOutputFile != null) {
-				b.Append(" /xml=\"");
+				b.Append(" /result=\"");
 				b.Append(XmlOutputFile);
 				b.Append('"');
 			}

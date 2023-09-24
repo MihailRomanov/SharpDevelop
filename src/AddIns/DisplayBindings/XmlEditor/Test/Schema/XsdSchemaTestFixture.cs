@@ -53,7 +53,7 @@ namespace XmlEditor.Tests.Schema
 		string namespaceURI = "http://www.w3.org/2001/XMLSchema";
 		string prefix = "xs";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureInit()
 		{
 			schemaCompletion = new XmlSchemaCompletion(ResourceManager.ReadXsdSchema());

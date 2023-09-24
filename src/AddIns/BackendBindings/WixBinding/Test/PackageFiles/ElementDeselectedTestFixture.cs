@@ -32,7 +32,7 @@ namespace WixBinding.Tests.PackageFiles
 	[TestFixture]
 	public class ElementDeselectedTestFixture : PackageFilesTestFixtureBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

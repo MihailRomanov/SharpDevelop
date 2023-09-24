@@ -36,7 +36,7 @@ namespace WixBinding.Tests.Project
 		FileProjectItem wixIncludeFileProjectItem;
 		int wixFileProjectItemCount;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

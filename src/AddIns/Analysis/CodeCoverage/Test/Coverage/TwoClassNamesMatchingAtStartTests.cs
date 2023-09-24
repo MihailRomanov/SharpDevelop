@@ -33,7 +33,7 @@ namespace ICSharpCode.CodeCoverage.Tests.Coverage
 	[TestFixture]
 	public class TwoClassNamesMatchingAtStartTests : CodeCoverageResultsTestsBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			string xml =

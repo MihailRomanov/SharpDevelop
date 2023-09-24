@@ -27,7 +27,7 @@ namespace XmlEditor.Tests.Tree
 	[TestFixture]
 	public class DocumentElementOnlyTestFixture : XmlTreeViewTestFixtureBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();

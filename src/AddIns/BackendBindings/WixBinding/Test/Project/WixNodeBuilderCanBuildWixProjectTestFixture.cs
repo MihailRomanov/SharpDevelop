@@ -32,7 +32,7 @@ namespace WixBinding.Tests.Project
 	[TestFixture]
 	public class WixNodeBuilderCanBuildWixProjectTestFixture
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUp()
 		{
 			SD.InitializeForUnitTests();

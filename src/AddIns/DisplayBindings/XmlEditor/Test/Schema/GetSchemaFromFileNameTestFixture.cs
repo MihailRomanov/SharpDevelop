@@ -30,7 +30,7 @@ namespace XmlEditor.Tests.Schema
 		XmlSchemaCompletionCollection schemas;
 		string expectedNamespace;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			schemas = new XmlSchemaCompletionCollection();

@@ -39,7 +39,7 @@ namespace WixBinding.Tests.Gui
 		WixExtensionNode firstWixExtensionNode;
 		WixExtensionNode secondWixExtensionNode;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

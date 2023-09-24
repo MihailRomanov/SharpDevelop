@@ -28,7 +28,7 @@ namespace WixBinding.Tests.PackageFiles
 	{
 		WixDirectoryRefElement directoryRef;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

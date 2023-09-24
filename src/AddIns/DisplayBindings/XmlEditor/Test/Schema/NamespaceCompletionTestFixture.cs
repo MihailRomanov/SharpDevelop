@@ -37,7 +37,7 @@ namespace XmlEditor.Tests.Schema
 		string firstNamespace = "http://foo.com/foo.xsd";
 		string secondNamespace = "http://bar.com/bar.xsd";
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureInit()
 		{
 			XmlSchemaCompletionCollection items = new XmlSchemaCompletionCollection();

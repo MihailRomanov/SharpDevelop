@@ -32,7 +32,7 @@ namespace XmlEditor.Tests.XPath
 		List<XmlNamespace> expectedNamespaces;
 		XmlNamespaceCollection actualNamespaces;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			using (XPathQueryControl queryControl = new XPathQueryControl()) {

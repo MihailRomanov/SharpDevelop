@@ -609,7 +609,7 @@ namespace ICSharpCode.SharpDevelop.Tests.NavigationServiceTests
 		/// Create several <see cref="TestNavigationPoint"/>s
 		/// for use during tests.
 		/// </summary>
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void Init()
 		{
 			p = new TestNavigationPoint("p.cs");
@@ -622,7 +622,7 @@ namespace ICSharpCode.SharpDevelop.Tests.NavigationServiceTests
 			t = new TestNavigationPoint("t.cs");
 		}
 		
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void Dispose()
 		{
 			// TODO: Add tear down code.

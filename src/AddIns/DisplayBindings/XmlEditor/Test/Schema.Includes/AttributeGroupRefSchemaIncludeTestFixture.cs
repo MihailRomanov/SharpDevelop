@@ -34,7 +34,7 @@ namespace XmlEditor.Tests.Schema.Includes
 	[TestFixture]
 	public class AttributeGroupRefSchemaIncludeTestFixture : AttributeGroupRefTestFixture
 	{
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			SchemaIncludeTestFixtureHelper.FixtureTearDown();

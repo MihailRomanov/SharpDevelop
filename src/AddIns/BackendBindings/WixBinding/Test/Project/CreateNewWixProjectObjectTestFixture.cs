@@ -40,7 +40,7 @@ namespace WixBinding.Tests.Project
 		ProjectCreateInformation info;
 		WixProject project;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			SD.InitializeForUnitTests();

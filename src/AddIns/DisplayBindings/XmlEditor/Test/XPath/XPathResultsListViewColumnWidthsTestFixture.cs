@@ -37,7 +37,7 @@ namespace XmlEditor.Tests.XPath
 		int matchColumnWidthAfterSave;
 		int lineColumnWidthAfterSave;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			using (XPathQueryControl queryControl = new XPathQueryControl()) {

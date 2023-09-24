@@ -33,7 +33,7 @@ namespace WixBinding.Tests.Document
 	{				
 		WixComponentElement[] childComponents;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			WixDocument doc = new WixDocument();

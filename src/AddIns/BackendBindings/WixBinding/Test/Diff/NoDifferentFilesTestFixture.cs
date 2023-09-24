@@ -31,7 +31,7 @@ namespace WixBinding.Tests.Diff
 		List<string> directories;
 		List<string> directoryExistsChecks;
 		
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			directories = new List<string>();

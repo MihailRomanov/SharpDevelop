@@ -33,7 +33,7 @@ namespace WixBinding.Tests.PackageFiles
 	[TestFixture]
 	public class NoRootDirectoryFoundFixture : PackageFilesTestFixtureBase
 	{
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void SetUpFixture()
 		{
 			base.InitFixture();
