@@ -61,14 +61,12 @@
 		</Condition>
 		
 		<!--
-			Check for .NET 4.5 RTM
+			Check for .NET 4.7.2 
 		-->
-		<!-- we could check NETFRAMEWORK45 optionally if we want to force the user to install a specific version -->
-		<Property Id="NETFRAMEWORK45" Secure="yes">
-			<RegistrySearch Id="NetFramework45" Root="HKLM" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Name="Release" Type="raw" />
-		</Property>
-		<Condition Message="This setup requires the .NET Framework 4.5 to be installed.">
-			Installed OR NETFRAMEWORK45
+		<!-- we could check NETFRAMEWORK472 optionally if we want to force the user to install a specific version -->
+		<PropertyRef Id="WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" />
+		<Condition Message="This setup requires the .NET Framework 4.7.2 or leter to be installed.">
+			Installed OR WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED
 		</Condition>
 		
 		<!--
