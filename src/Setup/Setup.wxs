@@ -76,13 +76,13 @@
 			However, we know that .NET 3.5 installs the C++ runtime parts we need (.NET 4.0 doesn't), so we'll check for
 			VCPP2008RUNTIME OR NETFRAMEWORK35.
  		-->
-		<Property Id="VCPP2008RUNTIME" Secure="yes">
+		<!--<Property Id="VCPP2008RUNTIME" Secure="yes">
 			<RegistrySearch Id="VCpp2008Runtime" Root="HKLM" Key="SOFTWARE\Microsoft\DevDiv\VC\Servicing\9.0" Name="SP" Type="raw" />
 		</Property>
 		<PropertyRef Id="NETFRAMEWORK35"/>
 		<Condition Message="This setup requires the Microsoft Visual C++ 2008 SP1 Redistributable Package to be installed.">
 			Installed OR (VCPP2008RUNTIME &lt;&gt; "") OR NETFRAMEWORK35
-		</Condition>
+		</Condition>-->
 		
 		<!--
 			Check the user has elevated permissions. We need admin rights to NGen 
