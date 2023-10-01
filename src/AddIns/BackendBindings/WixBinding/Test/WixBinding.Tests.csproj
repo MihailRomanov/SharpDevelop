@@ -364,8 +364,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Tools\wix\wix2010.targets">
-      <Link>wix2010.targets</Link>
+    <None Include="..\..\..\..\Tools\wix\wix.targets">
+      <Link>wix.targets</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
