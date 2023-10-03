@@ -10,28 +10,23 @@ you would expect in an IDE plus a few more.
 The #develop project started on September 11th, 2000. The project was initiated
 by Mike Krüger. In the course of the project, several contributors joined in.
 
-Looking for the tech notes (Fine Art of Commenting, Coding Style Guide, and more)? These can be found as rtf files in [doc/technotes](https://github.com/icsharpcode/SharpDevelop/tree/master/doc/technotes)
+Looking for the tech notes (Fine Art of Commenting, Coding Style Guide, and more)? These can be found as rtf files in [doc/technotes](doc/technotes)
 
 ## How To Compile
  #Develop can be compiled using the supplied .bat files, or in #Develop itself.
 
 ## System Requirements (running #Develop)
 
- - Windows Vista or higher.
- - [.NET 4.5](http://www.microsoft.com/en-au/download/details.aspx?id=30653)
- - [Visual C++ 2008 SP1 Runtime](http://www.microsoft.com/downloads/details.aspx?familyid=A5C84275-3B97-4AB7-A40D-3802B2AF5FC2&displaylang=en)
-
+ - Windows 7 SP1 or higher.
+ - [.NET 4.7.2 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
+ 
 ## Extended Requirements (building #Develop)
 
- - [Microsoft Build Tools 2013](http://www.microsoft.com/en-us/download/details.aspx?id=40760)
- - [.NET 3.5 SP1](http://www.microsoft.com/en-au/download/details.aspx?id=22)
- - [.NET 4.5 SDK](http://msdn.microsoft.com/en-us/windows/desktop/hh852363.aspx) (part of Windows SDK 8.0)
- - [Windows SDK 7.1](http://www.microsoft.com/downloads/details.aspx?familyid=6B6C21D2-2006-4AFA-9702-529FA782D63B)
- - [Windows SDK 7.0](http://www.microsoft.com/en-us/download/details.aspx?id=3138) (optional; C++ compiler needed for profiler)
- - [Windows PowerShell](http://www.microsoft.com/en-us/download/details.aspx?id=34595)
+ - [.NET 4.7.2 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472)
+ - [Windows SDK](http://www.microsoft.com/en-us/download/details.aspx?id=3138) (optional; C++ compiler needed for profiler)
  - If you have cloned the SD git repository: git must be available on your PATH
  
-## Libraries and Integrated tools:
+## Libraries and Integrated tools (some links is not actual):
 
 * [Avalon Dock](http://avalondock.codeplex.com/) : New BSD License (BSD) (thanks to **Adolfo Marinucci**)
 * [Graph#](https://graphsharp.codeplex.com/)
