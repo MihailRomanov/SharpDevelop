@@ -96,7 +96,7 @@ namespace WixBinding.Tests.Utils
 			// to the shadow copy folder.
 			string codeBase = typeof(WixBindingTestsHelper).Assembly.CodeBase.Replace("file:///", String.Empty);
 			string folder = Path.GetDirectoryName(codeBase);
-			string fileName = Path.Combine(folder, "wix2010.targets");
+			string fileName = Path.Combine(folder, "wix.targets");
 			SD.Services.RemoveService(typeof(IMSBuildEngine));
 			SD.Services.AddService(typeof(IMSBuildEngine), MockRepository.GenerateStrictMock<IMSBuildEngine>());
 			var globalBuildProperties = new Dictionary<string, string> { { "WixTargetsPath", fileName } };

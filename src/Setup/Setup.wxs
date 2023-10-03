@@ -61,14 +61,12 @@
 		</Condition>
 		
 		<!--
-			Check for .NET 4.5 RTM
+			Check for .NET 4.7.2 
 		-->
-		<!-- we could check NETFRAMEWORK45 optionally if we want to force the user to install a specific version -->
-		<Property Id="NETFRAMEWORK45" Secure="yes">
-			<RegistrySearch Id="NetFramework45" Root="HKLM" Key="SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" Name="Release" Type="raw" />
-		</Property>
-		<Condition Message="This setup requires the .NET Framework 4.5 to be installed.">
-			Installed OR NETFRAMEWORK45
+		<!-- we could check NETFRAMEWORK472 optionally if we want to force the user to install a specific version -->
+		<PropertyRef Id="WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" />
+		<Condition Message="This setup requires the .NET Framework 4.7.2 or leter to be installed.">
+			Installed OR WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED
 		</Condition>
 		
 		<!--
@@ -78,13 +76,13 @@
 			However, we know that .NET 3.5 installs the C++ runtime parts we need (.NET 4.0 doesn't), so we'll check for
 			VCPP2008RUNTIME OR NETFRAMEWORK35.
  		-->
-		<Property Id="VCPP2008RUNTIME" Secure="yes">
+		<!--<Property Id="VCPP2008RUNTIME" Secure="yes">
 			<RegistrySearch Id="VCpp2008Runtime" Root="HKLM" Key="SOFTWARE\Microsoft\DevDiv\VC\Servicing\9.0" Name="SP" Type="raw" />
 		</Property>
 		<PropertyRef Id="NETFRAMEWORK35"/>
 		<Condition Message="This setup requires the Microsoft Visual C++ 2008 SP1 Redistributable Package to be installed.">
 			Installed OR (VCPP2008RUNTIME &lt;&gt; "") OR NETFRAMEWORK35
-		</Condition>
+		</Condition>-->
 		
 		<!--
 			Check the user has elevated permissions. We need admin rights to NGen 
