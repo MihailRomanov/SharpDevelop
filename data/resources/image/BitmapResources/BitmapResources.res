@@ -34,6 +34,7 @@ ProjectBrowser.ReferenceFolder.Open					= ProjectBrowserIcons\ReferenceFolder.Op
 ProjectBrowser.GhostFile							= ProjectBrowserIcons\GhostFile.png
 ProjectBrowser.CodeBehind							= ProjectBrowserIcons\CodeBehind.png
 ProjectBrowser.MissingFile							= ProjectBrowserIcons\MissingFile.png
+ProjectBrowser.ProjectReference						= ProjectBrowserIcons\ProjectReference.png
 ProjectBrowser.ProjectWarning						= ProjectBrowserIcons\ProjectWarning.png
 ProjectBrowser.MissingProject						= ProjectBrowserIcons\MissingProject.png
 ProjectBrowser.MissingSolution						= ProjectBrowserIcons\MissingSolution.png
