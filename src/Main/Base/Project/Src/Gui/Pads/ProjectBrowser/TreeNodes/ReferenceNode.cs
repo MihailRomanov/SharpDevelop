@@ -17,9 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 
 namespace ICSharpCode.SharpDevelop.Project
 {
@@ -39,7 +37,10 @@ namespace ICSharpCode.SharpDevelop.Project
 			Tag = referenceProjectItem;
 			
 			ContextmenuAddinTreePath = "/SharpDevelop/Pads/ProjectBrowser/ContextMenu/ReferenceNode";
-			SetIcon("Icons.16x16.Reference");
+			if (referenceProjectItem is ProjectReferenceProjectItem)
+				SetIcon("ProjectBrowser.ProjectReference");
+			else 
+				SetIcon("Icons.16x16.Reference");
 			Text = referenceProjectItem.ShortName;
 		}
 		
