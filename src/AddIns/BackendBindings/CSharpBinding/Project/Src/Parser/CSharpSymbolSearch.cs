@@ -44,6 +44,7 @@ using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
 using ICSharpCode.SharpDevelop.Refactoring;
+using Mono.CSharp;
 
 namespace CSharpBinding
 {
@@ -193,7 +194,7 @@ namespace CSharpBinding
 			var cancellationToken = args.ProgressMonitor.CancellationToken;
 			return Task.Run(
 				() => {
-					bool isNameValid = ICSharpCode.NRefactory.MonoCSharp.Tokenizer.IsValidIdentifier(args.NewName);
+					bool isNameValid = Tokenizer.IsValidIdentifier(args.NewName);
 					object progressLock = new object();
 					Parallel.ForEach(
 						searchScopesPerFile.Keys,

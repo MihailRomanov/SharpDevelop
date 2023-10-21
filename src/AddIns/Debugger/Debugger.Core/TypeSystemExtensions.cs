@@ -29,6 +29,7 @@ using Debugger.MetaData;
 using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
+using ICSharpCode.SharpDevelop;
 using Mono.Cecil.Metadata;
 
 namespace Debugger
@@ -95,7 +96,7 @@ namespace Debugger
 					if (localVariableTypes.TryGetValue(member, out result))
 						return result;
 					else
-						return EmptyList<ITypeReference>.Instance;
+						return EmptyList<ITypeReference>.Instance.AsReadOnly();
 				} finally {
 					rwLock.ExitReadLock();
 				}

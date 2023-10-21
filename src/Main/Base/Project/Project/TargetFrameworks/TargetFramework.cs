@@ -199,7 +199,7 @@ namespace ICSharpCode.SharpDevelop.Project
 		/// </summary>
 		public virtual IReadOnlyList<DomAssemblyName> ReferenceAssemblies {
 			get {
-				return EmptyList<DomAssemblyName>.Instance;
+				return EmptyList<DomAssemblyName>.Instance.AsReadOnly();
 			}
 		}
 		

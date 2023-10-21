@@ -74,7 +74,7 @@ namespace ICSharpCode.CppBinding.Project
 		/// </summary>
 		public IReadOnlyList<T2> DependOn(T1 element)
 		{
-			return dep[element];
+			return dep[element].AsReadOnly();
 		}
 
 		/// <summary>
@@ -102,7 +102,7 @@ namespace ICSharpCode.CppBinding.Project
 		/// <returns></returns>
 		public IReadOnlyList<T1> DependingOn(T2 element)
 		{
-			return revDep[element];
+			return revDep[element].AsReadOnly();
 		}
 
 		/// <summary>

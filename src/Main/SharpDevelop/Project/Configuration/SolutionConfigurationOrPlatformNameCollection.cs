@@ -39,7 +39,7 @@ namespace ICSharpCode.SharpDevelop.Project
 	{
 		readonly ModelCollectionChangedEvent<string> collectionChangedEvent;
 		readonly List<string> list = new List<string>();
-		volatile IReadOnlyList<string> listSnapshot = EmptyList<string>.Instance;
+		volatile IReadOnlyList<string> listSnapshot = EmptyList<string>.Instance.AsReadOnly();
 		readonly ISolution solution;
 		readonly bool isPlatform;
 		
@@ -111,7 +111,7 @@ namespace ICSharpCode.SharpDevelop.Project
 			if (newName == null)
 				throw new ArgumentException();
 			list.Add(newName);
-			OnCollectionChanged(EmptyList<string>.Instance, new[] { newName });
+			OnCollectionChanged(EmptyList<string>.Instance.AsReadOnly(), new[] { newName });
 			
 			if (copyFrom != null) {
 				foreach (var project in solution.Projects) {
@@ -142,7 +142,7 @@ namespace ICSharpCode.SharpDevelop.Project
 				return;
 			name = list[pos]; // get the name in original case
 			list.RemoveAt(pos);
-			OnCollectionChanged(new[] { name }, EmptyList<string>.Instance);
+			OnCollectionChanged(new[] { name }, EmptyList<string>.Instance.AsReadOnly());
 			
 			foreach (var project in solution.Projects) {
 				var mapping = project.ConfigurationMapping;

@@ -175,12 +175,12 @@ namespace ICSharpCode.SharpDevelop.Project
 				foreach (var project in addedItems) {
 					project.ProjectSections.CollectionChanged += solution.OnSolutionSectionCollectionChanged;
 					project.ConfigurationMapping.Changed += solution.OnProjectConfigurationMappingChanged;
-					solution.OnSolutionSectionCollectionChanged(EmptyList<SolutionSection>.Instance, project.ProjectSections);
+					solution.OnSolutionSectionCollectionChanged(EmptyList<SolutionSection>.Instance.AsReadOnly(), project.ProjectSections);
 				}
 				foreach (var project in removedItems) {
 					project.ProjectSections.CollectionChanged -= solution.OnSolutionSectionCollectionChanged;
 					project.ConfigurationMapping.Changed -= solution.OnProjectConfigurationMappingChanged;
-					solution.OnSolutionSectionCollectionChanged(project.ProjectSections, EmptyList<SolutionSection>.Instance);
+					solution.OnSolutionSectionCollectionChanged(project.ProjectSections, EmptyList<SolutionSection>.Instance.AsReadOnly());
 				}
 				// If the startup project was removed, reset that property
 				bool startupProjectWasRemoved = removedItems.Contains(solution.startupProject);

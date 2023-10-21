@@ -138,14 +138,14 @@ namespace ICSharpCode.SharpDevelop.Dom
 					newItems.Add(new MemberModel(parent.context, newMember) { strongParentCollectionReference = this });
 				}
 				lists.Insert(partIndex, newItems);
-				collectionChangedEvent.Fire(EmptyList<MemberModel>.Instance, newItems);
+				collectionChangedEvent.Fire(EmptyList<MemberModel>.Instance.AsReadOnly(), newItems);
 			}
 			
 			public void RemovePart(int partIndex)
 			{
 				var oldItems = lists[partIndex];
 				lists.RemoveAt(partIndex);
-				collectionChangedEvent.Fire(oldItems, EmptyList<MemberModel>.Instance);
+				collectionChangedEvent.Fire(oldItems, EmptyList<MemberModel>.Instance.AsReadOnly());
 			}
 			
 			public void UpdatePart(int partIndex, IUnresolvedTypeDefinition newPart)
