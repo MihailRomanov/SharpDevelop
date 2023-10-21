@@ -60,6 +60,9 @@
 	</Target>
 	
 	<Target Name="build">
+		<Exec WorkingDirectory="$(ProjectDir)"
+		      Command="$(NuGetExecutable) restore SharpDevelop.sln"/>
+
 		<MSBuild Projects="$(SharpDevelopSrc)\Tools\Tools.build"
 		         Targets="PrepareRelease"
 		         Properties="Configuration=Release;BranchName=$(BranchName)"/>
@@ -161,7 +164,7 @@
 	</Target>
 	
 	<Target Name="rununittests">
-		<CreateItem Include="$(SharpDevelopBin)\UnitTests\**\*.Tests.dll;$(SharpDevelopSrc)\Libraries\NRefactory\bin\net_4_5_Release\ICSharpCode.NRefactory.Tests.dll">
+		<CreateItem Include="$(SharpDevelopBin)\UnitTests\**\*.Tests.dll">
 			<Output TaskParameter="Include" ItemName="UnitTestAssemblies"/>
 		</CreateItem>
 		

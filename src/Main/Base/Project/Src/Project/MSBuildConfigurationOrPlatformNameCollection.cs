@@ -31,7 +31,7 @@ namespace ICSharpCode.SharpDevelop.Project
 	/// </summary>
 	class MSBuildConfigurationOrPlatformNameCollection : IConfigurationOrPlatformNameCollection
 	{
-		volatile IReadOnlyList<string> listSnapshot = EmptyList<string>.Instance;
+		volatile IReadOnlyList<string> listSnapshot = EmptyList<string>.Instance.AsReadOnly();
 		readonly ModelCollectionChangedEvent<string> collectionChangedEvent;
 		readonly MSBuildBasedProject project;
 		readonly bool isPlatform;

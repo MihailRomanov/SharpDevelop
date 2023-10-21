@@ -50,7 +50,7 @@ namespace ICSharpCode.SharpDevelop.Project.PortableLibrary
 			this.targetFrameworkVersion = targetFrameworkVersion;
 			this.targetFrameworkProfile = targetFrameworkProfile;
 			this.displayName = Profile.PortableSubsetDisplayName + " (" + targetFrameworkVersion + "-" + targetFrameworkProfile + ")";
-			this.redistList = EmptyList<DomAssemblyName>.Instance;
+			this.redistList = EmptyList<DomAssemblyName>.Instance.AsReadOnly();
 		}
 		
 		public override string TargetFrameworkVersion {

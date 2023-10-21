@@ -146,7 +146,7 @@ namespace ICSharpCode.SharpDevelop.Dom
 			}
 			// Raise the event if necessary:
 			if (collectionChangedEvent.ContainsHandlers && (oldModels != null || newModels != null)) {
-				IReadOnlyCollection<ITypeDefinitionModel> emptyList = EmptyList<ITypeDefinitionModel>.Instance;
+				IReadOnlyCollection<ITypeDefinitionModel> emptyList = EmptyList<ITypeDefinitionModel>.Instance.AsReadOnly();
 				collectionChangedEvent.Fire(oldModels ?? emptyList, newModels ?? emptyList);
 			}
 		}

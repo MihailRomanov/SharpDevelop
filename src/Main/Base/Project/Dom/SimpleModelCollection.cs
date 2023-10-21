@@ -85,7 +85,7 @@ namespace ICSharpCode.SharpDevelop.Dom
 			this.addedItems = null;
 			this.isRaisingEvent = true;
 			try {
-				OnCollectionChanged(removed ?? EmptyList<T>.Instance, added ?? EmptyList<T>.Instance);
+				OnCollectionChanged(removed ?? EmptyList<T>.Instance.AsReadOnly(), added ?? EmptyList<T>.Instance.AsReadOnly());
 			} finally {
 				this.isRaisingEvent = false;
 			}

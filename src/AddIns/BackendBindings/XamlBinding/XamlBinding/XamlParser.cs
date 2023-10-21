@@ -46,7 +46,7 @@ namespace ICSharpCode.XamlBinding
 		
 		public XamlParser()
 		{
-			TaskListTokens = EmptyList<string>.Instance;
+			TaskListTokens = EmptyList<string>.Instance.AsReadOnly();
 		}
 
 		public bool CanParse(string fileName)

@@ -988,7 +988,7 @@ namespace ICSharpCode.SharpDevelop.Project
 					foreach (var item in newItems)
 						project.AddProjectItem(item);
 				}
-				CollectionChanged(EmptyList<ProjectItem>.Instance, newItems);
+				CollectionChanged(EmptyList<ProjectItem>.Instance.AsReadOnly(), newItems);
 			}
 			
 			int IMutableModelCollection<ProjectItem>.RemoveAll(Predicate<ProjectItem> predicate)
@@ -1000,7 +1000,7 @@ namespace ICSharpCode.SharpDevelop.Project
 							removed.Add(item);
 					}
 				}
-				CollectionChanged(removed, EmptyList<ProjectItem>.Instance);
+				CollectionChanged(removed, EmptyList<ProjectItem>.Instance.AsReadOnly());
 				return removed.Count;
 			}
 			
@@ -1022,7 +1022,7 @@ namespace ICSharpCode.SharpDevelop.Project
 			void ICollection<ProjectItem>.Add(ProjectItem item)
 			{
 				project.AddProjectItem(item);
-				CollectionChanged(EmptyList<ProjectItem>.Instance, new[] { item });
+				CollectionChanged(EmptyList<ProjectItem>.Instance.AsReadOnly(), new[] { item });
 			}
 			
 			void ICollection<ProjectItem>.Clear()
@@ -1044,7 +1044,7 @@ namespace ICSharpCode.SharpDevelop.Project
 			bool ICollection<ProjectItem>.Remove(ProjectItem item)
 			{
 				if (project.RemoveProjectItem(item)) {
-					CollectionChanged(new[] { item }, EmptyList<ProjectItem>.Instance);
+					CollectionChanged(new[] { item }, EmptyList<ProjectItem>.Instance.AsReadOnly());
 					return true;
 				}
 				return false;
