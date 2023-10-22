@@ -68,6 +68,9 @@
     <Reference Include="ICSharpCode.NRefactory.CSharp">
       <HintPath>..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp.Refactoring">
+      <HintPath>..\..\Libraries\ICSharpCode.NRefactory\ICSharpCode.NRefactory.CSharp.Refactoring.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory.Xml">
       <HintPath>..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.Xml.dll</HintPath>
     </Reference>
@@ -296,10 +299,6 @@
     <ProjectReference Include="..\..\Libraries\AvalonEdit\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
       <Project>{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}</Project>
       <Name>ICSharpCode.AvalonEdit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\NRefactory\ICSharpCode.NRefactory.CSharp.Refactoring\ICSharpCode.NRefactory.CSharp.Refactoring.csproj">
-      <Project>{2a705fc6-1a9e-4941-9e47-254d79f2d9d5}</Project>
-      <Name>ICSharpCode.NRefactory.CSharp.Refactoring</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Libraries\SharpTreeView\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj">
       <Project>{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}</Project>
