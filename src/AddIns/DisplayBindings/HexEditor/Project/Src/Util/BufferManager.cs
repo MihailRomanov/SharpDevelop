@@ -17,13 +17,11 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
 using ICSharpCode.AvalonEdit.Utils;
 using ICSharpCode.Core;
-using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Workbench;
 
 namespace HexEditor.Util

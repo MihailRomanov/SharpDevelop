@@ -29,7 +29,6 @@ using ICSharpCode.AvalonEdit.Snippets;
 using ICSharpCode.Core.Presentation;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using CSharpBinding.Refactoring;
 using ICSharpCode.SharpDevelop.Editor;

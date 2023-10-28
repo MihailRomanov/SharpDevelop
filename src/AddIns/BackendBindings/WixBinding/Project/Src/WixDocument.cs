@@ -18,16 +18,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
-using System.Text;
 using System.Xml;
 
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.SharpDevelop.Dom;
-using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.XmlEditor;
 
 namespace ICSharpCode.WixBinding

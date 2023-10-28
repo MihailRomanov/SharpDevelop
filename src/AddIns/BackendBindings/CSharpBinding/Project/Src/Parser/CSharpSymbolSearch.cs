@@ -18,9 +18,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -29,19 +27,13 @@ using CSharpBinding.Parser;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Resolver;
 using ICSharpCode.NRefactory.CSharp.TypeSystem;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.NRefactory.Utils;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Editor.Search;
-using ICSharpCode.SharpDevelop.Gui;
-using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
 using ICSharpCode.SharpDevelop.Refactoring;
 using Mono.CSharp;
@@ -164,11 +156,11 @@ namespace CSharpBinding
 					if (!identifier.IsNull)
 						node = identifier;
 					var region = new DomRegion(fileName, node.StartLocation, node.EndLocation);
-					int offset = document.GetOffset(node.StartLocation);
-					int length = document.GetOffset(node.EndLocation) - offset;
-					var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation, node.EndLocation, document, highlighter);
+					int offset = document.GetOffset(node.StartLocation.ToAvalonEdit());
+					int length = document.GetOffset(node.EndLocation.ToAvalonEdit()) - offset;
+					var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit(), document, highlighter);
 					var defaultTextColor = highlighter != null ? highlighter.DefaultTextColor : null;
-					results.Add(new SearchResultMatch(fileName, node.StartLocation, node.EndLocation, offset, length, builder, defaultTextColor));
+					results.Add(new SearchResultMatch(fileName, node.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit(), offset, length, builder, defaultTextColor));
 				}, cancellationToken);
 			if (highlighter != null) {
 				highlighter.Dispose();
@@ -252,12 +244,12 @@ namespace CSharpBinding
 							highlighter.BeginHighlighting();
 						}
 					}
-					var startLocation = node.StartLocation;
-					var endLocation = node.EndLocation;
+					var startLocation = node.StartLocation.ToAvalonEdit();
+					var endLocation = node.EndLocation.ToAvalonEdit();
 					int offset = document.GetOffset(startLocation);
 					int length = document.GetOffset(endLocation) - offset;
 					if (args.ProvideHighlightedLine) {
-						var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation, node.EndLocation, document, highlighter);
+						var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit(), document, highlighter);
 						var defaultTextColor = highlighter != null ? highlighter.DefaultTextColor : null;
 						results.Add(new RenameResultMatch(fileName, startLocation, endLocation, offset, length, newCode, builder, defaultTextColor));
 					} else {
@@ -271,7 +263,7 @@ namespace CSharpBinding
 			if (results.Count > 0) {
 				if (!isNameValid) {
 					errorCallback(new Error(ErrorType.Error, string.Format("The name '{0}' is not valid in the current context!", args.NewName),
-					                        new DomRegion(fileName, results[0].StartLocation)));
+					                        new DomRegion(fileName, results[0].StartLocation.ToNRefactory())));
 					return;
 				}
 				IDocument changedDocument = new TextDocument(document);

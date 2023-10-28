@@ -21,8 +21,8 @@ using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.IO;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop.Project;
 using Microsoft.CSharp;

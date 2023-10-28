@@ -21,7 +21,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using System.Windows.Media;
-using ICSharpCode.NRefactory;
+using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.Core;
 using ICSharpCode.NRefactory.CSharp.Resolver;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
@@ -168,7 +169,7 @@ namespace ICSharpCode.XamlBinding
 			}
 			
 			bool parentAdded = false;
-			var utd = file.GetInnermostTypeDefinition(editor.Caret.Location);
+			var utd = file.GetInnermostTypeDefinition(editor.Caret.Location.ToNRefactory());
 			ITypeDefinition currentTypeDef = null;
 			if (utd != null) {
 				currentTypeDef = utd.Resolve(new SimpleTypeResolveContext(compilation.MainAssembly)).GetDefinition();
@@ -220,7 +221,7 @@ namespace ICSharpCode.XamlBinding
 			compilation = SD.ParserService.GetCompilationForFile(editor.FileName);
 			IUnresolvedFile file = context.ParseInformation.UnresolvedFile;
 			
-			var utd = file.GetInnermostTypeDefinition(editor.Caret.Location);
+			var utd = file.GetInnermostTypeDefinition(editor.Caret.Location.ToNRefactory());
 			ITypeDefinition currentTypeDef = null;
 			if (utd != null) {
 				currentTypeDef = utd.Resolve(new SimpleTypeResolveContext(compilation.MainAssembly)).GetDefinition();

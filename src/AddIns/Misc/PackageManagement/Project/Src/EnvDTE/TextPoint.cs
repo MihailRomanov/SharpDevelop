@@ -17,7 +17,8 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using ICSharpCode.NRefactory;
+using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.TypeSystem;
 
 namespace ICSharpCode.PackageManagement.EnvDTE
@@ -50,12 +51,12 @@ namespace ICSharpCode.PackageManagement.EnvDTE
 		
 		internal static TextPoint CreateStartPoint(CodeModelContext context, DomRegion region)
 		{
-			return new TextPoint(region.FileName, region.Begin, context.DocumentLoader);
+			return new TextPoint(region.FileName, region.Begin.ToAvalonEdit(), context.DocumentLoader);
 		}
 		
 		internal static TextPoint CreateEndPoint(CodeModelContext context, DomRegion region)
 		{
-			return new TextPoint(region.FileName, region.End, context.DocumentLoader);
+			return new TextPoint(region.FileName, region.End.ToAvalonEdit(), context.DocumentLoader);
 		}
 	}
 }

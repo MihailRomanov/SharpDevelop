@@ -22,7 +22,6 @@ using System.Linq;
 
 using System.Threading;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 
 using ICSharpCode.SharpDevelop;

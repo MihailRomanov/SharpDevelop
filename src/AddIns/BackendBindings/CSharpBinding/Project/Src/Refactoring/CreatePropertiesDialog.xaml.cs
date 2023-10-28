@@ -21,10 +21,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Snippets;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.SharpDevelop;
@@ -109,7 +109,7 @@ namespace CSharpBinding.Refactoring
 								// There's a new line before the brace, insert before it!
 								nodeBeforeClassBlock = nodeBeforeClassBlock.PrevSibling;
 							}
-							int insertion = editor.Document.GetOffset(nodeBeforeClassBlock.StartLocation);
+							int insertion = editor.Document.GetOffset(nodeBeforeClassBlock.StartLocation.ToAvalonEdit());
 							
 							AstType interfaceTypeNode = refactoringContext.CreateShortType("System.ComponentModel", "INotifyPropertyChanged", 0);
 							var directBaseTypes = currentClass.DirectBaseTypes.Where(t => t.FullName != "System.Object");

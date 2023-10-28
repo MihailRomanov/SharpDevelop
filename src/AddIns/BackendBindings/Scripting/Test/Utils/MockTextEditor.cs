@@ -18,7 +18,7 @@
 
 using System;
 using System.Windows.Input;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.SharpDevelop.Editor;
 
 namespace ICSharpCode.Scripting.Tests.Utils

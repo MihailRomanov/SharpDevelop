@@ -29,7 +29,6 @@ using System.Xml;
 using System.Xml.Linq;
 
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.SharpDevelop.Dom;
 using Microsoft.Build.Construction;
 using Microsoft.Build.Evaluation;

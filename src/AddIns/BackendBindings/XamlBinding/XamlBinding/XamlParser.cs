@@ -22,9 +22,8 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.Utils;
@@ -68,10 +67,10 @@ namespace ICSharpCode.XamlBinding
 			AXmlDocument document;
 			IncrementalParserState newParserState;
 			if (fileContent.Version is OnDiskTextSourceVersion) {
-				document = parser.Parse(fileContent, cancellationToken);
+				document = parser.Parse(fileContent.ToReadOnlyDocument(), cancellationToken);
 				newParserState = null;
 			} else {
-				document = parser.ParseIncremental(parserState, fileContent, out newParserState, cancellationToken);
+				document = parser.ParseIncremental(parserState, fileContent.ToReadOnlyDocument(), out newParserState, cancellationToken);
 			}
 			parserState = newParserState;
 			XamlUnresolvedFile unresolvedFile = XamlUnresolvedFile.Create(fileName, fileContent, document);

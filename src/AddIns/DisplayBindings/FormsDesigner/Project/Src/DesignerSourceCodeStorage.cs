@@ -22,10 +22,7 @@ using System.IO;
 using System.Text;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.SharpDevelop.Refactoring;
 using ICSharpCode.SharpDevelop.Workbench;
 
 namespace ICSharpCode.FormsDesigner

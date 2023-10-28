@@ -19,20 +19,17 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor.CodeCompletion;
 
 namespace ICSharpCode.SharpDevelop.Editor
 {
 	using ICSharpCode.AvalonEdit;
+	using ICSharpCode.Core;
 	
 	/// <summary>
 	/// Wraps AvalonEdit to provide the ITextEditor interface.

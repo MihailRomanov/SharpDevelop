@@ -20,13 +20,12 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.FormsDesigner;
-using ICSharpCode.NRefactory;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Project;
-using ICSharpCode.SharpDevelop.Refactoring;
 using ICSharpCode.SharpDevelop.Workbench;
 
 namespace ICSharpCode.WixBinding

@@ -375,7 +375,7 @@ namespace ICSharpCode.SharpDevelop.Gui.OptionPanels
 				attribute.Arguments.Add(valueExpression);
 
 				var attributeSection = new AttributeSection(attribute) { AttributeTarget = "assembly" };
-				syntaxTree.AddChild(attributeSection, new NRefactory.Role<AttributeSection>("Member"));
+				syntaxTree.AddChild(attributeSection, new Role<AttributeSection>("Member"));
 			}
 		}
 

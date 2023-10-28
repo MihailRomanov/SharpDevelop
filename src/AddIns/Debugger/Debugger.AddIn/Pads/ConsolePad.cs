@@ -22,9 +22,8 @@ using System.Windows.Input;
 
 using Debugger;
 using Debugger.AddIn;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core.Presentation;
-using ICSharpCode.NRefactory;
-using ICSharpCode.SharpDevelop.Debugging;
 using ICSharpCode.SharpDevelop.Editor.CodeCompletion;
 using Debugger.AddIn.Pads.Controls;
 using ICSharpCode.SharpDevelop.Services;

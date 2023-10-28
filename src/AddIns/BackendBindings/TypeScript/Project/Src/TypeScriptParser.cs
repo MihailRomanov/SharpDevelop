@@ -31,11 +31,8 @@ using System.Collections.Generic;
 using System.Threading;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.SharpDevelop.Editor.Search;
 using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
@@ -134,7 +131,7 @@ namespace ICSharpCode.TypeScriptBinding
 			throw new NotImplementedException();
 		}
 		
-		public ICodeContext ResolveContext(ParseInformation parseInfo, ICSharpCode.NRefactory.TextLocation location, ICSharpCode.NRefactory.TypeSystem.ICompilation compilation, System.Threading.CancellationToken cancellationToken)
+		public ICodeContext ResolveContext(ParseInformation parseInfo, TextLocation location, ICSharpCode.NRefactory.TypeSystem.ICompilation compilation, System.Threading.CancellationToken cancellationToken)
 		{
 			throw new NotImplementedException();
 		}

@@ -24,14 +24,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Resolver;
 using ICSharpCode.NRefactory.CSharp.TypeSystem;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
@@ -62,7 +61,7 @@ namespace CSharpBinding.Parser
 			
 			CSharpParser parser = new CSharpParser(csharpProject != null ? csharpProject.CompilerSettings : null);
 			
-			SyntaxTree cu = parser.Parse(fileContent, fileName);
+			SyntaxTree cu = parser.Parse(fileContent.Text, fileName);
 			cu.Freeze();
 			
 			CSharpUnresolvedFile file = cu.ToTypeSystem();
@@ -96,8 +95,8 @@ namespace CSharpBinding.Parser
 						document = new ReadOnlyDocument(fileContent, fileName);
 					int commentSignLength = comment.CommentType == CommentType.Documentation || comment.CommentType == CommentType.MultiLineDocumentation ? 3 : 2;
 					int commentEndSignLength = comment.CommentType == CommentType.MultiLine || comment.CommentType == CommentType.MultiLineDocumentation ? 2 : 0;
-					int commentStartOffset = document.GetOffset(comment.StartLocation) + commentSignLength;
-					int commentEndOffset = document.GetOffset(comment.EndLocation) - commentEndSignLength;
+					int commentStartOffset = document.GetOffset(comment.StartLocation.ToAvalonEdit()) + commentSignLength;
+					int commentEndOffset = document.GetOffset(comment.EndLocation.ToAvalonEdit()) - commentEndSignLength;
 					int endOffset;
 					int searchOffset = 0;
 					// HACK: workaround for parser bug: uses \n instead of \r\n in comment.Content
@@ -140,7 +139,7 @@ namespace CSharpBinding.Parser
 			var projectContents = compilation.Assemblies.Select(asm => asm.UnresolvedAssembly).OfType<IProjectContent>().ToList();
 			if (projectContents.All(pc => pc.GetFile(unresolvedFile.FileName) != unresolvedFile))
 				unresolvedFile = null;
-			return ResolveAtLocation.Resolve(compilation, unresolvedFile, csParseInfo.SyntaxTree, location, cancellationToken);
+			return ResolveAtLocation.Resolve(compilation, unresolvedFile, csParseInfo.SyntaxTree, location.ToNRefactory(), cancellationToken);
 		}
 
 		public ICodeContext ResolveContext(ParseInformation parseInfo, TextLocation location, ICompilation compilation, CancellationToken cancellationToken)
@@ -154,7 +153,7 @@ namespace CSharpBinding.Parser
 			if (projectContents.All(pc => pc.GetFile(unresolvedFile.FileName) != unresolvedFile))
 				unresolvedFile = null;
 			var syntaxTree = csParseInfo.SyntaxTree;
-			var node = syntaxTree.GetNodeAt(location);
+			var node = syntaxTree.GetNodeAt(location.ToNRefactory());
 			if (node == null)
 				return null; // null result is allowed; the parser service will substitute a dummy context
 			var resolver = new CSharpAstResolver(compilation, syntaxTree, unresolvedFile);
@@ -179,11 +178,11 @@ namespace CSharpBinding.Parser
 						highlighter.BeginHighlighting();
 					}
 					var region = new DomRegion(parseInfo.FileName, node.StartLocation, node.EndLocation);
-					int offset = document.GetOffset(node.StartLocation);
-					int length = document.GetOffset(node.EndLocation) - offset;
-					var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation, node.EndLocation, document, highlighter);
+					int offset = document.GetOffset(node.StartLocation.ToAvalonEdit());
+					int length = document.GetOffset(node.EndLocation.ToAvalonEdit()) - offset;
+					var builder = SearchResultsPad.CreateInlineBuilder(node.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit(), document, highlighter);
 					var defaultTextColor = highlighter != null ? highlighter.DefaultTextColor : null;
-					callback(new SearchResultMatch(parseInfo.FileName, node.StartLocation, node.EndLocation, offset, length, builder, defaultTextColor));
+					callback(new SearchResultMatch(parseInfo.FileName, node.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit(), offset, length, builder, defaultTextColor));
 				}, cancellationToken);
 			
 			if (highlighter != null) {
@@ -215,7 +214,7 @@ namespace CSharpBinding.Parser
 			if (csParseInfo == null)
 				throw new ArgumentException("Parse info does not have SyntaxTree");
 			CSharpAstResolver contextResolver = new CSharpAstResolver(compilation, csParseInfo.SyntaxTree, csParseInfo.UnresolvedFile);
-			var node = csParseInfo.SyntaxTree.GetNodeAt(location);
+			var node = csParseInfo.SyntaxTree.GetNodeAt(location.ToNRefactory());
 			CSharpResolver context;
 			if (node != null)
 				context = contextResolver.GetResolverStateAfter(node, cancellationToken);
@@ -224,7 +223,7 @@ namespace CSharpBinding.Parser
 			CSharpParser parser = new CSharpParser();
 			var expr = parser.ParseExpression(codeSnippet);
 			if (parser.HasErrors)
-				return new ErrorResolveResult(SpecialType.UnknownType, PrintErrorsAsString(parser.Errors), TextLocation.Empty);
+				return new ErrorResolveResult(SpecialType.UnknownType, PrintErrorsAsString(parser.Errors), TextLocation.Empty.ToNRefactory());
 			CSharpAstResolver snippetResolver = new CSharpAstResolver(context, expr);
 			return snippetResolver.Resolve(expr, cancellationToken);
 		}

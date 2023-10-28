@@ -19,12 +19,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.NRefactory.Xml;
+using ICSharpCode.SharpDevelop;
 
 namespace ICSharpCode.XamlBinding
 {
@@ -48,7 +48,7 @@ namespace ICSharpCode.XamlBinding
 			XamlUnresolvedFile file = new XamlUnresolvedFile(fileName);
 			ReadOnlyDocument textDocument = new ReadOnlyDocument(fileContent, fileName);
 			
-			file.errors.AddRange(document.SyntaxErrors.Select(err => new Error(ErrorType.Error, err.Description, textDocument.GetLocation(err.StartOffset))));
+			file.errors.AddRange(document.SyntaxErrors.Select(err => new Error(ErrorType.Error, err.Description, textDocument.GetLocation(err.StartOffset).ToNRefactory())));
 			var visitor = new XamlDocumentVisitor(file, textDocument);
 			visitor.VisitDocument(document);
 			if (visitor.TypeDefinition != null)
@@ -86,7 +86,7 @@ namespace ICSharpCode.XamlBinding
 			get { return errors; }
 		}
 		
-		IUnresolvedTypeDefinition IUnresolvedFile.GetTopLevelTypeDefinition(TextLocation location)
+		IUnresolvedTypeDefinition IUnresolvedFile.GetTopLevelTypeDefinition(ICSharpCode.NRefactory.TextLocation location)
 		{
 			foreach (var td in topLevel) {
 				if (td.Region.IsInside(location))
@@ -99,12 +99,12 @@ namespace ICSharpCode.XamlBinding
 			get { return topLevel.FirstOrDefault(); }
 		}
 		
-		IUnresolvedTypeDefinition IUnresolvedFile.GetInnermostTypeDefinition(TextLocation location)
+		IUnresolvedTypeDefinition IUnresolvedFile.GetInnermostTypeDefinition(ICSharpCode.NRefactory.TextLocation location)
 		{
 			return ((IUnresolvedFile)this).GetTopLevelTypeDefinition(location);
 		}
 		
-		public IUnresolvedMember GetMember(TextLocation location)
+		public IUnresolvedMember GetMember(ICSharpCode.NRefactory.TextLocation location)
 		{
 			var td = ((IUnresolvedFile)this).GetInnermostTypeDefinition(location);
 			if (td != null) {
@@ -164,7 +164,9 @@ namespace ICSharpCode.XamlBinding
 							Kind = TypeKind.Class,
 							UnresolvedFile = file,
 							Accessibility = Accessibility.Public,
-							Region = new DomRegion(file.FileName, textDocument.GetLocation(rootElement.StartOffset), textDocument.GetLocation(rootElement.EndOffset))
+							Region = new DomRegion(file.FileName, 
+							                       textDocument.GetLocation(rootElement.StartOffset).ToNRefactory(), 
+							                       textDocument.GetLocation(rootElement.EndOffset).ToNRefactory())
 						};
 						TypeDefinition.Members.Add(
 							new DefaultUnresolvedMethod(TypeDefinition, "InitializeComponent") {
@@ -215,7 +217,9 @@ namespace ICSharpCode.XamlBinding
 					var field = new DefaultUnresolvedField(TypeDefinition, name);
 					field.Accessibility = Accessibility.Internal;
 					field.ReturnType = CreateTypeReference(element.Namespace, element.LocalName);
-					field.Region = new DomRegion(file.FileName, textDocument.GetLocation(element.StartOffset), textDocument.GetLocation(element.EndOffset));
+					field.Region = new DomRegion(file.FileName, 
+					                             textDocument.GetLocation(element.StartOffset).ToNRefactory(), 
+					                             textDocument.GetLocation(element.EndOffset).ToNRefactory());
 					if (modifier != null)
 						field.Accessibility = ParseAccessibility(modifier);
 					TypeDefinition.Members.Add(field);

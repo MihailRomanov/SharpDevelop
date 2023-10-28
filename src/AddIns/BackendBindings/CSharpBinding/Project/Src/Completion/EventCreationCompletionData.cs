@@ -84,7 +84,7 @@ namespace CSharpBinding.Completion
 				if (parseInfo == null) return;
 				
 				using (var script = refactoringContext.StartScript()) {
-					var node = parseInfo.SyntaxTree.GetNodeAt(loc, n => n is Identifier || n is IdentifierExpression);
+					var node = parseInfo.SyntaxTree.GetNodeAt(loc.ToNRefactory(), n => n is Identifier || n is IdentifierExpression);
 					if (node == null) return;
 					script.InsertWithCursor(this.DisplayText, Script.InsertPosition.Before, decl)
 						.ContinueScript(() => script.Link(decl.NameToken, node).ContinueScript(() => script.Select(throwStatement)));

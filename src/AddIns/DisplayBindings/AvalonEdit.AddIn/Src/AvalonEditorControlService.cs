@@ -18,17 +18,14 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using ICSharpCode.AvalonEdit.AddIn.Options;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.SharpDevelop.Editor.AvalonEdit;
 
 namespace ICSharpCode.AvalonEdit.AddIn
 {
@@ -59,14 +56,15 @@ namespace ICSharpCode.AvalonEdit.AddIn
 			List<IHighlighter> highlighters = new List<IHighlighter>();
 			var textDocument = document as TextDocument;
 			var readOnlyDocument = document as ReadOnlyDocument;
+			if (readOnlyDocument != null) {
+				textDocument = readOnlyDocument.ToTextDocument();
+			}
 			if (textDocument != null) {
 				highlighters.Add(new DocumentHighlighter(textDocument, def));
-			} else if (readOnlyDocument != null) {
-				highlighters.Add(new DocumentHighlighter(readOnlyDocument, def));
-			}
+			}			
 			// add additional highlighters
-			highlighters.AddRange(SD.AddInTree.BuildItems<IHighlighter>(HighlighterDoozer.AddInPath, document, false));
-			var multiHighlighter = new MultiHighlighter(document, highlighters.ToArray());
+			highlighters.AddRange(SD.AddInTree.BuildItems<IHighlighter>(HighlighterDoozer.AddInPath, textDocument, false));
+			var multiHighlighter = new MultiHighlighter(textDocument, highlighters.ToArray());
 			return new CustomizingHighlighter(multiHighlighter, CustomizedHighlightingColor.FetchCustomizations(def.Name));
 		}
 	}

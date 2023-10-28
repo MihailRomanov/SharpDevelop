@@ -20,12 +20,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Completion;
 using ICSharpCode.NRefactory.CSharp.TypeSystem;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
@@ -72,7 +71,7 @@ namespace CSharpBinding.Completion
 			CSharpParser parser = new CSharpParser();
 			parser.GenerateTypeSystemMode = false;
 			
-			SyntaxTree cu = parser.Parse(fileContent, Path.GetRandomFileName() + ".cs");
+			SyntaxTree cu = parser.Parse(fileContent.Text, Path.GetRandomFileName() + ".cs");
 			cu.Freeze();
 			
 			CSharpUnresolvedFile unresolvedFile = cu.ToTypeSystem();
@@ -117,8 +116,8 @@ namespace CSharpBinding.Completion
 			this.ConditionalSymbols = conditionalSymbols;
 			this.Compilation = compilation;
 			this.ProjectContent = projectContent;
-			this.TypeResolveContextAtCaret = unresolvedFile.GetTypeResolveContext(compilation, caretLocation);
-			this.CompletionContextProvider = new DefaultCompletionContextProvider(document, unresolvedFile);
+			this.TypeResolveContextAtCaret = unresolvedFile.GetTypeResolveContext(compilation, caretLocation.ToNRefactory());
+			this.CompletionContextProvider = new DefaultCompletionContextProvider(document.ToNRefactory(), unresolvedFile);
 			this.CompletionContextProvider.ConditionalSymbols.AddRange(conditionalSymbols);
 		}
 	}

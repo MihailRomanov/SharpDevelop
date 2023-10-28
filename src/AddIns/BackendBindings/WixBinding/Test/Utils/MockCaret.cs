@@ -17,7 +17,7 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using ICSharpCode.NRefactory;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.SharpDevelop.Editor;
 
 namespace WixBinding.Tests.Utils

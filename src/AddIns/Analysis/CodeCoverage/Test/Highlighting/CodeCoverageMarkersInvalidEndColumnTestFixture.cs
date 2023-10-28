@@ -20,9 +20,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.CodeCoverage;
-using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Tests.Utils;
 using NUnit.Framework;

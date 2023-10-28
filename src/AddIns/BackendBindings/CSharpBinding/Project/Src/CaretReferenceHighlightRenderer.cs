@@ -24,10 +24,8 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Rendering;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
@@ -241,12 +239,12 @@ namespace CSharpBinding
 			var identifierNode = FindReferences.GetNodeToReplace(node);
 			TextLocation start, end;
 			if (identifierNode != null && !identifierNode.IsNull) {
-				start = identifierNode.StartLocation;
-				end = identifierNode.EndLocation;
+				start = identifierNode.StartLocation.ToAvalonEdit();
+				end = identifierNode.EndLocation.ToAvalonEdit();
 			}
 			else {
-				start = node.StartLocation;
-				end = node.EndLocation;
+				start = node.StartLocation.ToAvalonEdit();
+				end = node.EndLocation.ToAvalonEdit();
 			}
 			currentReferences.Add(new TextSegment {
 				StartOffset = editor.Document.GetOffset(start),

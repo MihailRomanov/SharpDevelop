@@ -38,7 +38,6 @@ using ICSharpCode.AvalonEdit.Search;
 using ICSharpCode.AvalonEdit.Utils;
 using ICSharpCode.Core;
 using ICSharpCode.Core.Presentation;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor.Bookmarks;
 using ICSharpCode.SharpDevelop.Editor;
@@ -382,7 +381,7 @@ namespace ICSharpCode.AvalonEdit.AddIn
 				CaretPositionChanged(this, EventArgs.Empty);
 			
 			if (quickClassBrowser != null) {
-				quickClassBrowser.SelectItemAtCaretPosition(this.ActiveTextEditor.TextArea.Caret.Location);
+				quickClassBrowser.SelectItemAtCaretPosition(this.ActiveTextEditor.TextArea.Caret.Location.ToNRefactory());
 			}
 			
 			NavigationService.Log(this.BuildNavPoint());
@@ -684,7 +683,7 @@ namespace ICSharpCode.AvalonEdit.AddIn
 						this.Children.Add(quickClassBrowser);
 					}
 					quickClassBrowser.Update(parseInfo.UnresolvedFile);
-					quickClassBrowser.SelectItemAtCaretPosition(this.ActiveTextEditor.TextArea.Caret.Location);
+					quickClassBrowser.SelectItemAtCaretPosition(this.ActiveTextEditor.TextArea.Caret.Location.ToNRefactory());
 				}
 			} else {
 				if (quickClassBrowser != null) {

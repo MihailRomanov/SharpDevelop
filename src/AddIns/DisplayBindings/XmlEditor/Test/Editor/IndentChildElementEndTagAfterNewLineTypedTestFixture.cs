@@ -18,9 +18,6 @@
 
 using System;
 using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop.Editor.AvalonEdit;
 using ICSharpCode.XmlEditor;
 using NUnit.Framework;
 using Rhino.Mocks;

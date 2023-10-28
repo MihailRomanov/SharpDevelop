@@ -18,7 +18,7 @@
 
 using System;
 using System.Web.Razor;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.AspNet.Mvc.Completion
 {

@@ -18,18 +18,14 @@
 
 using System.Threading;
 using System.Threading.Tasks;
-using CSharpBinding.Completion;
 using CSharpBinding.Parser;
 using CSharpBinding.Refactoring;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor.CodeCompletion;
 using System;
 using System.Linq;
 using ICSharpCode.SharpDevelop.Editor;
@@ -95,7 +91,7 @@ interface TargetInterface
 			SD.ParserService.Stub(p => p.GetCompilationForFile(textEditor.FileName)).Return(compilation);
 			SD.ParserService.Stub(p => p.Parse(textEditor.FileName, textEditor.Document)).WhenCalled(
 				i => {
-					var syntaxTree = new CSharpParser().Parse(textEditor.Document, textEditor.FileName);
+					var syntaxTree = new CSharpParser().Parse(textEditor.Document.Text, textEditor.FileName);
 					i.ReturnValue = new CSharpFullParseInformation(syntaxTree.ToTypeSystem(), null, syntaxTree);
 				}).Return(parseInfo); // fake Return to make it work
 			SD.Services.AddService(typeof(IFileService), MockRepository.GenerateStrictMock<IFileService>());
@@ -385,8 +381,8 @@ interface TargetInterface
 			int i = textEditor.Document.IndexOf(targetClass, 0, textEditor.Document.TextLength, StringComparison.Ordinal);
 			Assert.Greater(i, -1);
 			TextLocation location = textEditor.Document.GetLocation(i);
-			var member = parseInfo.UnresolvedFile.GetMember(location);
-			var type = parseInfo.UnresolvedFile.GetInnermostTypeDefinition(location);
+			var member = parseInfo.UnresolvedFile.GetMember(location.ToNRefactory());
+			var type = parseInfo.UnresolvedFile.GetInnermostTypeDefinition(location.ToNRefactory());
 			
 			var context = new SimpleTypeResolveContext(compilation.MainAssembly);
 			var rt = type.Resolve(context).GetDefinition();

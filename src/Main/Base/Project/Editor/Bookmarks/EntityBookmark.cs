@@ -19,9 +19,9 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.Core.Presentation;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 
 namespace ICSharpCode.SharpDevelop.Editor.Bookmarks

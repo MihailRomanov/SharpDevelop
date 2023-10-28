@@ -25,8 +25,7 @@ using System.Windows.Media;
 using System.Xml;
 using System.Xml.Linq;
 
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;

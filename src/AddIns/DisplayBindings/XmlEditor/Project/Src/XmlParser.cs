@@ -22,8 +22,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.XmlEditor
 {

@@ -19,16 +19,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using ICSharpCode.NRefactory.Utils;
-using Debugger.AddIn.TreeModel;
-using Debugger.AddIn.Visualizers.Graph.Layout;
 using Debugger.AddIn.Visualizers.Utils;
-using Debugger.MetaData;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Ast;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.SharpDevelop.Dom;
 using ICSharpCode.SharpDevelop.Services;
 
 namespace Debugger.AddIn.Visualizers.Graph

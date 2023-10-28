@@ -23,9 +23,7 @@ using System.Windows.Input;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.PatternMatching;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
@@ -156,7 +154,7 @@ namespace CSharpBinding
 			var selectionStart = editor.Document.GetLocation(editor.SelectionStart);
 			var selectionEnd = editor.Document.GetLocation(editor.SelectionStart + editor.SelectionLength);
 			
-			AstNode currentStatement = parsedCU.GetNodeContaining(selectionStart, selectionEnd);
+			AstNode currentStatement = parsedCU.GetNodeContaining(selectionStart.ToNRefactory(), selectionEnd.ToNRefactory());
 			if (currentStatement == null)
 				return;
 			var interestingNodeTypes = new[] {
@@ -263,10 +261,10 @@ namespace CSharpBinding
 				return;
 			
 			// Swap lines of current and neighbour statements
-			TextLocation movedTextStart = selectedStatements.First().StartLocation;
-			TextLocation movedTextEnd = selectedStatements.Last().EndLocation;
-			TextLocation swappedTextStart = swapSiblings.First().StartLocation;
-			TextLocation swappedTextEnd = swapSiblings.Last().EndLocation;
+			TextLocation movedTextStart = selectedStatements.First().StartLocation.ToAvalonEdit();
+			TextLocation movedTextEnd = selectedStatements.Last().EndLocation.ToAvalonEdit();
+			TextLocation swappedTextStart = swapSiblings.First().StartLocation.ToAvalonEdit();
+			TextLocation swappedTextEnd = swapSiblings.Last().EndLocation.ToAvalonEdit();
 			
 			string currentNodeText = editor.Document.GetText(movedTextStart, movedTextEnd);
 			string swappedNodeText = editor.Document.GetText(swappedTextStart, swappedTextEnd);
@@ -393,7 +391,7 @@ namespace CSharpBinding
 			var selectionStart = editor.Document.GetLocation(editor.SelectionStart);
 			var selectionEnd = editor.Document.GetLocation(editor.SelectionStart + editor.SelectionLength);
 			
-			AstNode currentNode = parsedCU.GetNodeContaining(selectionStart, selectionEnd);
+			AstNode currentNode = parsedCU.GetNodeContaining(selectionStart.ToNRefactory(), selectionEnd.ToNRefactory());
 			if (currentNode == null) return null;
 			if (!IsNodeTypeInteresting(currentNode, interestingNodeTypes)) {
 				// ignore uninteresting nodes in the AST
@@ -403,7 +401,7 @@ namespace CSharpBinding
 			selectedResultNode = currentNode;
 
 			// whole node already selected -> expand selection
-			if (currentNode.StartLocation == selectionStart && currentNode.EndLocation == selectionEnd) {
+			if (currentNode.StartLocation == selectionStart.ToNRefactory() && currentNode.EndLocation == selectionEnd.ToNRefactory()) {
 				
 				bool extendToComments = false;
 				if (IsNodeTypeInteresting(currentNode, interestingNodeTypes)) {
@@ -420,7 +418,7 @@ namespace CSharpBinding
 					var parent = GetInterestingParent(currentNode, interestingNodeTypes);
 					// it can happen that parent region exactly matches child region - in this case we need to advance even to the next parent
 					// bc otherwise the selection would never move
-					while (parent != null && parent.StartLocation == selectionStart && parent.EndLocation == selectionEnd) {
+					while (parent != null && parent.StartLocation == selectionStart.ToNRefactory() && parent.EndLocation == selectionEnd.ToNRefactory()) {
 						parent = GetInterestingParent(parent, interestingNodeTypes);
 					}
 					if (parent == null) {
@@ -438,14 +436,14 @@ namespace CSharpBinding
 					if (false) { // blank line separators - implement later
 						
 					} else {
-						selectionStart = extendedSelectionStart;
-						selectionEnd = extendedLocationEnd;
+						selectionStart = extendedSelectionStart.ToAvalonEdit();
+						selectionEnd = extendedLocationEnd.ToAvalonEdit();
 					}
 				}
 			} else {
 				// select current node
-				selectionStart = currentNode.StartLocation;
-				selectionEnd = currentNode.EndLocation;
+				selectionStart = currentNode.StartLocation.ToAvalonEdit();
+				selectionEnd = currentNode.EndLocation.ToAvalonEdit();
 				selectedResultNode = currentNode;
 			}
 			return new Selection { Start = selectionStart, End = selectionEnd };
@@ -479,7 +477,7 @@ namespace CSharpBinding
 		/// </summary>
 		Selection ExtendSelectionToEndOfLineComments(IDocument document, TextLocation selectionStart, TextLocation selectionEnd, IEnumerable<AstNode> commentsBlankLines)
 		{
-			var lineComment = commentsBlankLines.FirstOrDefault(c => c.StartLocation.Line == selectionEnd.Line && c.StartLocation >= selectionEnd);
+			var lineComment = commentsBlankLines.FirstOrDefault(c => c.StartLocation.Line == selectionEnd.Line && c.StartLocation >= selectionEnd.ToNRefactory());
 			if (lineComment == null) {
 				return null;
 			}
@@ -488,7 +486,7 @@ namespace CSharpBinding
 //				// whole line must be selected before we add the comment
 //				return null;
 //			}
-			int endPos = document.GetOffset(lineComment.EndLocation);
+			int endPos = document.GetOffset(lineComment.EndLocation.ToAvalonEdit());
 			return new Selection { Start = selectionStart, End = document.GetLocation(endPos) };
 		}
 		
@@ -498,16 +496,16 @@ namespace CSharpBinding
 		Selection ExtendSelectionToSeparateComments(IDocument document, TextLocation selectionStart, TextLocation selectionEnd, IEnumerable<AstNode> commentsBlankLines)
 		{
 			var comments = commentsBlankLines.Where(c => (c is Comment) && ((Comment) c).StartsLine).ToList();
-			int commentIndex = comments.FindIndex(c => c.EndLocation <= selectionStart && IsWhitespaceBetween(document, c.EndLocation, selectionStart));
+			int commentIndex = comments.FindIndex(c => c.EndLocation <= selectionStart.ToNRefactory() && IsWhitespaceBetween(document, c.EndLocation.ToAvalonEdit(), selectionStart));
 			if (commentIndex < 0) {
 				return null;
 			}
 			var extendedSelection = new Selection { Start = selectionStart, End = selectionEnd };
 			// start at the selection and keep adding comments upwards as long as they are separated only by whitespace
-			while (commentIndex >= 0 && IsWhitespaceBetween(document, comments[commentIndex].EndLocation, extendedSelection.Start)) {
+			while (commentIndex >= 0 && IsWhitespaceBetween(document, comments[commentIndex].EndLocation.ToAvalonEdit(), extendedSelection.Start)) {
 				var comment = comments[commentIndex];
 				// Include the "//, /*, ///" since they are not included by the parser
-				extendedSelection.Start = ExtendLeft(comment.StartLocation, document, "///", "/*", "//") ;
+				extendedSelection.Start = ExtendLeft(comment.StartLocation.ToAvalonEdit(), document, "///", "/*", "//") ;
 				commentIndex--;
 			}
 			return extendedSelection;
@@ -535,7 +533,7 @@ namespace CSharpBinding
 		
 		bool SelectionContainsBlankLines(TextLocation selectionStart, TextLocation selectionEnd, List<AstNode> blankLines)
 		{
-			return blankLines.Exists(b => b.StartLocation >= selectionStart && b.EndLocation <= selectionEnd);
+			return blankLines.Exists(b => b.StartLocation >= selectionStart.ToNRefactory() && b.EndLocation <= selectionEnd.ToNRefactory());
 		}
 		
 		bool IsWhitespaceBetween(IDocument document, TextLocation startPos, TextLocation endPos)

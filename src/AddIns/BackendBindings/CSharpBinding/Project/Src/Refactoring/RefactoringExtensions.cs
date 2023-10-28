@@ -156,7 +156,7 @@ namespace CSharpBinding.Refactoring
 			else
 				compilation = SD.ParserService.GetCompilationForFile(fileName);
 			var resolver = parseInfo.GetResolver(compilation);
-			return new SDRefactoringContext(editor, resolver, region.Begin);
+			return new SDRefactoringContext(editor, resolver, region.Begin.ToAvalonEdit());
 		}
 	}
 }

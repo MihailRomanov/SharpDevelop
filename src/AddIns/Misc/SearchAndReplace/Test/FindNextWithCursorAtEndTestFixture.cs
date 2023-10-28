@@ -19,10 +19,8 @@
 using System;
 using ICSharpCode.AvalonEdit.Search;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor.Search;
-using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Workbench;
 using NUnit.Framework;
 using Rhino.Mocks;

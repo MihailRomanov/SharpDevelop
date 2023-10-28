@@ -17,9 +17,8 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using ICSharpCode.NRefactory;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.Semantics;
-using ICSharpCode.SharpDevelop.Parser;
 
 namespace ICSharpCode.SharpDevelop.Editor
 {

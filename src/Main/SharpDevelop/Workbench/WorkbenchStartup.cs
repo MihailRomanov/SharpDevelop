@@ -206,13 +206,13 @@ namespace ICSharpCode.SharpDevelop.Workbench
 			ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("C#");
 			// warm up the C# parser
 			var parser = new ICSharpCode.NRefactory.CSharp.CSharpParser();
-			var cu = parser.Parse(new ICSharpCode.AvalonEdit.Document.TextDocument(@"using System;
+			var cu = parser.Parse(@"using System;
 class Test {
 	int SomeMethod(string a);
 	void Main(string[] b) {
 	   SomeMethod(b[0 + 1]);
 	}
-}"), "test.cs");
+}", "test.cs");
 			// warm up the type system
 			var unresolvedFile = cu.ToTypeSystem();
 			var pc = new ICSharpCode.NRefactory.CSharp.CSharpProjectContent().AddOrUpdateFiles(unresolvedFile);

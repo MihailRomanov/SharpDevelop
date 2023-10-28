@@ -36,7 +36,7 @@ namespace CSharpBinding.Refactoring
 		public override async Task<bool> IsAvailableAsync(EditorRefactoringContext context, System.Threading.CancellationToken cancellationToken)
 		{
 			SyntaxTree st = await context.GetSyntaxTreeAsync().ConfigureAwait(false);
-			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 			if (identifier == null)
 				return false;
 			if (identifier.Name.Equals(Path.GetFileNameWithoutExtension(context.FileName), StringComparison.OrdinalIgnoreCase))
@@ -54,7 +54,7 @@ namespace CSharpBinding.Refactoring
 			CSharpFullParseInformation parseInformation = context.GetParseInformation() as CSharpFullParseInformation;
 			if (parseInformation != null) {
 				SyntaxTree st = parseInformation.SyntaxTree;
-				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 				if (identifier == null)
 					return;
 				
@@ -79,7 +79,7 @@ namespace CSharpBinding.Refactoring
 			CSharpFullParseInformation parseInformation = context.GetParseInformation() as CSharpFullParseInformation;
 			if (parseInformation != null) {
 				SyntaxTree st = parseInformation.SyntaxTree;
-				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 				if (identifier == null)
 					return DisplayName;
 				

@@ -18,8 +18,8 @@
 
 using System;
 using System.Collections.Generic;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.Core;
 
 namespace ICSharpCode.SharpDevelop.Editor
 {

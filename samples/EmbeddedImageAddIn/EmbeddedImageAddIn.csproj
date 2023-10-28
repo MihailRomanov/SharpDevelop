@@ -38,8 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>..\..\bin\ICSharpCode.AvalonEdit.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.Core">
       <HintPath>..\..\bin\ICSharpCode.Core.dll</HintPath>
@@ -71,6 +70,7 @@
     <None Include="EmbeddedImageAddIn.addin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AssemblyInfo.cs" />

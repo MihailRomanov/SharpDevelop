@@ -37,8 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>..\..\..\bin\ICSharpCode.AvalonEdit.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.Core">
       <HintPath>..\..\..\bin\ICSharpCode.Core.dll</HintPath>
@@ -107,6 +106,7 @@
     <Compile Include="Src\TaskCollection.cs" />
     <Compile Include="Src\NAntRunnerSingleton.cs" />
     <Compile Include="Src\Commands\StopNAntCommand.cs" />
+    <None Include="packages.config" />
     <None Include="Resources\BitmapResources.resources">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

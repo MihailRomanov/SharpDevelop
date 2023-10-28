@@ -26,11 +26,7 @@ using System.Threading.Tasks;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
@@ -47,7 +43,7 @@ namespace CSharpBinding.Refactoring
 		public override async Task<bool> IsAvailableAsync(EditorRefactoringContext context, CancellationToken cancellationToken)
 		{
 			SyntaxTree st = await context.GetSyntaxTreeAsync().ConfigureAwait(false);
-			Identifier identifier = (Identifier)st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+			Identifier identifier = (Identifier)st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 			if (identifier == null) return false;
 			if (MakeValidFileName(identifier.Name).Equals(Path.GetFileName(context.FileName), StringComparison.OrdinalIgnoreCase))
 				return false;
@@ -71,7 +67,7 @@ namespace CSharpBinding.Refactoring
 			CSharpFullParseInformation parseInformation = context.GetParseInformation() as CSharpFullParseInformation;
 			if (parseInformation != null) {
 				SyntaxTree st = parseInformation.SyntaxTree;
-				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 				if (identifier == null)
 					return DisplayName;
 				
@@ -87,7 +83,7 @@ namespace CSharpBinding.Refactoring
 			SyntaxTree st = await context.GetSyntaxTreeAsync().ConfigureAwait(false);
 			ICompilation compilation = await context.GetCompilationAsync().ConfigureAwait(false);
 			CSharpFullParseInformation info = await context.GetParseInformationAsync().ConfigureAwait(false) as CSharpFullParseInformation;
-			EntityDeclaration node = (EntityDeclaration)st.GetNodeAt(context.CaretLocation, n => n is TypeDeclaration || n is DelegateDeclaration);
+			EntityDeclaration node = (EntityDeclaration)st.GetNodeAt(context.CaretLocation.ToNRefactory(), n => n is TypeDeclaration || n is DelegateDeclaration);
 			IDocument document = context.Editor.Document;
 			
 			FileName newFileName = FileName.Create(Path.Combine(Path.GetDirectoryName(context.FileName), MakeValidFileName(node.Name)));
@@ -138,8 +134,8 @@ namespace CSharpBinding.Refactoring
 		void RemoveExtractedNode(EditorRefactoringContext context, EntityDeclaration node)
 		{
 			IDocument document = context.Editor.Document;
-			int start = document.GetOffset(node.StartLocation);
-			int end   = document.GetOffset(node.EndLocation);
+			int start = document.GetOffset(node.StartLocation.ToAvalonEdit());
+			int end   = document.GetOffset(node.EndLocation.ToAvalonEdit());
 			document.Remove(start, end - start);
 		}
 		
@@ -150,7 +146,7 @@ namespace CSharpBinding.Refactoring
 				.LastOrDefault();
 			if (lastHeadNode == null)
 				return "";
-			return document.GetText(0, document.GetOffset(lastHeadNode.EndLocation));
+			return document.GetText(0, document.GetOffset(lastHeadNode.EndLocation.ToAvalonEdit()));
 		}
 		
 		string CopyFileEnd(IDocument document, CSharpFullParseInformation info)
@@ -160,7 +156,7 @@ namespace CSharpBinding.Refactoring
 				.LastOrDefault();
 			if (firstFootNode == null)
 				return "";
-			int offset = document.GetOffset(firstFootNode.StartLocation);
+			int offset = document.GetOffset(firstFootNode.StartLocation.ToAvalonEdit());
 			return document.GetText(offset, document.TextLength - offset);
 		}
 		

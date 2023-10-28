@@ -20,21 +20,17 @@ using System;
 using System.ComponentModel.Design;
 using System.Threading;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.Utils;
 using CSharpBinding.FormattingStrategy;
 using CSharpBinding.Parser;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.SharpDevelop.Parser;
-using ICSharpCode.SharpDevelop.Refactoring;
 
 namespace CSharpBinding.Refactoring
 {
@@ -130,7 +126,7 @@ namespace CSharpBinding.Refactoring
 			else {
 				var textEditorOptions = this.TextEditorOptions;
 				formattingOptions.OptionsContainer.CustomizeEditorOptions(textEditorOptions);
-				return new DocumentScript(document, formattingOptions.OptionsContainer.GetEffectiveOptions(), textEditorOptions);
+				return new DocumentScript(document.ToNRefactory(), formattingOptions.OptionsContainer.GetEffectiveOptions(), textEditorOptions);
 			}
 		}
 		
@@ -149,15 +145,15 @@ namespace CSharpBinding.Refactoring
 			}
 		}
 		
-		public override TextLocation Location {
-			get { return location; }
+		public override ICSharpCode.NRefactory.TextLocation Location {
+			get { return location.ToNRefactory(); }
 		}
 		
-		public override TextLocation SelectionStart {
+		public override ICSharpCode.NRefactory.TextLocation SelectionStart {
 			get { return GetLocation(selectionStart); }
 		}
 		
-		public override TextLocation SelectionEnd {
+		public override ICSharpCode.NRefactory.TextLocation SelectionEnd {
 			get {
 				return GetLocation(selectionStart + selectionLength);
 			}
@@ -186,28 +182,28 @@ namespace CSharpBinding.Refactoring
 			return textSource.GetText(offset, length);
 		}
 		
-		public override string GetText(ISegment segment)
+		public override string GetText(ICSharpCode.NRefactory.Editor.ISegment segment)
 		{
-			return textSource.GetText(segment);
+			return textSource.GetText(segment.Offset, segment.Length);
 		}
 		
 		public ITextSourceVersion Version {
 			get { return textSource.Version; }
 		}
 		
-		public override IDocumentLine GetLineByOffset(int offset)
+		public override ICSharpCode.NRefactory.Editor.IDocumentLine GetLineByOffset(int offset)
 		{
-			return Document.GetLineByOffset(offset);
+			return Document.ToNRefactory().GetLineByOffset(offset);
 		}
 		
-		public override int GetOffset(TextLocation location)
+		public override int GetOffset(ICSharpCode.NRefactory.TextLocation location)
 		{
-			return Document.GetOffset(location);
+			return Document.GetOffset(location.ToAvalonEdit());
 		}
 		
-		public override TextLocation GetLocation(int offset)
+		public override ICSharpCode.NRefactory.TextLocation GetLocation(int offset)
 		{
-			return Document.GetLocation(offset);
+			return Document.GetLocation(offset).ToNRefactory();
 		}
 		
 		public override AstType CreateShortType(IType fullType)
