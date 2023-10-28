@@ -24,11 +24,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Interop;
 using ICSharpCode.Data.Core.Interfaces;
 using ICSharpCode.Data.Core.UI.Windows;
-using ICSharpCode.SharpDevelop.Gui;
 using System.Windows.Data;
 
 #endregion

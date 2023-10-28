@@ -58,27 +58,13 @@
     <StartProgram>..\..\..\..\bin\SharpDevelop.exe</StartProgram>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GraphSharp">
-      <HintPath>..\..\..\Libraries\GraphSharp\GraphSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="GraphSharp.Controls">
-      <HintPath>..\..\..\Libraries\GraphSharp\GraphSharp.Controls.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory.CSharp">
       <HintPath>..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.CSharp.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.NRefactory.Xml">
-      <HintPath>..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.Xml.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mono.Cecil">
-      <HintPath>..\..\..\..\packages\Mono.Cecil.0.9.5.4\lib\net40\Mono.Cecil.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
@@ -88,24 +74,15 @@
     <Reference Include="PresentationFramework.Aero">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="QuickGraph">
-      <HintPath>..\..\..\Libraries\GraphSharp\QuickGraph.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsFormsIntegration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
   </ItemGroup>
   <ItemGroup>

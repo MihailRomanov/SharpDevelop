@@ -19,17 +19,14 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 
 using HexEditor.Util;
 using ICSharpCode.Core;
-using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.WinForms;
 using ICSharpCode.SharpDevelop.Workbench;
 
