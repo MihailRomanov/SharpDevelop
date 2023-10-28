@@ -26,8 +26,6 @@ using System.Windows.Media;
 using ICSharpCode.AvalonEdit.AddIn.Options;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.NRefactory.Xml;
-using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
 
 namespace ICSharpCode.AvalonEdit.AddIn.XmlDoc

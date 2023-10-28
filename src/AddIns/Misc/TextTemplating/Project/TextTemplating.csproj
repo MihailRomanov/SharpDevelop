@@ -42,9 +42,6 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>..\..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.TextTemplating">
       <HintPath>lib\Mono.TextTemplating.dll</HintPath>
     </Reference>

@@ -19,7 +19,6 @@
 using System;
 using System.Drawing;
 using WPF = System.Windows.Media;
-using System.Xml;
 
 using ICSharpCode.Core;
 

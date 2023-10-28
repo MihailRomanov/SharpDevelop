@@ -17,14 +17,8 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.IO.Pipes;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
-using System.Threading;
 
 namespace ICSharpCode.SharpDevelop.Interprocess
 {

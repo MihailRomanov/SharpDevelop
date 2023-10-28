@@ -18,10 +18,6 @@
 
 using System;
 using System.IO;
-using System.Text;
-
-using ICSharpCode.SharpDevelop;
-using ICSharpCode.UnitTesting;
 
 namespace ICSharpCode.Scripting
 {
