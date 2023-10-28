@@ -27,11 +27,9 @@
 //
 
 using System;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.SharpDevelop.Dom;
-using ICSharpCode.SharpDevelop.Editor;
 
 namespace ICSharpCode.TypeScriptBinding.Hosting
 {
@@ -83,10 +81,10 @@ namespace ICSharpCode.TypeScriptBinding.Hosting
 			int startOffset = GetOpeningCurlyBraceOffsetForRegion(document);
 			TextLocation  start = document.GetLocation(startOffset);
 			TextLocation  end = document.GetLocation(limChar);
-			return new DomRegion(start, end);
+			return new DomRegion(start.ToNRefactory(), end.ToNRefactory());
 		}
 		
-		int GetOpeningCurlyBraceOffsetForRegion(IDocument document)
+		int GetOpeningCurlyBraceOffsetForRegion(ITextSource document)
 		{
 			int offset = minChar;
 			while (offset < limChar) {

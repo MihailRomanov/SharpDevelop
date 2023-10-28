@@ -19,11 +19,7 @@
 using System;
 using System.Diagnostics;
 using System.Windows.Documents;
-using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.AvalonEdit.Utils;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop.Editor.AvalonEdit;
 
 namespace ICSharpCode.SharpDevelop.Editor
 {
@@ -43,16 +39,7 @@ namespace ICSharpCode.SharpDevelop.Editor
 		{
 			return new TextDocument(buffer);
 		}
-		
-		/// <summary>
-		/// Creates a new read-only document from the specified text buffer.
-		/// </summary>
-		[Obsolete("Use the ReadOnlyDocument constructor instead")]
-		public static IDocument LoadReadOnlyDocumentFromBuffer(ITextSource buffer)
-		{
-			return new ReadOnlyDocument(buffer);
-		}
-		
+			
 		public static void ClearSelection(this ITextEditor editor)
 		{
 			editor.Select(editor.Document.GetOffset(editor.Caret.Location), 0);

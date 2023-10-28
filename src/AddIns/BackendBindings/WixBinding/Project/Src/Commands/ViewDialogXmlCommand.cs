@@ -20,8 +20,8 @@ using System;
 using System.IO;
 using System.Xml;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.SharpDevelop;
 
 namespace ICSharpCode.WixBinding

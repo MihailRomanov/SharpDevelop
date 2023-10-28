@@ -66,6 +66,9 @@ namespace Debugger.Tests
 		[OneTimeSetUp]
 		public virtual void TestFixtureSetUp()
 		{
+			var testDirectory = GetTestDirectoryPath();
+			if (Directory.Exists(testDirectory))
+				Directory.Delete(testDirectory, true);
 			debugger = new NDebugger();
 			debugger.MTA2STA.CallMethod = CallMethod.Manual;
 		}
@@ -139,6 +142,11 @@ namespace Debugger.Tests
 		public virtual void TearDown()
 		{
 			
+		}
+		
+		string GetTestDirectoryPath()
+		{
+			return Path.Combine(Path.GetTempPath(), "SharpDevelop5.2", "DebuggerTestsX86");
 		}
 		
 		protected void EndTest(bool hasXml = true)
@@ -490,9 +498,7 @@ namespace Debugger.Tests
 			
 			string md5 = ToHexadecimal(new MD5CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(code)));
 			
-			string path = Path.GetTempPath();
-			path = Path.Combine(path, "SharpDevelop4.0");
-			path = Path.Combine(path, "DebuggerTestsX86");
+			string path = GetTestDirectoryPath();
 			path = Path.Combine(path, testName + "." + md5);
 			Directory.CreateDirectory(path);
 			

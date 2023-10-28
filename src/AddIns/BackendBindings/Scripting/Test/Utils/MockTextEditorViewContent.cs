@@ -18,9 +18,7 @@
 
 using System;
 using ICSharpCode.AvalonEdit;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.SharpDevelop.Workbench;
 
 namespace ICSharpCode.Scripting.Tests.Utils
 {

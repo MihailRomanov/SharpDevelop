@@ -24,13 +24,10 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using CSharpBinding.Parser;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Editor.Search;
@@ -180,7 +177,7 @@ namespace CSharpBinding.Refactoring
 						highlighter = SD.EditorControlService.CreateHighlighter(document);
 						highlighter.BeginHighlighting();
 					}
-					results.Add(SearchResultMatch.Create(document, issue.Start, issue.End, highlighter));
+					results.Add(SearchResultMatch.Create(document, issue.Start.ToAvalonEdit(), issue.End.ToAvalonEdit(), highlighter));
 				}
 			}
 			if (highlighter != null) {
@@ -253,7 +250,7 @@ namespace CSharpBinding.Refactoring
 			if (allIssues.Count > 0) {
 				using (var highlighter = SD.EditorControlService.CreateHighlighter(document)) {
 					highlighter.BeginHighlighting();
-					return allIssues.Select(issue => SearchResultMatch.Create(document, issue.Start, issue.End, highlighter)).ToList();
+					return allIssues.Select(issue => SearchResultMatch.Create(document, issue.Start.ToAvalonEdit(), issue.End.ToAvalonEdit(), highlighter)).ToList();
 				}
 			} else {
 				return Enumerable.Empty<SearchResultMatch>();

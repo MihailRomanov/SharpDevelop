@@ -18,10 +18,7 @@
 
 using System;
 using System.Collections.Generic;
-using ICSharpCode.AvalonEdit.Folding;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.XmlEditor
 {

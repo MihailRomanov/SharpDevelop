@@ -25,7 +25,6 @@ using System.Xml;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
@@ -112,8 +111,8 @@ namespace ICSharpCode.XamlBinding
 				var result = resolver.ResolveAtLocation(document.GetLocation(offset + entity.Name.Length / 2 + 1), cancellationToken);
 				int length = entity.Name.Length;
 				if ((result is TypeResolveResult && ((TypeResolveResult)result).Type.Equals(entity)) || (result is MemberResolveResult && ((MemberResolveResult)result).Member.Equals(entity))) {
-					var region = new DomRegion(fileName, document.GetLocation(offset), document.GetLocation(offset + length));
-					var builder = SearchResultsPad.CreateInlineBuilder(region.Begin, region.End, document, highlighter);
+					var region = new DomRegion(fileName, document.GetLocation(offset).ToNRefactory(), document.GetLocation(offset + length).ToNRefactory());
+					var builder = SearchResultsPad.CreateInlineBuilder(region.Begin.ToAvalonEdit(), region.End.ToAvalonEdit(), document, highlighter);
 					results.Add(new SearchResultMatch(fileName, document.GetLocation(offset), document.GetLocation(offset + length), offset, length, builder, highlighter.DefaultTextColor));
 				}
 				offset = textSource.IndexOf(entity.Name, offset + length, textSource.TextLength - offset - length, StringComparison.OrdinalIgnoreCase);
@@ -175,8 +174,8 @@ namespace ICSharpCode.XamlBinding
 				var result = resolver.ResolveAtLocation(document.GetLocation(offset + entity.Name.Length / 2 + 1), cancellationToken);
 				int length = entity.Name.Length;
 				if ((result is TypeResolveResult && ((TypeResolveResult)result).Type.Equals(entity)) || (result is MemberResolveResult && ((MemberResolveResult)result).Member.Equals(entity))) {
-					var region = new DomRegion(fileName, document.GetLocation(offset), document.GetLocation(offset + length));
-					var builder = SearchResultsPad.CreateInlineBuilder(region.Begin, region.End, document, highlighter);
+					var region = new DomRegion(fileName, document.GetLocation(offset).ToNRefactory(), document.GetLocation(offset + length).ToNRefactory());
+					var builder = SearchResultsPad.CreateInlineBuilder(region.Begin.ToAvalonEdit(), region.End.ToAvalonEdit(), document, highlighter);
 					results.Add(new RenameResultMatch(fileName, document.GetLocation(offset), document.GetLocation(offset + length), offset, length, newCode, builder, highlighter.DefaultTextColor));
 				}
 				offset = textSource.IndexOf(entity.Name, offset + length, textSource.TextLength - offset - length, StringComparison.OrdinalIgnoreCase);
@@ -187,7 +186,7 @@ namespace ICSharpCode.XamlBinding
 			if (results.Count > 0) {
 				if (!isNameValid) {
 					errorCallback(new Error(ErrorType.Error, string.Format("The name '{0}' is not valid in the current context!", args.NewName),
-					                        new DomRegion(fileName, results[0].StartLocation)));
+					                        new DomRegion(fileName, results[0].StartLocation.ToNRefactory())));
 					return;
 				}
 				IDocument changedDocument = new TextDocument(document);

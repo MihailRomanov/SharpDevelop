@@ -18,10 +18,7 @@
 
 using System;
 using System.IO;
-using HexEditor.Util;
 using ICSharpCode.Core;
-using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Gui;
 using ICSharpCode.SharpDevelop.Workbench;
 
 namespace HexEditor.View

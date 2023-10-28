@@ -20,9 +20,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Input;
 using System.Windows.Media;
-
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.SharpDevelop.Editor.Bookmarks
 {

@@ -19,14 +19,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
@@ -66,7 +64,7 @@ namespace ICSharpCode.ILSpyAddIn
 			var decompiledParseInfo = parseInfo as ILSpyFullParseInformation;
 			if (decompiledParseInfo == null)
 				throw new ArgumentException("ParseInfo does not have SyntaxTree");
-			return ResolveAtLocation.Resolve(compilation, null, decompiledParseInfo.SyntaxTree, location, cancellationToken);
+			return ResolveAtLocation.Resolve(compilation, null, decompiledParseInfo.SyntaxTree, location.ToNRefactory(), cancellationToken);
 		}
 		
 		public ICodeContext ResolveContext(ParseInformation parseInfo, TextLocation location, ICompilation compilation, CancellationToken cancellationToken)
@@ -75,7 +73,7 @@ namespace ICSharpCode.ILSpyAddIn
 			if (decompiledParseInfo == null)
 				throw new ArgumentException("ParseInfo does not have SyntaxTree");
 			var syntaxTree = decompiledParseInfo.SyntaxTree;
-			var node = syntaxTree.GetNodeAt(location);
+			var node = syntaxTree.GetNodeAt(location.ToNRefactory());
 			if (node == null)
 				return null; // null result is allowed; the parser service will substitute a dummy context
 			var resolver = new CSharpAstResolver(compilation, syntaxTree, null);
@@ -88,7 +86,7 @@ namespace ICSharpCode.ILSpyAddIn
 			if (decompiledParseInfo == null)
 				throw new ArgumentException("ParseInfo does not have SyntaxTree");
 			CSharpAstResolver contextResolver = new CSharpAstResolver(compilation, decompiledParseInfo.SyntaxTree, null);
-			var node = decompiledParseInfo.SyntaxTree.GetNodeAt(location);
+			var node = decompiledParseInfo.SyntaxTree.GetNodeAt(location.ToNRefactory());
 			CSharpResolver context;
 			if (node != null)
 				context = contextResolver.GetResolverStateAfter(node, cancellationToken);
@@ -97,7 +95,7 @@ namespace ICSharpCode.ILSpyAddIn
 			CSharpParser parser = new CSharpParser();
 			var expr = parser.ParseExpression(codeSnippet);
 			if (parser.HasErrors)
-				return new ErrorResolveResult(SpecialType.UnknownType, PrintErrorsAsString(parser.Errors), TextLocation.Empty);
+				return new ErrorResolveResult(SpecialType.UnknownType, PrintErrorsAsString(parser.Errors), TextLocation.Empty.ToNRefactory());
 			CSharpAstResolver snippetResolver = new CSharpAstResolver(context, expr);
 			return snippetResolver.Resolve(expr, cancellationToken);
 		}

@@ -19,8 +19,8 @@
 using System;
 using System.Linq;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Snippets;
-using ICSharpCode.NRefactory.Editor;
 using CSharpBinding.Refactoring;
 using ICSharpCode.SharpDevelop.Editor;
 

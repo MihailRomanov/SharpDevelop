@@ -19,14 +19,13 @@
 using System;
 using System.Linq;
 using System.Threading;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Parser;
 using ICSharpCode.SharpDevelop.Project;
 using ICSharpCode.SharpDevelop.Workbench;
-using ICSharpCode.XmlEditor;
 using NUnit.Framework;
 using System.IO;
 using Rhino.Mocks;

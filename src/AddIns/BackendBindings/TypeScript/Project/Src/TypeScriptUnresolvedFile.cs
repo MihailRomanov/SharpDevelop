@@ -22,8 +22,6 @@ using System.Linq;
 
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.TypeScriptBinding.Hosting;
@@ -60,17 +58,17 @@ namespace ICSharpCode.TypeScriptBinding
 			get { return errors; }
 		}
 		
-		public IUnresolvedTypeDefinition GetTopLevelTypeDefinition(TextLocation location)
+		public IUnresolvedTypeDefinition GetTopLevelTypeDefinition(ICSharpCode.NRefactory.TextLocation location)
 		{
 			return null;
 		}
 		
-		public IUnresolvedTypeDefinition GetInnermostTypeDefinition(TextLocation location)
+		public IUnresolvedTypeDefinition GetInnermostTypeDefinition(ICSharpCode.NRefactory.TextLocation location)
 		{
 			return null;
 		}
 		
-		public IUnresolvedMember GetMember(TextLocation location)
+		public IUnresolvedMember GetMember(ICSharpCode.NRefactory.TextLocation location)
 		{
 			return null;
 		}

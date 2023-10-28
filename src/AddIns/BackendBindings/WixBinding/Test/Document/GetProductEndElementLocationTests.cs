@@ -16,14 +16,10 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 // DEALINGS IN THE SOFTWARE.
 
-using ICSharpCode.NRefactory;
-using ICSharpCode.SharpDevelop.Dom;
-using ICSharpCode.SharpDevelop.Gui;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.WixBinding;
 using NUnit.Framework;
 using System;
-using System.IO;
-using System.Xml;
 
 namespace WixBinding.Tests.Document
 {

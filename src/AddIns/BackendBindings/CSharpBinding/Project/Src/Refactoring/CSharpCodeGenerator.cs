@@ -17,21 +17,12 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Windows.Media.Animation;
-using CSharpBinding.Parser;
-using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.Core.Presentation;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.CSharp.TypeSystem;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Dom;
@@ -80,7 +71,7 @@ namespace CSharpBinding.Refactoring
 			var view = SD.FileService.OpenFile(new FileName(match.Region.FileName), jumpTo);
 			var editor = view.GetRequiredService<ITextEditor>();
 			var last = match.Members.LastOrDefault() ?? (IUnresolvedEntity)match;
-			editor.Caret.Location = last.BodyRegion.End;
+			editor.Caret.Location = last.BodyRegion.End.ToAvalonEdit();
 			var context = SDRefactoringContext.Create(editor, CancellationToken.None);
 			
 			var node = context.RootNode.GetNodeAt<EntityDeclaration>(last.Region.Begin);
@@ -135,7 +126,7 @@ namespace CSharpBinding.Refactoring
 		{
 			var view = SD.FileService.OpenFile(new FileName(region.FileName), false);
 			var editor = view.GetRequiredService<ITextEditor>();
-			var context = SDRefactoringContext.Create(editor.FileName, editor.Document, region.Begin, CancellationToken.None);
+			var context = SDRefactoringContext.Create(editor.FileName, editor.Document, region.Begin.ToAvalonEdit(), CancellationToken.None);
 			var node = context.RootNode.GetNodeAt<EntityDeclaration>(region.Begin);
 			var resolver = context.GetResolverStateBefore(node);
 			var builder = new TypeSystemAstBuilder(resolver);

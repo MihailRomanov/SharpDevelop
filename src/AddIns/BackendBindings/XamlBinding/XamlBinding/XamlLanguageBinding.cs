@@ -91,8 +91,8 @@ namespace ICSharpCode.XamlBinding
 			if (markerService == null) return;
 			markerService.RemoveAll(m => m.Tag is Error);
 			foreach (Error error in e.NewUnresolvedFile.Errors) {
-				var offset = textView.Document.GetOffset(error.Region.Begin);
-				var endOffset = textView.Document.GetOffset(error.Region.End);
+				var offset = textView.Document.GetOffset(error.Region.Begin.ToAvalonEdit());
+				var endOffset = textView.Document.GetOffset(error.Region.End.ToAvalonEdit());
 				int length = endOffset - offset;
 				
 				if (length < 2) {

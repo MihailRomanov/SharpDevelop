@@ -22,7 +22,6 @@ using System.IO;
 using System.Text;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor;
 
 namespace CSharpBinding.Completion

@@ -79,7 +79,7 @@ class DerivedClass : BaseClass {
 			SD.ParserService.Stub(p => p.GetCompilationForFile(textEditor.FileName)).Return(compilation);
 			SD.ParserService.Stub(p => p.Parse(textEditor.FileName, textEditor.Document)).WhenCalled(
 				i => {
-					var syntaxTree = new CSharpParser().Parse(textEditor.Document, textEditor.FileName);
+					var syntaxTree = new CSharpParser().Parse(textEditor.Document.Text, textEditor.FileName);
 					i.ReturnValue = new CSharpFullParseInformation(syntaxTree.ToTypeSystem(), null, syntaxTree);
 				});
 			CSharpCompletionBinding completion = new CSharpCompletionBinding();

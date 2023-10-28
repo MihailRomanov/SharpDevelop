@@ -17,8 +17,8 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop.Editor;
 
@@ -31,7 +31,7 @@ namespace CSharpBinding.FormattingStrategy
 		/// </summary>
 		public static void Format(ITextEditor editor, int offset, int length, CSharpFormattingOptionsContainer optionsContainer)
 		{
-			SyntaxTree syntaxTree = SyntaxTree.Parse(editor.Document);
+			SyntaxTree syntaxTree = SyntaxTree.Parse(editor.Document.Text);
 			if (syntaxTree.Errors.Count > 0) {
 				// Don't format files containing syntax errors!
 				return;
@@ -40,8 +40,8 @@ namespace CSharpBinding.FormattingStrategy
 			TextEditorOptions editorOptions = editor.ToEditorOptions();
 			optionsContainer.CustomizeEditorOptions(editorOptions);
 			var formatter = new CSharpFormatter(optionsContainer.GetEffectiveOptions(), editorOptions);
-			formatter.AddFormattingRegion(new DomRegion(editor.Document.GetLocation(offset), editor.Document.GetLocation(offset + length)));
-			var changes = formatter.AnalyzeFormatting(editor.Document, syntaxTree);
+			formatter.AddFormattingRegion(new DomRegion(editor.Document.GetLocation(offset).ToNRefactory(), editor.Document.GetLocation(offset + length).ToNRefactory()));
+			var changes = formatter.AnalyzeFormatting(editor.Document.ToNRefactory(), syntaxTree);
 			changes.ApplyChanges(offset, length);
 		}
 	}

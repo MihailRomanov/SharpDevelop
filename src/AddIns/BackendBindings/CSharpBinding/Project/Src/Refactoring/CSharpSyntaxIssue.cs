@@ -19,11 +19,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Refactoring;
 using ICSharpCode.NRefactory.TypeSystem;
 
@@ -64,7 +63,7 @@ namespace CSharpBinding.Refactoring
 		CodeIssue CreateCodeIssue(Error error, SDRefactoringContext context)
 		{
 			IDocument document = context.Document;
-			TextLocation begin = error.Region.Begin;
+			var begin = error.Region.Begin;
 			if (begin.Line <= 0 || begin.Line > document.LineCount)
 				return null;
 			
@@ -84,7 +83,7 @@ namespace CSharpBinding.Refactoring
 			
 			TextLocation start = document.GetLocation(offset);
 			TextLocation end = document.GetLocation(offset + length);
-			return new CodeIssue(start, end, error.Message);
+			return new CodeIssue(start.ToNRefactory(), end.ToNRefactory(), error.Message);
 		}
 	}
 }

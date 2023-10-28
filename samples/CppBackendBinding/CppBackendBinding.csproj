@@ -41,8 +41,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
     <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>..\..\bin\ICSharpCode.AvalonEdit.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.Core">
       <HintPath>..\..\bin\ICSharpCode.Core.dll</HintPath>
@@ -76,5 +75,6 @@
     <Compile Include="CppProject.cs" />
     <Compile Include="FileGroup.cs" />
     <Compile Include="FileItem.cs" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

@@ -18,13 +18,8 @@
 
 using System;
 using System.Linq;
-using System.Windows;
 using System.Windows.Threading;
 using Debugger.AddIn.TreeModel;
-using ICSharpCode.NRefactory;
-using ICSharpCode.SharpDevelop.Debugging;
-using ICSharpCode.SharpDevelop.Gui.Pads;
-using ICSharpCode.SharpDevelop.Project;
 using ICSharpCode.SharpDevelop.Services;
 using ICSharpCode.TreeView;
 

@@ -21,9 +21,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Editor;
-using ICSharpCode.SharpDevelop.Editor.AvalonEdit;
 
 namespace ICSharpCode.SharpDevelop.Tests.Utils
 {

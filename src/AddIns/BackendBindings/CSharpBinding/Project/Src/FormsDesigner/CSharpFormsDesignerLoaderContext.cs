@@ -17,12 +17,11 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.FormsDesigner;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor;
 using CSharpBinding.Parser;
 
 namespace CSharpBinding.FormsDesigner

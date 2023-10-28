@@ -27,7 +27,6 @@ using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Rendering;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Widgets.MyersDiff;
@@ -245,7 +244,7 @@ namespace ICSharpCode.AvalonEdit.AddIn
 				} else {
 					if (differ.editor.SyntaxHighlighting != null) {
 						var baseDocument = new ReadOnlyDocument(changeWatcher.BaseDocument, TextView.Document.FileName);
-						var mainHighlighter = new DocumentHighlighter(baseDocument, differ.editor.SyntaxHighlighting);
+						var mainHighlighter = new DocumentHighlighter(baseDocument.ToTextDocument(), differ.editor.SyntaxHighlighting);
 						var popupHighlighter = differ.editor.TextArea.GetService(typeof(IHighlighter)) as DocumentHighlighter;
 						
 						popupHighlighter.InitialSpanStack = mainHighlighter.GetSpanStack(currLineInfo.OldStartLineNumber);

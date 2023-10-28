@@ -17,12 +17,10 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.SharpDevelop.Parser;
-using Mono.Cecil;
 
 namespace ICSharpCode.ILSpyAddIn
 {

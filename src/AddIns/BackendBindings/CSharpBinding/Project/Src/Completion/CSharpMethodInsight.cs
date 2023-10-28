@@ -69,7 +69,7 @@ namespace CSharpBinding.Completion
 			}
 			var completionFactory = new CSharpCompletionDataFactory(completionContext, new CSharpResolver(completionContext.TypeResolveContextAtCaret));
 			var pce = new CSharpParameterCompletionEngine(
-				editor.Document,
+				editor.Document.ToNRefactory(),
 				completionContext.CompletionContextProvider,
 				completionFactory,
 				completionContext.ProjectContent,

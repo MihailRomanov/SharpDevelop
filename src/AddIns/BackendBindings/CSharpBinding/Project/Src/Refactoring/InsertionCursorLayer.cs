@@ -195,7 +195,7 @@ namespace CSharpBinding.Refactoring
 			ExecutedRoutedEventHandler MoveMarkerPage(bool up)
 			{
 				return (sender, e) =>  {
-					TextLocation current = layer.insertionPoints[layer.CurrentInsertionPointIndex].Location;
+					var current = layer.insertionPoints[layer.CurrentInsertionPointIndex].Location;
 					double currentVPos = layer.editor.TextView.GetVisualTopByDocumentLine(current.Line);
 					int newIndex = layer.CurrentInsertionPointIndex;
 					double newVPos;

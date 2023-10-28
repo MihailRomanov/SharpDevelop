@@ -45,6 +45,9 @@
     <DefineConstants>TRACE;PUBLICINTERPROCESS</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\..\..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
@@ -340,6 +343,14 @@
     <Compile Include="Util\EnumBinding.cs" />
     <Compile Include="Util\EventAdapter.cs" />
     <Compile Include="Util\FakeMessageLoop.cs" />
+    <Compile Include="Util\NRefactory\NRefactoryExtensions.cs" />
+    <Compile Include="Util\NRefactory\ReadOnlyDocument.cs" />
+    <Compile Include="Util\NRefactory\Segment.cs" />
+    <Compile Include="Util\NRefactory\Wrappers\DocumentLineWrapper.cs" />
+    <Compile Include="Util\NRefactory\Wrappers\TextAnchorWrapper.cs" />
+    <Compile Include="Util\NRefactory\Wrappers\DocumentWrapper.cs" />
+    <Compile Include="Util\NRefactory\Wrappers\TextSourceVersionWrapper.cs" />
+    <Compile Include="Util\NRefactory\Wrappers\TextSourceWrapper.cs" />
     <Compile Include="Util\PropertyChangedEventArgs.cs" />
     <Compile Include="Util\SharpDevelopExtensions.cs" />
     <Compile Include="Util\GenericConverter.cs" />
@@ -903,6 +914,8 @@
     <Folder Include="Src\Editor\Dialogs" />
     <Folder Include="Templates" />
     <Folder Include="Project\Configuration" />
+    <Folder Include="Util\NRefactory" />
+    <Folder Include="Util\NRefactory\Wrappers" />
     <Folder Include="Workbench\DisplayBinding" />
     <Page Include="Editor\Bookmarks\BookmarkPadContent.xaml" />
     <Page Include="Editor\CodeCompletion\CodeCompletionOptionPanel.xaml" />
@@ -944,11 +957,6 @@
     <Page Include="Project\PortableLibrary\SelectProfileDialog.xaml" />
     <Page Include="Src\Gui\Pads\TaskList\TaskViewResources.xaml" />
     <Page Include="themes\generic.xaml" />
-    <ProjectReference Include="..\..\..\Libraries\AvalonEdit\ICSharpCode.AvalonEdit\ICSharpCode.AvalonEdit.csproj">
-      <Project>{6C55B776-26D4-4DB3-A6AB-87E783B2F3D1}</Project>
-      <Name>ICSharpCode.AvalonEdit</Name>
-      <Private>False</Private>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Libraries\SharpTreeView\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj">
       <Project>{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}</Project>
       <Name>ICSharpCode.TreeView</Name>

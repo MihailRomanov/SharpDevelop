@@ -26,8 +26,8 @@
 
 using System;
 using System.Collections.Generic;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop.Editor;
 
@@ -109,7 +109,7 @@ namespace CSharpBinding.Refactoring
 			//type = parsedDocument.GetInnermostTypeDefinition (type.GetLocation ()) ?? type;
 			
 			List<InsertionPoint> result = new List<InsertionPoint> ();
-			int offset = document.GetOffset (type.Region.Begin);
+			int offset = document.GetOffset (type.Region.Begin.ToAvalonEdit());
 			if (offset < 0)
 				return result;
 			while (offset < document.TextLength && document.GetCharAt (offset) != '{') {
@@ -121,9 +121,9 @@ namespace CSharpBinding.Refactoring
 			result [0].LineBefore = NewLineInsertion.None;
 			
 			foreach (var member in type.Members) {
-				TextLocation domLocation = member.BodyRegion.End;
+				TextLocation domLocation = member.BodyRegion.End.ToAvalonEdit();
 				if (domLocation.Line <= 0) {
-					domLocation = member.Region.End;
+					domLocation = member.Region.End.ToAvalonEdit();
 				}
 				result.Add (GetInsertionPosition (document, domLocation.Line, domLocation.Column));
 			}

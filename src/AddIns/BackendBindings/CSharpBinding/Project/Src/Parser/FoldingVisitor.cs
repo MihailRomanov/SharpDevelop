@@ -20,10 +20,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Folding;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 
 namespace CSharpBinding.Parser
 {
@@ -53,7 +53,7 @@ namespace CSharpBinding.Parser
 			do {
 				node = node.GetPrevNode();
 			} while (node.NodeType == NodeType.Whitespace);
-			return node.EndLocation;
+			return node.EndLocation.ToAvalonEdit();
 		}
 		
 		#region usings
@@ -70,7 +70,7 @@ namespace CSharpBinding.Parser
 				}
 			}
 			if (firstChild != node) {
-				NewFolding folding = AddFolding(firstChild.StartLocation, node.EndLocation);
+				NewFolding folding = AddFolding(firstChild.StartLocation.ToAvalonEdit(), node.EndLocation.ToAvalonEdit());
 				if (folding != null) {
 					folding.Name = "using...";
 					folding.DefaultClosed = true;
@@ -87,7 +87,7 @@ namespace CSharpBinding.Parser
 		{
 			AddUsings (namespaceDeclaration);
 			if (!namespaceDeclaration.RBraceToken.IsNull)
-				AddFolding (namespaceDeclaration.LBraceToken.GetPrevNode ().EndLocation, namespaceDeclaration.RBraceToken.EndLocation);
+				AddFolding(namespaceDeclaration.LBraceToken.GetPrevNode().EndLocation.ToAvalonEdit(), namespaceDeclaration.RBraceToken.EndLocation.ToAvalonEdit());
 			base.VisitNamespaceDeclaration (namespaceDeclaration);
 		}
 		#endregion
@@ -96,7 +96,7 @@ namespace CSharpBinding.Parser
 		public override void VisitTypeDeclaration (TypeDeclaration typeDeclaration)
 		{
 			if (!typeDeclaration.RBraceToken.IsNull)
-				AddFolding (GetEndOfPrev(typeDeclaration.LBraceToken), typeDeclaration.RBraceToken.EndLocation);
+				AddFolding (GetEndOfPrev(typeDeclaration.LBraceToken), typeDeclaration.RBraceToken.EndLocation.ToAvalonEdit());
 			base.VisitTypeDeclaration (typeDeclaration);
 		}
 		
@@ -104,7 +104,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!methodDeclaration.Body.IsNull) {
 				AddFolding (GetEndOfPrev(methodDeclaration.Body.LBraceToken),
-				            methodDeclaration.Body.RBraceToken.EndLocation, true);
+				            methodDeclaration.Body.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			}
 			base.VisitMethodDeclaration (methodDeclaration);
 		}
@@ -113,7 +113,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!constructorDeclaration.Body.IsNull)
 				AddFolding (GetEndOfPrev(constructorDeclaration.Body.LBraceToken),
-				            constructorDeclaration.Body.RBraceToken.EndLocation, true);
+				            constructorDeclaration.Body.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitConstructorDeclaration (constructorDeclaration);
 		}
 		
@@ -121,7 +121,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!destructorDeclaration.Body.IsNull)
 				AddFolding (GetEndOfPrev(destructorDeclaration.Body.LBraceToken),
-				            destructorDeclaration.Body.RBraceToken.EndLocation, true);
+				            destructorDeclaration.Body.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitDestructorDeclaration (destructorDeclaration);
 		}
 		
@@ -129,7 +129,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!operatorDeclaration.Body.IsNull)
 				AddFolding (GetEndOfPrev(operatorDeclaration.Body.LBraceToken),
-				            operatorDeclaration.Body.RBraceToken.EndLocation, true);
+				            operatorDeclaration.Body.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitOperatorDeclaration (operatorDeclaration);
 		}
 		
@@ -137,7 +137,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!propertyDeclaration.LBraceToken.IsNull)
 				AddFolding (GetEndOfPrev(propertyDeclaration.LBraceToken),
-				            propertyDeclaration.RBraceToken.EndLocation, true);
+				            propertyDeclaration.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitPropertyDeclaration (propertyDeclaration);
 		}
 		
@@ -145,7 +145,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!indexerDeclaration.LBraceToken.IsNull)
 				AddFolding (GetEndOfPrev(indexerDeclaration.LBraceToken),
-				            indexerDeclaration.RBraceToken.EndLocation, true);
+				            indexerDeclaration.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitIndexerDeclaration (indexerDeclaration);
 		}
 		
@@ -153,7 +153,7 @@ namespace CSharpBinding.Parser
 		{
 			if (!eventDeclaration.LBraceToken.IsNull)
 				AddFolding (GetEndOfPrev(eventDeclaration.LBraceToken),
-				            eventDeclaration.RBraceToken.EndLocation, true);
+				            eventDeclaration.RBraceToken.EndLocation.ToAvalonEdit(), true);
 			base.VisitCustomEventDeclaration (eventDeclaration);
 		}
 		#endregion
@@ -163,14 +163,14 @@ namespace CSharpBinding.Parser
 		{
 			if (!switchStatement.RBraceToken.IsNull)
 				AddFolding (GetEndOfPrev(switchStatement.LBraceToken),
-				            switchStatement.RBraceToken.EndLocation);
+				            switchStatement.RBraceToken.EndLocation.ToAvalonEdit());
 			base.VisitSwitchStatement (switchStatement);
 		}
 		
 		public override void VisitBlockStatement (BlockStatement blockStatement)
 		{
 			if (!(blockStatement.Parent is EntityDeclaration) && blockStatement.EndLocation.Line - blockStatement.StartLocation.Line > 2) {
-				AddFolding (GetEndOfPrev(blockStatement), blockStatement.EndLocation);
+				AddFolding (GetEndOfPrev(blockStatement), blockStatement.EndLocation.ToAvalonEdit());
 			}
 
 			base.VisitBlockStatement (blockStatement);
@@ -187,13 +187,13 @@ namespace CSharpBinding.Parser
 					NewFolding folding = new NewFolding();
 					folding.DefaultClosed = true;
 					folding.Name = preProcessorDirective.Argument;
-					folding.StartOffset = GetOffset(preProcessorDirective.StartLocation);
+					folding.StartOffset = GetOffset(preProcessorDirective.StartLocation.ToAvalonEdit());
 					regions.Push(folding);
 					break;
 				case PreProcessorDirectiveType.Endregion:
 					if (regions.Count > 0) {
 						folding = regions.Pop();
-						folding.EndOffset = GetOffset(preProcessorDirective.EndLocation);
+						folding.EndOffset = GetOffset(preProcessorDirective.EndLocation.ToAvalonEdit());
 						foldings.Add(folding);
 					}
 					break;
@@ -217,7 +217,7 @@ namespace CSharpBinding.Parser
 				lastComment = nextComment;
 			}
 			if (lastComment.EndLocation.Line - comment.StartLocation.Line > 2) {
-				var folding = AddFolding(comment.StartLocation, lastComment.EndLocation);
+				var folding = AddFolding(comment.StartLocation.ToAvalonEdit(), lastComment.EndLocation.ToAvalonEdit());
 				if (folding != null) {
 					switch (comment.CommentType) {
 						case CommentType.SingleLine:

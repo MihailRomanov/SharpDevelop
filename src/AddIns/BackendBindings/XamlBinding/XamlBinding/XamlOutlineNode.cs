@@ -20,7 +20,7 @@ using System;
 using System.Linq;
 using System.Windows;
 
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.TreeView;

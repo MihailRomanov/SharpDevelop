@@ -23,9 +23,9 @@ using System.Text;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Utils;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.Xml;
 
@@ -220,10 +220,11 @@ namespace ICSharpCode.SharpDevelop.Editor
 		
 		public void AddCodeBlock(string textContent, bool keepLargeMargin = false)
 		{
-			var document = new ReadOnlyDocument(textContent);
+			var document = new TextDocument(textContent);
 			var highlightingDefinition = HighlightingManager.Instance.GetDefinition("C#");
+			var highlighter = new DocumentHighlighter(document, highlightingDefinition);
 			
-			var block = DocumentPrinter.ConvertTextDocumentToBlock(document, highlightingDefinition);
+			var block = DocumentPrinter.ConvertTextDocumentToBlock(document, highlighter);
 			block.FontFamily = GetCodeFont();
 			if (!keepLargeMargin)
 				block.Margin = new Thickness(0, 6, 0, 6);
@@ -233,10 +234,11 @@ namespace ICSharpCode.SharpDevelop.Editor
 		public void AddSignatureBlock(string signature, int currentParameterOffset, int currentParameterLength, string currentParameterName)
 		{
 			ParameterName = currentParameterName;
-			var document = new ReadOnlyDocument(signature);
+			var document = new TextDocument(signature);
 			var highlightingDefinition = HighlightingManager.Instance.GetDefinition("C#");
+			var highlighter = new DocumentHighlighter(document, highlightingDefinition);
 			
-			var richText = DocumentPrinter.ConvertTextDocumentToRichText(document, highlightingDefinition).ToRichTextModel();
+			var richText = DocumentPrinter.ConvertTextDocumentToRichText(document, highlighter).ToRichTextModel();
 			richText.SetFontWeight(currentParameterOffset, currentParameterLength, FontWeights.Bold);
 			var block = new Paragraph();
 			block.Inlines.AddRange(richText.CreateRuns(document));

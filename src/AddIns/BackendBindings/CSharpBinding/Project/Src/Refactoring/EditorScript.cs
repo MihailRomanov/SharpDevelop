@@ -18,7 +18,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Threading;
@@ -26,18 +25,13 @@ using ICSharpCode.AvalonEdit.Editing;
 using ICSharpCode.AvalonEdit.Snippets;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Dom;
 using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Editor.Commands;
-using ICSharpCode.SharpDevelop.Editor.Dialogs;
-using ICSharpCode.SharpDevelop.Gui;
-using ICSharpCode.SharpDevelop.Refactoring;
 using ICSharpCode.SharpDevelop.Workbench;
 
 namespace CSharpBinding.Refactoring
@@ -52,20 +46,20 @@ namespace CSharpBinding.Refactoring
 		readonly SDRefactoringContext context;
 		
 		public EditorScript(ITextEditor editor, SDRefactoringContext context, CSharpFormattingOptions formattingOptions)
-			: base(editor.Document, formattingOptions, context.TextEditorOptions)
+			: base(editor.Document.ToNRefactory(), formattingOptions, context.TextEditorOptions)
 		{
 			this.editor = editor;
 			this.context = context;
 			this.textSegmentCollection = new TextSegmentCollection<TextSegment>((TextDocument)editor.Document);
 		}
 		
-		protected override ISegment CreateTrackedSegment(int offset, int length)
+		protected override ICSharpCode.NRefactory.Editor.ISegment CreateTrackedSegment(int offset, int length)
 		{
 			var segment = new TextSegment();
 			segment.StartOffset = offset;
 			segment.Length = length;
 			textSegmentCollection.Add(segment);
-			return segment;
+			return segment.ToNRefactory();
 		}
 		
 		public override void Select(AstNode node)
@@ -86,9 +80,9 @@ namespace CSharpBinding.Refactoring
 			editor.Select(Math.Min(startOffset, endOffset), Math.Abs(endOffset - startOffset));
 		}
 		
-		public override void Select(TextLocation start, TextLocation end)
+		public override void Select(ICSharpCode.NRefactory.TextLocation start, ICSharpCode.NRefactory.TextLocation end)
 		{
-			Select(editor.Document.GetOffset(start), editor.Document.GetOffset(end));
+			Select(editor.Document.GetOffset(start.ToAvalonEdit()), editor.Document.GetOffset(end.ToAvalonEdit()));
 		}
 		
 		public override Task Link(params AstNode[] nodes)
@@ -105,10 +99,10 @@ namespace CSharpBinding.Refactoring
 				var identifier = nodes.OfType<Identifier>().FirstOrDefault();
 				ISegment first;
 				if (identifier == null)
-					first = segs[0];
+					first = segs[0].ToAvalonEdit();
 				else
-					first = GetSegment(identifier);
-				c.Link(first, segs.Except(new[]{first}).ToArray());
+					first = GetSegment(identifier).ToAvalonEdit();
+				c.Link(first, segs.Except(new[]{first.ToNRefactory()}).Select(t => t.ToAvalonEdit()).ToArray());
 				c.RaiseInsertionCompleted(EventArgs.Empty);
 			} else {
 				c.RaiseInsertionCompleted(EventArgs.Empty);
@@ -128,7 +122,7 @@ namespace CSharpBinding.Refactoring
 			// TODO : Use undo group
 			var tcs = new TaskCompletionSource<Script>();
 			var loc = editor.Caret.Location;
-			var currentPart = context.UnresolvedFile.GetInnermostTypeDefinition(loc);
+			var currentPart = context.UnresolvedFile.GetInnermostTypeDefinition(loc.ToNRefactory());
 			var insertionPoints = InsertionPoint.GetInsertionPoints(editor.Document, currentPart);
 			
 			if (insertionPoints.Count == 0) {
@@ -190,7 +184,7 @@ namespace CSharpBinding.Refactoring
 							insertionPoint.LineBefore = NewLineInsertion.None;
 						}
 
-						int offset = currentScript.GetCurrentOffset(insertionPoint.Location);
+						int offset = currentScript.GetCurrentOffset(insertionPoint.Location.ToNRefactory());
 						int indentLevel = currentScript.GetIndentLevelAt(Math.Max(0, offset - 1));
 						
 						foreach (var node in nodes.Reverse()) {
@@ -200,7 +194,7 @@ namespace CSharpBinding.Refactoring
 								if (insertionPoint != layer.InsertionPoints.Last()) {
 									text += ",";
 								} else {
-									var parentEnum = currentScript.context.RootNode.GetNodeAt(insertionPoint.Location, n => (n is TypeDeclaration) && ((TypeDeclaration)n).ClassType == ClassType.Enum) as TypeDeclaration;
+									var parentEnum = currentScript.context.RootNode.GetNodeAt(insertionPoint.Location.ToNRefactory(), n => (n is TypeDeclaration) && ((TypeDeclaration)n).ClassType == ClassType.Enum) as TypeDeclaration;
 									if (parentEnum != null) {
 										var lastMember = parentEnum.Members.LastOrDefault();
 										if (lastMember != null) {
@@ -255,7 +249,7 @@ namespace CSharpBinding.Refactoring
 			EditorScript script;
 
 			if (area.Document != context.Document) {
-				script = new EditorScript(area.GetService<ITextEditor>(), SDRefactoringContext.Create(fileName, area.Document, loc, context.CancellationToken), FormattingOptions);
+				script = new EditorScript(area.GetService<ITextEditor>(), SDRefactoringContext.Create(fileName, area.Document, loc.ToAvalonEdit(), context.CancellationToken), FormattingOptions);
 				startedScripts.Add(script);
 			} else {
 				script = this;

@@ -22,7 +22,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml;
 
-using ICSharpCode.NRefactory;
+using ICSharpCode.SharpDevelop;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.TypeSystem;
 
 namespace ICSharpCode.WixBinding
@@ -249,7 +250,7 @@ namespace ICSharpCode.WixBinding
 										nestedElementsCount = 0;
 										if (isEmptyElement) {
 											TextLocation endLocation = GetEmptyElementEnd();
-											return new DomRegion(startLocation, endLocation);
+											return new DomRegion(startLocation.ToNRefactory(), endLocation.ToNRefactory());
 										}
 									}
 								} else if (!reader.IsEmptyElement) {
@@ -261,7 +262,7 @@ namespace ICSharpCode.WixBinding
 							if (!startLocation.IsEmpty && IsElementMatch(elementName, reader.LocalName)) {
 								if (nestedElementsCount == 0) {
 									TextLocation endLocation = GetEndElementEnd();
-									return new DomRegion(startLocation, endLocation);
+									return new DomRegion(startLocation.ToNRefactory(), endLocation.ToNRefactory());
 								}
 								--nestedElementsCount;
 							}

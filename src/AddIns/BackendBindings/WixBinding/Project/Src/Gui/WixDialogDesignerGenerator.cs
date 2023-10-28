@@ -17,20 +17,12 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.CodeDom;
-using System.CodeDom.Compiler;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection;
 using System.Xml;
 
 using ICSharpCode.Core;
 using ICSharpCode.FormsDesigner;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop.Editor;
-using Microsoft.CSharp;
 
 namespace ICSharpCode.WixBinding
 {

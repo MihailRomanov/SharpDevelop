@@ -18,15 +18,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
-using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.NRefactory.CSharp.Resolver;
 using ICSharpCode.NRefactory.Completion;
 using ICSharpCode.NRefactory.CSharp.Completion;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
@@ -110,7 +107,7 @@ namespace CSharpBinding.Completion
 			var completionFactory = new CSharpCompletionDataFactory(completionContext, new CSharpResolver(completionContext.TypeResolveContextAtCaret));
 			
 			CSharpCompletionEngine cce = new CSharpCompletionEngine(
-				completionContext.Document,
+				completionContext.Document.ToNRefactory(),
 				completionContext.CompletionContextProvider,
 				completionFactory,
 				completionContext.ProjectContent,
@@ -190,7 +187,7 @@ namespace CSharpBinding.Completion
 			if (CodeCompletionOptions.InsightEnabled) {
 				// Method Insight
 				var pce = new CSharpParameterCompletionEngine(
-					completionContext.Document,
+					completionContext.Document.ToNRefactory(),
 					completionContext.CompletionContextProvider,
 					completionFactory,
 					completionContext.ProjectContent,

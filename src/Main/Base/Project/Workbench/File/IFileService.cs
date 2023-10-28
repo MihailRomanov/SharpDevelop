@@ -21,9 +21,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop.Gui;
 
 namespace ICSharpCode.SharpDevelop.Workbench
 {

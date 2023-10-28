@@ -18,12 +18,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
 using ICSharpCode.SharpDevelop.Dom;
-using Microsoft.Build.Logging;
 
 namespace ICSharpCode.SharpDevelop.Project
 {

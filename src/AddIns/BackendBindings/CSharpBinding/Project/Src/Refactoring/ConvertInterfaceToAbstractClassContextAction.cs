@@ -20,6 +20,7 @@ using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
 using ICSharpCode.SharpDevelop.Refactoring;
@@ -33,7 +34,7 @@ namespace CSharpBinding.Refactoring
 		public override async Task<bool> IsAvailableAsync(EditorRefactoringContext context, CancellationToken cancellationToken)
 		{
 			SyntaxTree st = await context.GetSyntaxTreeAsync().ConfigureAwait(false);
-			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 			if (identifier == null)
 				return false;
 			TypeDeclaration typeDeclaration = identifier.Parent as TypeDeclaration;
@@ -45,7 +46,7 @@ namespace CSharpBinding.Refactoring
 			CSharpFullParseInformation parseInformation = context.GetParseInformation() as CSharpFullParseInformation;
 			if (parseInformation != null) {
 				SyntaxTree st = parseInformation.SyntaxTree;
-				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 				if (identifier == null)
 					return;
 				TypeDeclaration interfaceTypeDeclaration = identifier.Parent as TypeDeclaration;

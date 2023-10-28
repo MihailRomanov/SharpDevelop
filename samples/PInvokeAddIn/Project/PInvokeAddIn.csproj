@@ -46,6 +46,9 @@
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.Core">
       <HintPath>..\..\..\bin\ICSharpCode.Core.dll</HintPath>
       <Private>False</Private>
@@ -72,6 +75,7 @@
     <Compile Include="Src\PInvokeRepository.cs" />
     <Compile Include="Src\PInvokeCodeGenerator.cs" />
     <EmbeddedResource Include="Resources\InsertPInvokeSignaturesForm.xfrm" />
+    <None Include="packages.config" />
     <None Include="PInvoke.nuspec" />
     <None Include="signatures.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

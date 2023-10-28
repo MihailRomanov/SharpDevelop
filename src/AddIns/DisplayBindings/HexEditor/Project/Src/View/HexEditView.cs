@@ -18,7 +18,6 @@
 
 using System;
 using System.IO;
-using System.Windows.Input;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.WinForms;
 using ICSharpCode.SharpDevelop.Workbench;

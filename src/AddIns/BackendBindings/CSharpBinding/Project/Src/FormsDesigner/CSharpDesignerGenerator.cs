@@ -24,12 +24,11 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.FormsDesigner;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
@@ -156,7 +155,7 @@ namespace CSharpBinding.FormsDesigner
 			IDocument document = context.GetDocument(fileNameObj);
 			var ctx = SDRefactoringContext.Create(fileNameObj, document);
 			var formattingOptions = CSharpFormattingPolicies.Instance.GetProjectOptions(compilation.GetProject());
-			script = new DocumentScript(document, formattingOptions.OptionsContainer.GetEffectiveOptions(), new TextEditorOptions());
+			script = new DocumentScript(document.ToNRefactory(), formattingOptions.OptionsContainer.GetEffectiveOptions(), new TextEditorOptions());
 			scripts.Add(fileNameObj, script);
 			return script;
 		}
@@ -165,7 +164,7 @@ namespace CSharpBinding.FormsDesigner
 		{
 			foreach (var pair in scripts) {
 				var script = pair.Value;
-				IDocument newDocument = script.CurrentDocument;
+				IDocument newDocument = script.CurrentDocument.ToReadOnlyDocument();
 				script.Dispose();
 				SD.ParserService.ParseFileAsync(pair.Key, newDocument).FireAndForget();
 				Debug.Assert(FileName.Create(newDocument.FileName) == pair.Key);
@@ -180,8 +179,8 @@ namespace CSharpBinding.FormsDesigner
 			var bodyRegion = initializeComponents.BodyRegion;
 			DocumentScript script = GetScript(bodyRegion.FileName);
 			
-			string newline = DocumentUtilities.GetLineTerminator(script.OriginalDocument, bodyRegion.BeginLine);
-			string indentation = DocumentUtilities.GetIndentation(script.OriginalDocument, bodyRegion.BeginLine);
+			string newline = DocumentUtilities.GetLineTerminator(script.OriginalDocument.ToReadOnlyDocument(), bodyRegion.BeginLine);
+			string indentation = DocumentUtilities.GetIndentation(script.OriginalDocument.ToReadOnlyDocument(), bodyRegion.BeginLine);
 			string code = "{" + newline + GenerateInitializeComponents(codeMethod, indentation, newline) + newline + indentation + "}";
 			
 			int startOffset = script.GetCurrentOffset(bodyRegion.Begin);
@@ -306,11 +305,11 @@ namespace CSharpBinding.FormsDesigner
 			}
 			var bodyRegion = field != null ? field.BodyRegion : initializeComponents.BodyRegion;
 			DocumentScript script = GetScript(bodyRegion.FileName);
-			string newline = DocumentUtilities.GetLineTerminator(script.OriginalDocument, bodyRegion.BeginLine);
-			string indentation = DocumentUtilities.GetIndentation(script.OriginalDocument, bodyRegion.BeginLine);
+			string newline = DocumentUtilities.GetLineTerminator(script.OriginalDocument.ToReadOnlyDocument(), bodyRegion.BeginLine);
+			string indentation = DocumentUtilities.GetIndentation(script.OriginalDocument.ToReadOnlyDocument(), bodyRegion.BeginLine);
 			
 			var insertionLocation = new TextLocation(bodyRegion.EndLine + 1, 1);
-			int insertionOffset = script.GetCurrentOffset(insertionLocation);
+			int insertionOffset = script.GetCurrentOffset(insertionLocation.ToNRefactory());
 			string code = indentation + GenerateField(newField) + newline;
 			script.InsertText(insertionOffset, code);
 		}
@@ -332,7 +331,7 @@ namespace CSharpBinding.FormsDesigner
 			DocumentScript script = GetScript(region.FileName);
 			int offset = script.GetCurrentOffset(region.Begin);
 			int endOffset = script.GetCurrentOffset(region.End);
-			IDocumentLine line = script.CurrentDocument.GetLineByOffset(endOffset);
+			var line = script.CurrentDocument.GetLineByOffset(endOffset);
 			if (endOffset == line.EndOffset) {
 				endOffset += line.DelimiterLength; // delete the whole line
 				// delete indentation in front of the line

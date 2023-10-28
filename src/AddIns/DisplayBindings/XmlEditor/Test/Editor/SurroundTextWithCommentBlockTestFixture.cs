@@ -17,9 +17,6 @@
 // DEALINGS IN THE SOFTWARE.
 
 using ICSharpCode.AvalonEdit.Document;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.SharpDevelop.Editor.AvalonEdit;
 using ICSharpCode.XmlEditor;
 using NUnit.Framework;
 using XmlEditor.Tests.Utils;

@@ -23,7 +23,7 @@ bin/
 /src/AddIns/Misc/PackageManagement/Packages/AvalonEdit/lib
 /packages/
 /src/Tools/ResGet/*.log
-
+/samples/*/packages/
 
 *.ide/
 *.sdsettings

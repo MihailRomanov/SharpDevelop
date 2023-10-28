@@ -2,7 +2,6 @@
 using System;
 using System.Linq;
 using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.SharpDevelop.Dom;
 using NUnit.Framework;
 using Rhino.Mocks;
 

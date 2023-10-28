@@ -19,13 +19,14 @@
 using System;
 using System.Linq;
 using System.Threading;
-using ICSharpCode.NRefactory;
+using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.Core;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.Semantics;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.NRefactory.TypeSystem.Implementation;
 using ICSharpCode.NRefactory.Xml;
+using ICSharpCode.SharpDevelop;
 
 namespace ICSharpCode.XamlBinding
 {
@@ -113,7 +114,7 @@ namespace ICSharpCode.XamlBinding
 			}
 			if (member == null)
 				return new UnknownMemberResolveResult(type, propertyName, EmptyList<IType>.Instance);
-			if (offset > -1 && attribute.ValueSegment.Contains(offset, 1))
+			if (offset > -1 && attribute.ValueSegment.ToAvalonEdit().Contains(offset, 1))
 				return ResolveAttributeValue(member, attribute, cancellationToken);
 			if (underlying != null)
 				return new AttachedMemberResolveResult(new TypeResolveResult(underlying.DeclaringType), underlying, member);

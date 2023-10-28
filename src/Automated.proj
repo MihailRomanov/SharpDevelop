@@ -101,6 +101,7 @@
 	</Target>
 	
 	<Target Name="buildsamples">
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\AvalonEdit.Sample\AvalonEdit.Sample.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\AvalonEdit.Sample\AvalonEdit.Sample.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
@@ -110,6 +111,7 @@
 		<MSBuild Projects="$(SamplesSrc)\ComponentInspector\ComponentInspector.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\CppBackendBinding\CppBackendBinding.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\CppBackendBinding\CppBackendBinding.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
@@ -128,9 +130,11 @@
 		<MSBuild Projects="$(SamplesSrc)\DisplayBindings\ImageViewer\ImageViewer.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\EmbeddedImageAddIn\EmbeddedImageAddIn.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\EmbeddedImageAddIn\EmbeddedImageAddIn.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\HtmlSyntaxColorizer\HtmlSyntaxColorizer.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\HtmlSyntaxColorizer\HtmlSyntaxColorizer.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
@@ -146,9 +150,11 @@
 		<MSBuild Projects="$(SamplesSrc)\MSTest\MSTest.SharpDevelop.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\NAnt\NAnt.AddIn.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\NAnt\NAnt.AddIn.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>
+		<Exec Command="$(NuGetExecutable) restore $(SamplesSrc)\PInvokeAddIn\PInvokeAddIn.sln"/>
 		<MSBuild Projects="$(SamplesSrc)\PInvokeAddIn\PInvokeAddIn.sln"
 				 Targets="build;clean"
 				 Properties="Configuration=Release;BranchName=$(BranchName)"/>

@@ -18,7 +18,7 @@
 
 using System;
 using System.IO;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.Scripting.Tests.Utils
 {
@@ -90,12 +90,12 @@ namespace ICSharpCode.Scripting.Tests.Utils
 			throw new NotImplementedException();
 		}
 		
-		public int GetOffset(ICSharpCode.NRefactory.TextLocation location)
+		public int GetOffset(TextLocation location)
 		{
 			throw new NotImplementedException();
 		}
 		
-		public ICSharpCode.NRefactory.TextLocation GetLocation(int offset)
+		public TextLocation GetLocation(int offset)
 		{
 			throw new NotImplementedException();
 		}

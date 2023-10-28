@@ -142,7 +142,7 @@ namespace ICSharpCode.SharpDevelop.Gui
 			var fileName = new FileName(pos.FileName);
 			if (fileName != currentFileName)
 				LoadFile(fileName);
-			ctl.TextArea.Caret.Location = pos.Begin;
+			ctl.TextArea.Caret.Location = pos.Begin.ToAvalonEdit();
 			Rect r = ctl.TextArea.Caret.CalculateCaretRectangle();
 			if (!r.IsEmpty) {
 				ctl.ScrollToVerticalOffset(r.Top - 4);

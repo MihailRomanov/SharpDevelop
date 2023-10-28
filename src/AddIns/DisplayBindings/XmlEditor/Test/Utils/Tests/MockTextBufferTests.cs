@@ -19,10 +19,8 @@
 using System;
 using System.IO;
 using System.Text;
-using System.Xml;
-using ICSharpCode.NRefactory.Editor;
+using ICSharpCode.AvalonEdit.Document;
 using NUnit.Framework;
-using XmlEditor.Tests.Utils;
 
 namespace XmlEditor.Tests.Utils.Tests
 {

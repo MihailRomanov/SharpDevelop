@@ -22,11 +22,10 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Threading;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
 using ICSharpCode.FormsDesigner.Gui.OptionPanels;
-using ICSharpCode.NRefactory;
 using ICSharpCode.NRefactory.CSharp;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Editor;
@@ -165,7 +164,7 @@ namespace CSharpBinding.FormsDesigner
 						var document = new ReadOnlyDocument(fileContent);
 						var offset = document.GetOffset(new TextLocation(location.Line + 1, 1));
 						var length = DocumentUtilities.GetWhitespaceAfter(fileContent, offset).Length;
-						location = new TextLocation(location.Line + 1, length + 1);
+						location = new ICSharpCode.NRefactory.TextLocation(location.Line + 1, length + 1);
 					} else {
 						location = firstStatement.StartLocation;
 					}

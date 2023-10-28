@@ -219,7 +219,7 @@ namespace ICSharpCode.AvalonEdit.AddIn.Snippets
 		{
 			var parseInfo = SD.ParserService.GetExistingUnresolvedFile(editor.FileName);
 			if (parseInfo != null) {
-				return parseInfo.GetInnermostTypeDefinition(editor.Caret.Location);
+				return parseInfo.GetInnermostTypeDefinition(editor.Caret.Location.ToNRefactory());
 			}
 			return null;
 		}

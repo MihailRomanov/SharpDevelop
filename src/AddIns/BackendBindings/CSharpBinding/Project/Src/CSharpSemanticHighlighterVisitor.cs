@@ -17,25 +17,12 @@
 // DEALINGS IN THE SOFTWARE.
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Diagnostics;
 using System.Linq;
-using System.Windows.Media;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Rendering;
-using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Analysis;
 using ICSharpCode.NRefactory.CSharp.Resolver;
-using ICSharpCode.NRefactory.Editor;
-using ICSharpCode.NRefactory.Semantics;
-using ICSharpCode.NRefactory.TypeSystem;
-using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Parser;
-using CSharpBinding.Parser;
 
 namespace CSharpBinding
 {
@@ -82,9 +69,9 @@ namespace CSharpBinding
 		#endregion
 		
 		#region Colorize
-		protected override void Colorize(TextLocation start, TextLocation end, HighlightingColor color)
+		protected override void Colorize(ICSharpCode.NRefactory.TextLocation start, ICSharpCode.NRefactory.TextLocation end, HighlightingColor color)
 		{
-			highlighter.Colorize(start, end, color);
+			highlighter.Colorize(start.ToAvalonEdit(), end.ToAvalonEdit(), color);
 		}
 		#endregion
 		
@@ -98,8 +85,8 @@ namespace CSharpBinding
 		
 		internal void UpdateLineInformation(int lineNumber)
 		{
-			regionStart = new TextLocation(lineNumber, 1);
-			regionEnd = new TextLocation(lineNumber, 1 + document.GetLineByNumber(lineNumber).Length);
+			regionStart = new ICSharpCode.NRefactory.TextLocation(lineNumber, 1);
+			regionEnd = new ICSharpCode.NRefactory.TextLocation(lineNumber, 1 + document.GetLineByNumber(lineNumber).Length);
 		}
 
 		internal CSharpAstResolver Resolver {

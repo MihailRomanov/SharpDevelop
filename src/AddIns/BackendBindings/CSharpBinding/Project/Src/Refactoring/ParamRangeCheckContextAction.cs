@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.NRefactory.CSharp;
 using ICSharpCode.NRefactory.CSharp.Refactoring;
 using ICSharpCode.NRefactory.TypeSystem;
@@ -35,7 +36,7 @@ namespace CSharpBinding.Refactoring
 		public override async Task<bool> IsAvailableAsync(EditorRefactoringContext context, System.Threading.CancellationToken cancellationToken)
 		{
 			SyntaxTree st = await context.GetSyntaxTreeAsync().ConfigureAwait(false);
-			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+			Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 			if (identifier == null)
 				return false;
 			ParameterDeclaration parameterDeclaration = identifier.Parent as ParameterDeclaration;
@@ -56,7 +57,7 @@ namespace CSharpBinding.Refactoring
 			CSharpFullParseInformation parseInformation = context.GetParseInformation() as CSharpFullParseInformation;
 			if (parseInformation != null) {
 				SyntaxTree st = parseInformation.SyntaxTree;
-				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation, node => node.Role == Roles.Identifier);
+				Identifier identifier = (Identifier) st.GetNodeAt(context.CaretLocation.ToNRefactory(), node => node.Role == Roles.Identifier);
 				if (identifier == null)
 					return;
 				ParameterDeclaration parameterDeclaration = identifier.Parent as ParameterDeclaration;

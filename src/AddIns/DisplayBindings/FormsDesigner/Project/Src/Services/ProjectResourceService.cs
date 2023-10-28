@@ -20,12 +20,10 @@ using System;
 using System.CodeDom;
 using System.IO;
 using System.Linq;
+using ICSharpCode.AvalonEdit.Document;
 using ICSharpCode.Core;
-using ICSharpCode.NRefactory;
-using ICSharpCode.NRefactory.Editor;
 using ICSharpCode.NRefactory.TypeSystem;
 using ICSharpCode.SharpDevelop;
-using ICSharpCode.SharpDevelop.Editor;
 using ICSharpCode.SharpDevelop.Project;
 
 namespace ICSharpCode.FormsDesigner.Services
@@ -138,7 +136,7 @@ namespace ICSharpCode.FormsDesigner.Services
 			// It would be better if we could use a real code parser for this, but
 			// that is not possible without getting dependent on the programming language.
 			
-			IDocument doc = new ReadOnlyDocument(SD.FileService.GetFileContent(resourceClass.Region.FileName));
+			IDocument doc = new TextDocument(SD.FileService.GetFileContent(resourceClass.Region.FileName));
 			
 			int startOffset = doc.PositionToOffset(prop.Getter.BodyRegion.BeginLine, prop.Getter.BodyRegion.BeginColumn);
 			int endOffset   = doc.PositionToOffset(prop.Getter.BodyRegion.EndLine, prop.Getter.BodyRegion.EndColumn);
