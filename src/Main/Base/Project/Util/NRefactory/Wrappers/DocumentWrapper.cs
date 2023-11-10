@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using ICSharpCode.AvalonEdit.Document;
 
 namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
@@ -9,29 +10,55 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 	public class DocumentWrapper : ICSharpCode.NRefactory.Editor.IDocument
 	{
 		private readonly IDocument wrappedDocument;
-		private readonly ICSharpCode.NRefactory.Editor.ITextSourceVersion version;
 		
 		public DocumentWrapper(IDocument document)
 		{
 			wrappedDocument = document;
-			version = new TextSourceVersionWrapper(document.Version);
-		}
-		
-		private DocumentWrapper(IDocument document, ICSharpCode.NRefactory.Editor.ITextSourceVersion version)
-		{
-			wrappedDocument = document;
-			this.version = version;
+			wrappedDocument.TextChanging += TextChangingEventHandler;
+			wrappedDocument.TextChanged += TextChangedEventHandler;
 		}
 
+		void TextChangingEventHandler(object sender, TextChangeEventArgs e)
+		{
+			var handler = TextChanging;
+			if (handler != null) {
+				var args = new ICSharpCode.NRefactory.Editor.TextChangeEventArgs(e.Offset, e.RemovedText.Text, e.InsertedText.Text);
+				handler(this, args);
+			}
+		}
+
+		void TextChangedEventHandler(object sender, TextChangeEventArgs e)
+		{
+			var handler = TextChanged;
+			if (handler != null) {
+				var args = new ICSharpCode.NRefactory.Editor.TextChangeEventArgs(e.Offset, e.RemovedText.Text, e.InsertedText.Text);
+				handler(this, args);
+			}
+		}
+		
 		#region IDocument implementation
 
 		public event EventHandler<ICSharpCode.NRefactory.Editor.TextChangeEventArgs> TextChanging;
 
 		public event EventHandler<ICSharpCode.NRefactory.Editor.TextChangeEventArgs> TextChanged;
 
-		public event EventHandler ChangeCompleted;
-
-		public event EventHandler FileNameChanged;
+		public event EventHandler ChangeCompleted{ 
+			add {
+				wrappedDocument.FileNameChanged += value;
+			} 
+			remove {
+				wrappedDocument.FileNameChanged -= value;
+			} 
+		}
+			
+		public event EventHandler FileNameChanged { 
+			add {
+				wrappedDocument.FileNameChanged += value;
+			} 
+			remove {
+				wrappedDocument.FileNameChanged -= value;
+			} 
+		}
 
 		public ICSharpCode.NRefactory.Editor.IDocument CreateDocumentSnapshot()
 		{
@@ -224,7 +251,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		public ICSharpCode.NRefactory.Editor.ITextSourceVersion Version {
 			get {
-				return version;
+				return new TextSourceVersionWrapper(wrappedDocument.Version);
 			}
 		}
 

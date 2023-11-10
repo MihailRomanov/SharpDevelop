@@ -135,6 +135,7 @@ namespace CSharpBinding.FormsDesigner
 			codeUnit.Namespaces.Add(codeNamespace);
 			
 			// output generated CodeDOM to the console :
+			/* Not compile now
 			#if DEBUG
 			if ((Control.ModifierKeys & Keys.Control) == Keys.Control) {
 				CodeDomVerboseOutputGenerator outputGenerator = new CodeDomVerboseOutputGenerator();
@@ -142,6 +143,7 @@ namespace CSharpBinding.FormsDesigner
 				this.CodeDomProvider.GenerateCodeFromCompileUnit(codeUnit, Console.Out, null);
 			}
 			#endif
+			*/
 			
 			LoggingService.Debug("NRefactoryDesignerLoader.Parse() finished");
 			
@@ -157,11 +159,13 @@ namespace CSharpBinding.FormsDesigner
 		{
 			LoggingService.Info("DesignerLoader.Write called");
 			// output generated CodeDOM to the console :
+			/* Do not compile now
 			#if DEBUG
 			if ((Control.ModifierKeys & Keys.Control) == Keys.Control) {
 				this.CodeDomProvider.GenerateCodeFromCompileUnit(unit, Console.Out, null);
 			}
 			#endif
+			*/
 			try {
 				var generator = new CSharpDesignerGenerator(context);
 				generator.MergeFormChanges(unit);
