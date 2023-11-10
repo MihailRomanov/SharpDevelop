@@ -17,7 +17,14 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		#region ITextAnchor implementation
 
-		public event EventHandler Deleted;
+		public event EventHandler Deleted {
+			add {
+				wrappedAnchor.Deleted += value;
+			}
+			remove {
+				wrappedAnchor.Deleted -= value;
+			}
+		}
 
 		public ICSharpCode.NRefactory.TextLocation Location {
 			get {
