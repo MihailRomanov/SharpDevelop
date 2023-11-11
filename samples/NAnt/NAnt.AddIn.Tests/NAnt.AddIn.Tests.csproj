@@ -42,7 +42,7 @@
       <HintPath>..\..\..\bin\ICSharpCode.SharpDevelop.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\bin\Tools\NUnit\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -78,6 +78,9 @@
       <Project>{1DB3CAD2-38E8-4C5E-8E1B-0E37B1A5C006}</Project>
       <Name>NAnt.AddIn</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

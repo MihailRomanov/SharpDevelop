@@ -51,11 +51,14 @@
       <HintPath>..\..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\..\..\..\..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+    </Reference>
     <Reference Include="NuGet.Console.Types">
-      <HintPath>..\RequiredLibraries\NuGet.Console.Types.dll</HintPath>
+      <HintPath>..\..\..\..\Libraries\NuGet\NuGet.Console.Types.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Core">
-      <HintPath>..\RequiredLibraries\NuGet.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\NuGet.Core.2.12.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -566,15 +569,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\RequiredLibraries\about_NuGet.Cmdlets.help.txt">
+    <None Include="..\..\..\..\Libraries\NuGet\about_NuGet.Cmdlets.help.txt">
       <Link>about_NuGet.Cmdlets.help.txt</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\RequiredLibraries\LICENSE.txt">
+    <None Include="..\..\..\..\Libraries\NuGet\LICENSE.txt">
       <Link>NuGet-LICENSE.txt</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="..\RequiredLibraries\NuGet.Cmdlets.dll-Help.xml">
+    <None Include="..\..\..\..\Libraries\NuGet\NuGet.Cmdlets.dll-Help.xml">
       <Link>PackageManagement.Cmdlets.dll-Help.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

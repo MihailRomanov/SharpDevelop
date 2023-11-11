@@ -101,18 +101,6 @@
     <EmbeddedResource Include="NewFileDialog.resx">
       <DependentUpon>NewFileDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="..\..\..\bin\GraphSharp.Contracts.dll">
-      <Link>GraphSharp.Contracts.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\..\bin\GraphSharp.Controls.dll">
-      <Link>GraphSharp.Controls.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\..\bin\GraphSharp.dll">
-      <Link>GraphSharp.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="..\..\..\bin\ICSharpCode.SharpDevelop.BuildWorker40.exe">
       <Link>ICSharpCode.SharpDevelop.BuildWorker40.exe</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -123,10 +111,6 @@
     </None>
     <None Include="..\..\..\bin\ICSharpCode.TreeView.dll">
       <Link>ICSharpCode.TreeView.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="..\..\..\bin\QuickGraph.dll">
-      <Link>QuickGraph.dll</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="..\..\..\bin\SharpDevelop.TargetingPack.targets">

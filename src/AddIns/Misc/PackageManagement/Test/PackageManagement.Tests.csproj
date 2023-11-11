@@ -50,13 +50,13 @@
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NuGet.Console.Types">
-      <HintPath>..\RequiredLibraries\NuGet.Console.Types.dll</HintPath>
+      <HintPath>..\..\..\..\Libraries\NuGet\NuGet.Console.Types.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Core">
-      <HintPath>..\RequiredLibraries\NuGet.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\NuGet.Core.2.12.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\Tools\NUnit\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -65,7 +65,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\Libraries\RhinoMocks\Rhino.Mocks.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

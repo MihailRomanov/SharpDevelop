@@ -43,13 +43,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Irony">
-      <HintPath>..\..\..\Libraries\Irony.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\packages\Irony.0.9.1\lib\net40\Irony.dll</HintPath>
     </Reference>
     <Reference Include="Irony.Interpreter">
-      <HintPath>..\..\..\Libraries\Irony.Interpreter.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\packages\Irony.Interpreter.0.9.1\lib\net40\Irony.Interpreter.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\..\..\Tools\NUnit\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -123,6 +123,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="src\TestReports\GroupedList.srd" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,13 +43,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Irony">
-      <HintPath>..\Libraries\Irony.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Irony.0.9.1\lib\net40\Irony.dll</HintPath>
     </Reference>
     <Reference Include="Irony.Interpreter">
-      <HintPath>..\Libraries\Irony.Interpreter.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Irony.Interpreter.0.9.1\lib\net40\Irony.Interpreter.dll</HintPath>
     </Reference>
     <Reference Include="PdfSharp">
-      <HintPath>..\Libraries\PdfSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\..\..\..\..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -228,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Src\Wpf\WpfReportViewer\WpfReportViewer.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,11 +47,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>..\RequiredLibraries\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\..\..\..\..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
     </Reference>
     <Reference Include="NuGet.Core">
-      <HintPath>..\..\PackageManagement\RequiredLibraries\NuGet.Core.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\packages\NuGet.Core.2.12.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -77,6 +79,7 @@
     <Resource Include="Resources\accept.png" />
     <Resource Include="Resources\exclamation.png" />
     <Resource Include="Resources\external_addin_small.png" />
+    <None Include="packages.config" />
     <None Include="Resources\license.txt" />
     <Resource Include="Resources\magnifier.png" />
     <Resource Include="Resources\packageicon.png" />

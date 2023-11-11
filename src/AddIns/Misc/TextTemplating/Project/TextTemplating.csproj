@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.TextTemplating">
-      <HintPath>lib\Mono.TextTemplating.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Mono.TextTemplating.2.3.1\lib\net472\Mono.TextTemplating.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

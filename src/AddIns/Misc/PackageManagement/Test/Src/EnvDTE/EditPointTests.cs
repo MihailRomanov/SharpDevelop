@@ -61,6 +61,7 @@ namespace PackageManagement.Tests.EnvDTE
 			
 			field = MockRepository.GenerateStub<IField>();
 			field.Stub(f => f.Region).Return(region);
+			field.Stub(f => ((IEntity)f).Region).Return(region);
 			
 			codeVariable = new CodeVariable(codeModelContext, field);
 		}

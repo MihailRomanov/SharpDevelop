@@ -43,6 +43,9 @@
     <Reference Include="ICSharpCode.AvalonEdit">
       <HintPath>..\..\..\..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.Decompiler">
+      <HintPath>..\..\..\..\packages\ICSharpCode.Decompiler.2.3.1\lib\Net40\ICSharpCode.Decompiler.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
@@ -97,6 +100,7 @@
       <DependentUpon>SetILSpyPathDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="LaunchILSpy\OpenInILSpyCommand.cs" />
+    <Compile Include="XmlDocKeyProvider.cs" />
     <EmbeddedResource Include="LaunchILSpy\SetILSpyPathDialog.resx">
       <DependentUpon>SetILSpyPathDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,10 +110,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Libraries\ICSharpCode.Decompiler\ICSharpCode.Decompiler.csproj">
-      <Project>{984CC812-9470-4A13-AFF9-CC44068D666C}</Project>
-      <Name>ICSharpCode.Decompiler</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
       <Project>{2748AD25-9C63-4E12-877B-4DCE96FBED54}</Project>
       <Name>ICSharpCode.SharpDevelop</Name>
