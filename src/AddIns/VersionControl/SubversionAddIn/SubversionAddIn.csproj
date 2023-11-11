@@ -48,10 +48,10 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="SharpSvn">
-      <HintPath>..\..\..\Libraries\SharpSvn\SharpSvn.dll</HintPath>
+      <HintPath>..\..\..\..\packages\SharpSvn.1.14001.156\lib\net40\SharpSvn.dll</HintPath>
     </Reference>
     <Reference Include="SharpSvn.UI">
-      <HintPath>..\..\..\Libraries\SharpSvn\SharpSvn.UI.dll</HintPath>
+      <HintPath>..\..\..\..\packages\SharpSvn.UI.1.14001.156\lib\net45\SharpSvn.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,6 +101,7 @@
     <EmbeddedResource Include="Src\Gui\HistoryViewDisplayBinding\InfoPanel.resx">
       <DependentUpon>InfoPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
@@ -116,6 +117,7 @@
     <ProjectReference Include="..\..\..\Main\ICSharpCode.Core.Presentation\ICSharpCode.Core.Presentation.csproj">
       <Project>{7E4A7172-7FF5-48D0-B719-7CD959DD1AC9}</Project>
       <Name>ICSharpCode.Core.Presentation</Name>
+      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Main\ICSharpCode.Core.WinForms\ICSharpCode.Core.WinForms.csproj">
       <Project>{857CA1A3-FC88-4BE0-AB6A-D1EE772AB288}</Project>
@@ -125,10 +127,12 @@
     <ProjectReference Include="..\..\..\Main\ICSharpCode.SharpDevelop.Widgets\Project\ICSharpCode.SharpDevelop.Widgets.csproj">
       <Project>{8035765F-D51F-4A0C-A746-2FD100E19419}</Project>
       <Name>ICSharpCode.SharpDevelop.Widgets</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Src\Gui\SubversionOptionsPanel.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <Import Project="..\..\..\..\packages\SharpSvn.1.14001.156\build\SharpSvn.targets" Condition="Exists('..\..\..\..\packages\SharpSvn.1.14001.156\build\SharpSvn.targets')" />
 </Project>

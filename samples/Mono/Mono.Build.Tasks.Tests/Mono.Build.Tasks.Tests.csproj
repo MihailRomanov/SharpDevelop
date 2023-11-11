@@ -43,7 +43,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\bin\Tools\NUnit\nunit.framework.dll</HintPath>
+      <HintPath>..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -69,6 +69,9 @@
       <Project>{BF6F814C-B89F-475E-ADC4-AEE81D10CB94}</Project>
       <Name>Mono.Build.Tasks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

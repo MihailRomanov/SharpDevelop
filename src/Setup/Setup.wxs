@@ -196,12 +196,6 @@
 				<ComponentRef Id="ICSharpCodeSharpDevelopBuildWorker120Exe"/>
 				<ComponentRef Id="ICSharpCodeSharpDevelopBuildWorker140Exe"/>
 				<ComponentRef Id="log4netDll"/>
-				<ComponentRef Id="GraphSharpDll"/>
-				<ComponentRef Id="GraphSharpControlsDll"/>
-				<ComponentRef Id="QuickGraphDll"/>
-				<ComponentRef Id="GraphSharpContractsDll"/>
-				<ComponentRef Id="MicrosoftContractsDll"/>
-				<ComponentRef Id="WPFExtensionsDll"/>
 				<ComponentRef Id="MonoCecilDll"/>
 				<ComponentRef Id="AvalonDockDll"/>
 				<ComponentRef Id="ICSharpCodeCorePresentationDll"/>

@@ -56,7 +56,7 @@
       <HintPath>..\..\..\..\Libraries\ICSharpCode.NRefactory\ICSharpCode.NRefactory.CSharp.Refactoring.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\..\..\..\Tools\NUnit\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
@@ -65,8 +65,7 @@
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\Libraries\RhinoMocks\Rhino.Mocks.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\..\..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

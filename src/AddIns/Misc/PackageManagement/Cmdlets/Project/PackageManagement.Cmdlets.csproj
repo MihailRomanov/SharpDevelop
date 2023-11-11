@@ -41,7 +41,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NuGet.Core">
-      <HintPath>..\..\RequiredLibraries\NuGet.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\packages\NuGet.Core.2.12.0\lib\net40-Client\NuGet.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -89,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Src" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
 </Project>

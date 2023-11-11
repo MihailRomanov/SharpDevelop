@@ -44,25 +44,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="developwithpassion.specifications">
-      <HintPath>..\Libraries\developwithpassion.specifications.rhinomocks.0.4.13.0\developwithpassion.specifications.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\developwithpassion.specifications.rhinomocks.0.4.13.0\lib\developwithpassion.specifications.dll</HintPath>
     </Reference>
     <Reference Include="developwithpassion.specifications.rhinomocks">
-      <HintPath>..\Libraries\developwithpassion.specifications.rhinomocks.0.4.13.0\developwithpassion.specifications.rhinomocks.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\developwithpassion.specifications.rhinomocks.0.4.13.0\lib\developwithpassion.specifications.rhinomocks.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Fakes">
-      <HintPath>..\Libraries\Machine.Fakes\Machine.Fakes.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Machine.Fakes.0.2.3.3\lib\Machine.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Fakes.Adapters.RhinoMocks">
-      <HintPath>..\Libraries\Machine.Fakes\Machine.Fakes.Adapters.RhinoMocks.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\Machine.Fakes.RhinoMocks.0.2.3.3\lib\Machine.Fakes.Adapters.RhinoMocks.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Specifications">
       <HintPath>..\..\..\..\Tools\Machine.Specifications\Machine.Specifications.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\Libraries\RhinoMocks\Rhino.Mocks.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\RhinoMocks.3.6\lib\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

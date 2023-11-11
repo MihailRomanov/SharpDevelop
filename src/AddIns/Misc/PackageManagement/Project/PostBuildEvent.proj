@@ -3,7 +3,7 @@
 		<PrepareForRunDependsOn>$(PrepareForRunDependsOn);MyPostBuildTarget</PrepareForRunDependsOn>
 	</PropertyGroup>
 	<ItemGroup>
-		<MyCopyItem Include="$(MSBuildProjectDirectory)\..\RequiredLibraries\NuGet.exe" />
+		<MyCopyItem Include="$(MSBuildProjectDirectory)\..\..\..\..\Libraries\NuGet\NuGet.exe" />
 	</ItemGroup>
 	<Target Name="MyPostBuildTarget">
 		<!-- work around an MSBuild bug in CopyToOutputDirectory that causes this file to be copied -->
