@@ -44,10 +44,10 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		public event EventHandler ChangeCompleted{ 
 			add {
-				wrappedDocument.FileNameChanged += value;
+				wrappedDocument.ChangeCompleted += value;
 			} 
 			remove {
-				wrappedDocument.FileNameChanged -= value;
+				wrappedDocument.ChangeCompleted -= value;
 			} 
 		}
 			

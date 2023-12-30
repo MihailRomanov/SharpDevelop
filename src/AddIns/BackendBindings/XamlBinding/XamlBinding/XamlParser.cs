@@ -67,10 +67,10 @@ namespace ICSharpCode.XamlBinding
 			AXmlDocument document;
 			IncrementalParserState newParserState;
 			if (fileContent.Version is OnDiskTextSourceVersion) {
-				document = parser.Parse(fileContent.ToReadOnlyDocument(), cancellationToken);
+				document = parser.Parse(fileContent.ToNRefactory(), cancellationToken);
 				newParserState = null;
 			} else {
-				document = parser.ParseIncremental(parserState, fileContent.ToReadOnlyDocument(), out newParserState, cancellationToken);
+				document = parser.ParseIncremental(parserState, fileContent.ToNRefactory(), out newParserState, cancellationToken);
 			}
 			parserState = newParserState;
 			XamlUnresolvedFile unresolvedFile = XamlUnresolvedFile.Create(fileName, fileContent, document);
