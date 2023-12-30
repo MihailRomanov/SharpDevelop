@@ -61,7 +61,7 @@ namespace ICSharpCode.SharpDevelop
 		/// Creates a new ReadOnlyDocument from the given text source.
 		/// </summary>
 		public ReadOnlyDocument(ICSharpCode.NRefactory.Editor.ITextSource textSource): 
-			this(new StringTextSource(textSource.Text))
+			this(textSource.Text)
 		{
 		}
 		
@@ -436,13 +436,13 @@ namespace ICSharpCode.SharpDevelop
 		
 		ICSharpCode.NRefactory.Editor.ITextSource ICSharpCode.NRefactory.Editor.ITextSource.CreateSnapshot()
 		{
-			return new ICSharpCode.NRefactory.Editor.StringTextSource(textSource.Text).CreateSnapshot(); // textBuffer is immutable
+			return textSource.ToNRefactory().CreateSnapshot();
 		}
 		
 		/// <inheritdoc/>
 		ICSharpCode.NRefactory.Editor.ITextSource ICSharpCode.NRefactory.Editor.ITextSource.CreateSnapshot(int offset, int length)
 		{
-			return new ICSharpCode.NRefactory.Editor.StringTextSource(textSource.Text).CreateSnapshot(offset, length);
+			return textSource.ToNRefactory().CreateSnapshot(offset, length);
 		}
 		
 		/// <inheritdoc/>

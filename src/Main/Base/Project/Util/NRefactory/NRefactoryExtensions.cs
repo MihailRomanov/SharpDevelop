@@ -1,5 +1,6 @@
 ﻿using System;
 using ICSharpCode.AvalonEdit.Document;
+using ICSharpCode.SharpDevelop.NRefactory.Wrappers;
 
 namespace ICSharpCode.SharpDevelop
 {
@@ -22,12 +23,7 @@ namespace ICSharpCode.SharpDevelop
 		{
 			return new ReadOnlyDocument(textSource);
 		}
-		
-		public static ReadOnlyDocument ToReadOnlyDocument(this ITextSource textSource)
-		{
-			return new ReadOnlyDocument(textSource);
-		}
-		
+			
 		public static ISegment ToAvalonEdit(this ICSharpCode.NRefactory.Editor.ISegment segment)
 		{
 			return new Segment(segment.Offset, segment.Length);
@@ -41,12 +37,7 @@ namespace ICSharpCode.SharpDevelop
 		public static ICSharpCode.NRefactory.Editor.IDocument ToNRefactory(this IDocument document)
 		{
 			return new NRefactory.Wrappers.DocumentWrapper(document);
-		}
-		
-		public static IDocument ToAvalonEdit(this ICSharpCode.NRefactory.Editor.IDocument document)
-		{
-			return new TextDocument(document.Text);
-		}
+		}	
 		
 		public static IDocument CreateDocumentSnapshot(this IDocument document)
 		{
@@ -56,6 +47,11 @@ namespace ICSharpCode.SharpDevelop
 		public static TextDocument ToTextDocument(this ReadOnlyDocument document)
 		{
 			return new TextDocument(document);
+		}
+		
+		public static ICSharpCode.NRefactory.Editor.ITextSource ToNRefactory(this ITextSource textSource)
+		{
+			return new TextSourceWrapper(textSource);
 		}
 	}
 }

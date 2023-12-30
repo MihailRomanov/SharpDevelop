@@ -42,7 +42,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 			var changes = wrappedVersion.GetChangesTo(otherWrapped.wrappedVersion);
 			return changes.Select(ch => 
 			                      new ICSharpCode.NRefactory.Editor.TextChangeEventArgs(
-			                      	ch.Offset, ch.InsertedText.Text, ch.RemovedText.Text));
+			                      	ch.Offset, ch.RemovedText.Text, ch.InsertedText.Text));
 		}
 
 		public int MoveOffsetTo(ICSharpCode.NRefactory.Editor.ITextSourceVersion other, int oldOffset, ICSharpCode.NRefactory.Editor.AnchorMovementType movement = ICSharpCode.NRefactory.Editor.AnchorMovementType.Default)
