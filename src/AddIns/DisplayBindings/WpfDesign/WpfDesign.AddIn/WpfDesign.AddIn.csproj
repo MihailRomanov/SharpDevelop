@@ -38,20 +38,21 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
-    <Reference Include="ICSharpCode.AvalonEdit">
-      <HintPath>..\..\..\..\..\packages\AvalonEdit.5.0.2\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
+    <Reference Include="ICSharpCode.AvalonEdit, Version=6.3.0.90, Culture=neutral, PublicKeyToken=9cc39be672370310">
+      <HintPath>..\..\..\..\..\packages\AvalonEdit.6.3.0.90\lib\net462\ICSharpCode.AvalonEdit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>..\..\..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.WpfDesign">
-      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.5.1.96\lib\net40\ICSharpCode.WpfDesign.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.8.1.49\lib\net45\ICSharpCode.WpfDesign.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.WpfDesign.Designer">
-      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.5.1.96\lib\net40\ICSharpCode.WpfDesign.Designer.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.8.1.49\lib\net45\ICSharpCode.WpfDesign.Designer.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.WpfDesign.XamlDom">
-      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.5.1.96\lib\net40\ICSharpCode.WpfDesign.XamlDom.dll</HintPath>
+      <HintPath>..\..\..\..\..\packages\ICSharpCode.WpfDesigner.8.1.49\lib\net45\ICSharpCode.WpfDesign.XamlDom.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

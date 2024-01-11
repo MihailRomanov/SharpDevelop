@@ -101,7 +101,7 @@ namespace CSharpBinding
 				return;
 			BackgroundGeometryBuilder builder = new BackgroundGeometryBuilder();
 			builder.CornerRadius = cornerRadius;
-			builder.AlignToMiddleOfPixels = true;
+			builder.AlignToWholePixels = true;
 			foreach (var reference in this.currentReferences) {
 				builder.AddSegment(textView, new TextSegment() {
 					StartOffset = reference.Offset,
