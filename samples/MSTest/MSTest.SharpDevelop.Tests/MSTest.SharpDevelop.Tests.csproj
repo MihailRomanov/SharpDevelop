@@ -35,19 +35,19 @@
       <HintPath>..\..\..\bin\ICSharpCode.Core.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>..\..\..\bin\ICSharpCode.NRefactory.dll</HintPath>
+      <HintPath>..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.NRefactory.CSharp">
-      <HintPath>..\..\..\bin\ICSharpCode.NRefactory.CSharp.dll</HintPath>
+      <HintPath>..\..\..\packages\ICSharpCode.NRefactory.5.5.1\lib\Net40\ICSharpCode.NRefactory.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpDevelop">
       <HintPath>..\..\..\bin\ICSharpCode.SharpDevelop.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
+      <HintPath>..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="Rhino.Mocks">
-      <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+      <HintPath>..\..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">

@@ -42,12 +42,15 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Irony">
-      <HintPath>..\..\..\..\..\..\..\packages\Irony.0.9.1\lib\net40\Irony.dll</HintPath>
+    <Reference Include="Irony, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47">
+      <HintPath>..\..\..\..\..\..\..\packages\Irony.1.2.0\lib\netstandard2.0\Irony.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Irony.Interpreter">
-      <HintPath>..\..\..\..\..\..\..\packages\Irony.Interpreter.0.9.1\lib\net40\Irony.Interpreter.dll</HintPath>
+    <Reference Include="Irony.Interpreter, Version=1.1.0.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47">
+      <HintPath>..\..\..\..\..\..\..\packages\Irony.Interpreter.1.2.0\lib\netstandard2.0\Irony.Interpreter.dll</HintPath>
+      <Private>True</Private>
     </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\..\..\..\..\packages\NUnit.2.7.1\lib\nunit.framework.dll</HintPath>
     </Reference>
