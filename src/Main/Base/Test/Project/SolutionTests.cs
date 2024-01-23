@@ -25,7 +25,7 @@ using Microsoft.Build.Execution;
 using NUnit.Framework;
 using Rhino.Mocks;
 
-namespace ICSharpCode.SharpDevelop
+namespace ICSharpCode.SharpDevelop.Project
 {
 	[TestFixture]
 	public class SolutionTests
@@ -59,7 +59,7 @@ namespace ICSharpCode.SharpDevelop
 			ProjectPropertyInstance property = solution.MSBuildProjectCollection.GetGlobalProperty("SolutionDir");
 			string solutionDir = property.EvaluatedValue;
 			
-			string expectedSolutionDir = @"d:\projects\MyProject\";
+			const string expectedSolutionDir = @"d:\projects\MyProject\";
 			Assert.AreEqual(expectedSolutionDir, solutionDir);
 		}
 		
