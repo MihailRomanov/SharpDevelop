@@ -108,6 +108,9 @@
     <Folder Include="Src" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\Tools\TestConfig\app.config">
+      <Link>app.config</Link>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
