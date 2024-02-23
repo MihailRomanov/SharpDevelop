@@ -2,4 +2,4 @@
   set msbuild=%%i
 )
 
-"%msbuild%" src\Automated.proj /p:ArtefactsOutputDir="%CD%\build" /p:TestReportsDir="%CD%\build" /p:MSBuildExecutable="\"%msbuild%\""
+"%msbuild%" src\Automated.proj -t:init
