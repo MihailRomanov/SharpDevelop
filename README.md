@@ -27,9 +27,9 @@ Looking for the tech notes (Fine Art of Commenting, Coding Style Guide, and more
    - [Microsoft Build Tools 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40760) (For support MSBuild 12.0)
    - [Microsoft Build Tools 2015](https://www.microsoft.com/en-us/download/details.aspx?id=48159) (For support MSBuild 14.0)
    - And one of the
-	- [Visual Studio 2017 Build Tools](https://aka.ms/vs/15/release/vs_buildtools.exe)
-	- [Visual Studio 2019 Build Tools](https://aka.ms/vs/16/release/vs_buildtools.exe)
-	- [Visual Studio 2022 Build Tools](https://aka.ms/vs/17/release/vs_buildtools.exe)
+       - [Visual Studio 2017 Build Tools](https://aka.ms/vs/15/release/vs_buildtools.exe)
+       - [Visual Studio 2019 Build Tools](https://aka.ms/vs/16/release/vs_buildtools.exe)
+       - [Visual Studio 2022 Build Tools](https://aka.ms/vs/17/release/vs_buildtools.exe)
  - [Windows SDK](http://www.microsoft.com/en-us/download/details.aspx?id=3138) (optional; C++ compiler needed for profiler)
  - If you have cloned the SD git repository: git must be available on your PATH
  
