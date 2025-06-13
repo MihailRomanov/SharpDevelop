@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using ICSharpCode.AvalonEdit.Document;
 
@@ -13,6 +14,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 		
 		public TextSourceVersionWrapper(ITextSourceVersion version)
 		{
+			Debug.Assert(version != null);
 			wrappedVersion = version;
 		}
 

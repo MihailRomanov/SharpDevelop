@@ -89,7 +89,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		public ICSharpCode.NRefactory.Editor.ITextSourceVersion Version {
 			get {
-				return new TextSourceVersionWrapper(wrappedTextSource.Version);
+				return wrappedTextSource.Version.ToNRefactory();
 			}
 		}
 
