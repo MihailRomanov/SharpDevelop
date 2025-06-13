@@ -53,5 +53,13 @@ namespace ICSharpCode.SharpDevelop
 		{
 			return new TextSourceWrapper(textSource);
 		}
+		
+		public static ICSharpCode.NRefactory.Editor.ITextSourceVersion ToNRefactory(
+			this ITextSourceVersion textSourceVersion)
+		{
+			return textSourceVersion == null
+				? null
+				: new TextSourceVersionWrapper(textSourceVersion);
+		}
 	}
 }

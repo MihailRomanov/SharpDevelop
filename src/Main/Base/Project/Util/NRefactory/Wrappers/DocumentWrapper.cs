@@ -251,7 +251,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		public ICSharpCode.NRefactory.Editor.ITextSourceVersion Version {
 			get {
-				return new TextSourceVersionWrapper(wrappedDocument.Version);
+				return wrappedDocument.Version.ToNRefactory();
 			}
 		}
 

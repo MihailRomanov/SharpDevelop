@@ -285,7 +285,9 @@ namespace ICSharpCode.SharpDevelop
 		}
 		
 		ICSharpCode.NRefactory.Editor.ITextSourceVersion ICSharpCode.NRefactory.Editor.ITextSource.Version {
-			get { return new NRefactory.Wrappers.TextSourceVersionWrapper(textSource.Version); }
+			get { 
+				return textSource.Version.ToNRefactory(); 
+			}
 		}
 		
 		/// <inheritdoc/>
