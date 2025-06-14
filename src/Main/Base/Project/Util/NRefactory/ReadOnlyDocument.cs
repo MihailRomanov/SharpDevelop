@@ -83,6 +83,16 @@ namespace ICSharpCode.SharpDevelop
 			this.fileName = fileName;
 		}
 		
+		/// <summary>
+		/// Creates a new ReadOnlyDocument from the given text source;
+		/// and sets IDocument.FileName to the specified file name.
+		/// </summary>
+		public ReadOnlyDocument(ICSharpCode.NRefactory.Editor.ITextSource textSource, string fileName)
+			: this(textSource)
+		{
+			this.fileName = fileName;
+		}
+		
 		/// <inheritdoc/>
 		public IDocumentLine GetLineByNumber(int lineNumber)
 		{

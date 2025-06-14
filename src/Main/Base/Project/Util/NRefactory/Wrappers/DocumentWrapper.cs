@@ -62,7 +62,7 @@ namespace ICSharpCode.SharpDevelop.NRefactory.Wrappers
 
 		public ICSharpCode.NRefactory.Editor.IDocument CreateDocumentSnapshot()
 		{
-			return new ReadOnlyDocument(wrappedDocument, wrappedDocument.FileName);
+			return new ReadOnlyDocument(wrappedDocument.CreateSnapshot(), wrappedDocument.FileName);
 		}
 
 		public ICSharpCode.NRefactory.Editor.IDocumentLine GetLineByNumber(int lineNumber)
