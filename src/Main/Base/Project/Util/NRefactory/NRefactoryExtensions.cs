@@ -23,6 +23,11 @@ namespace ICSharpCode.SharpDevelop
 		{
 			return new ReadOnlyDocument(textSource);
 		}
+		
+		public static ReadOnlyDocument ToReadOnlyDocument(this ICSharpCode.NRefactory.Editor.IDocument document)
+		{
+			return new ReadOnlyDocument((ICSharpCode.NRefactory.Editor.ITextSource)document, document.FileName);
+		}
 			
 		public static ISegment ToAvalonEdit(this ICSharpCode.NRefactory.Editor.ISegment segment)
 		{

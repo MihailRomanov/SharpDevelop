@@ -52,6 +52,7 @@ namespace CSharpBinding.Tests
 		public ParseInformation CreateParseInformation()
 		{
 			var parser = new CSharpBinding.Parser.TParser();
+			parser.TaskListTokens = new List<string>();
 			return parser.Parse(this.FileName, this.Document, true, null, CancellationToken.None);
 		}
 		
