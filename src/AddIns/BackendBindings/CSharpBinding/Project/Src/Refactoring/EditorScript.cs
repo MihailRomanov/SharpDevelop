@@ -59,7 +59,7 @@ namespace CSharpBinding.Refactoring
 			segment.StartOffset = offset;
 			segment.Length = length;
 			textSegmentCollection.Add(segment);
-			return segment.ToNRefactory();
+			return base.CreateTrackedSegment(offset, length);
 		}
 		
 		public override void Select(AstNode node)
