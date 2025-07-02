@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RoslynBinding</id>
+    <version>1.0.0.0</version>
+    <authors>romanov.m</authors>
+    <owners>romanov.m</owners>
+    <projectUrl>TODO Put project web URL here</projectUrl>
+    <description>TODO: Put description here</description>
+    <tags>TODO: Put tags here</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\RoslynBinding.addin" target="" />
+  </files>
+</package>
