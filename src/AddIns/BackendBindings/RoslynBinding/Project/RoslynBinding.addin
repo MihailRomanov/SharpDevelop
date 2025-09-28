@@ -37,4 +37,17 @@
 		                class                = "ICSharpCode.RoslynBinding.VBProjectBinding" />
 	</Path>
 
+	<Path name="/SharpDevelop/ViewContent/AvalonEdit/SyntaxModes">
+		<SyntaxMode
+			id="Roslyn.SyntaxMode"
+			extensions=".vb"
+			name="Roslyn"
+			resource="ICSharpCode.RoslynBinding.Editor.Resources.Roslyn.xshd"/>
+	</Path>
+	
+
+	<Path name="/SharpDevelop/ViewContent/AvalonEdit/Highlighters">
+		<Highlighter id="RoslynHighlighter" extensions=".vb" class="ICSharpCode.RoslynBinding.Editor.RoslynHighlighter" />
+	</Path>
+
 </AddIn>

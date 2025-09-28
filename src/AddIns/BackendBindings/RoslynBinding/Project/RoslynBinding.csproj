@@ -41,6 +41,9 @@
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.AvalonEdit">
+      <HintPath>..\..\..\..\..\packages\AvalonEdit.6.3.0.90\lib\net462\ICSharpCode.AvalonEdit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -65,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AddInWritingHelp.txt" />
+    <EmbeddedResource Include="Editor\Resources\Roslyn.xshd" />
+    <None Include="packages.config" />
     <None Include="RoslynBinding.addin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -75,6 +80,7 @@
       <Link>Configuration\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Configuration\AssemblyInfo.cs" />
+    <Compile Include="Editor\RoslynHighlighter.cs" />
     <Compile Include="VBProject.cs" />
     <Compile Include="VBProjectBinding.cs" />
   </ItemGroup>
@@ -89,6 +95,10 @@
       <Name>ICSharpCode.Core</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Editor" />
+    <Folder Include="Editor\Resources" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
