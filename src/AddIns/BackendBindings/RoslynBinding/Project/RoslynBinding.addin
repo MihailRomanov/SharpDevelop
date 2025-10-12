@@ -13,6 +13,11 @@
 		<Import assembly = ":ICSharpCode.SharpDevelop"/>
 	</Runtime>
 	
+	<Path name="/SharpDevelop/Services">
+		<Service id="ICSharpCode.RoslynBinding.Workspace.IWorkspaceService"
+		         class="ICSharpCode.RoslynBinding.Workspace.WorkspaceService"/>
+	</Path>
+	
 	<Path name = "/SharpDevelop/Workbench/FileFilter">
 		<FileFilter id = "VB"
 		            insertbefore="AllFiles"

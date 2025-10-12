@@ -67,13 +67,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AddInWritingHelp.txt" />
     <EmbeddedResource Include="Editor\Resources\Roslyn.xshd" />
     <None Include="packages.config" />
     <None Include="RoslynBinding.addin">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="RoslynBinding.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\..\..\Main\GlobalAssemblyInfo.cs">
@@ -83,6 +81,8 @@
     <Compile Include="Editor\RoslynHighlighter.cs" />
     <Compile Include="VBProject.cs" />
     <Compile Include="VBProjectBinding.cs" />
+    <Compile Include="Workspace\IWorkspaceService.cs" />
+    <Compile Include="Workspace\WorkspaceService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
@@ -99,6 +99,7 @@
   <ItemGroup>
     <Folder Include="Editor" />
     <Folder Include="Editor\Resources" />
+    <Folder Include="Workspace" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

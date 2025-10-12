@@ -7,6 +7,8 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using ICSharpCode.RoslynBinding.Workspace;
+using ICSharpCode.SharpDevelop;
 using ICSharpCode.SharpDevelop.Project;
 
 namespace ICSharpCode.RoslynBinding
@@ -16,8 +18,12 @@ namespace ICSharpCode.RoslynBinding
 	/// </summary>
 	public class VBProject : CompilableProject
 	{
+		private readonly IWorkspaceService WorkspaceService;
+		
 		public VBProject(ProjectLoadInformation prjLoadInfo) : base(prjLoadInfo)
-		{}
+		{
+			WorkspaceService = SD.GetRequiredService<IWorkspaceService>();
+		}
 
 		public VBProject(ProjectCreateInformation prjCreateInfo) : base(prjCreateInfo)
 		{}
