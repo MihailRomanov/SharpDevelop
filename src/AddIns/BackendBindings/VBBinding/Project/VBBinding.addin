@@ -1,0 +1,11 @@
+<AddIn name        = "VB Binding"
+       author      = "Siegfried Pammer"
+       copyright   = "prj:///doc/copyright.txt"
+       description = "Backend binding for VB"
+       addInManagerHidden = "preinstalled">
+
+	<Manifest>
+		<Identity name = "ICSharpCode.VBBinding"/>
+	</Manifest>
+	
+</AddIn>
