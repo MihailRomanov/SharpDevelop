@@ -1,0 +1,25 @@
+﻿<AddIn name        = "Package Management 3"
+       author      = "Mihail Romanov"
+       url         = ""
+       description = "Package Managet for Nuget v3+">
+	
+	<Manifest>
+		<Identity name="ICSharpCode.PackageManagement3" />
+	</Manifest>
+	
+	<Runtime>
+		<Import assembly = "PackageManagement3.dll"/>
+	</Runtime>
+	
+	<!-- TODO
+		Migrate to resources for labael 
+		Add icon
+	-->
+	<Path name="/SharpDevelop/Workbench/MainMenu">
+		<MenuItem
+			id="ManagePackages3"
+			label="ManagePackages3..."
+			class="PackageManagement.Commands.ManagePackagesCommand"/>
+	</Path>
+
+</AddIn>

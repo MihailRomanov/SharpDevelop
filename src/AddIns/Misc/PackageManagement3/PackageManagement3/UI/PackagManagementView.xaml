@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="PackageManagement.UI.PackagManagementView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Grid>
+		<TextBox></TextBox>
+	</Grid>
+</UserControl>
