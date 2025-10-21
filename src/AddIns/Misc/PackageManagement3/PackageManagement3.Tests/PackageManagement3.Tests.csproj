@@ -52,10 +52,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ICSharpCode.PackageManagement3\ICSharpCode.PackageManagement3.csproj">
+    <ProjectReference Include="..\PackageManagement3\PackageManagement3.csproj">
       <Project>{2df3a5ad-64d1-45dd-bd82-c7fe5ca6d758}</Project>
       <Name>ICSharpCode.PackageManagement3</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
