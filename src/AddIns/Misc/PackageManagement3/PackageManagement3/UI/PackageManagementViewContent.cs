@@ -8,7 +8,9 @@ namespace PackageManagement.UI
 	/// </summary>
 	public class PackageManagementViewContent : AbstractViewContent
 	{
-		readonly PackageManagementView packageManagementView = new PackageManagementView();
+		readonly PackageManagementView packageManagementView = new PackageManagementView {
+			ViewModel = new PackageManagementViewModel()
+		};
 		
 		#region implemented abstract members of AbstractViewContent
 		public override object Control {

@@ -1,24 +1,39 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+using ReactiveUI;
 
 namespace PackageManagement.UI
 {
 	/// <summary>
 	/// Interaction logic for PackagManagementViewControl.xaml
 	/// </summary>
-	public partial class PackageManagementView: UserControl
+	public partial class PackageManagementView: UserControl, IViewFor<PackageManagementViewModel>
 	{
 		public PackageManagementView()
 		{
 			InitializeComponent();
 		}
+
+		#region IViewFor implementation
+
+		public PackageManagementViewModel ViewModel {
+			get;
+			set;
+		}
+
+		#endregion
+
+		#region IViewFor implementation
+
+		object IViewFor.ViewModel {
+			get {
+				return ViewModel;
+			}
+			set {
+				ViewModel = (PackageManagementViewModel)value;
+			}
+		}
+
+		#endregion
 	}
 }

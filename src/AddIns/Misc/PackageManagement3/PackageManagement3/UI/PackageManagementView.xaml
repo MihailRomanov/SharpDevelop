@@ -1,7 +1,17 @@
-﻿<UserControl x:Class="PackageManagement.UI.PackageManagementView"
-	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Grid>
-		<TextBox></TextBox>
-	</Grid>
+<UserControl x:Class="PackageManagement.UI.PackageManagementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DockPanel Margin="5">
+		<Grid DockPanel.Dock="Top">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+				<TextBlock Margin="0, 0, 10, 0" FontSize="16">Package source</TextBlock>
+				<ComboBox Width="200"></ComboBox>
+				<Button>Conf</Button>
+			</StackPanel>
+		</Grid>
+	</DockPanel>
 </UserControl>

@@ -206,6 +206,7 @@
       <DependentUpon>PackageManagementView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UI\PackageManagementViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
