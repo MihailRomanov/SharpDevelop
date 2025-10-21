@@ -13,7 +13,7 @@ namespace PackageManagement.Commands
 		public override void Execute(object parameter)
 		{
 			Debug.WriteLine("ManagePackagesCommand");
-			SD.Workbench.ShowView(new PackageManagement.UI.PackagManagementViewContent());
+			SD.Workbench.ShowView(new PackageManagement.UI.PackageManagementViewContent());
 		}
 
 		#endregion

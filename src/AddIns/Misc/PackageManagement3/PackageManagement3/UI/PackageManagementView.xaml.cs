@@ -14,9 +14,9 @@ namespace PackageManagement.UI
 	/// <summary>
 	/// Interaction logic for PackagManagementViewControl.xaml
 	/// </summary>
-	public partial class PackagManagementView: UserControl
+	public partial class PackageManagementView: UserControl
 	{
-		public PackagManagementView()
+		public PackageManagementView()
 		{
 			InitializeComponent();
 		}

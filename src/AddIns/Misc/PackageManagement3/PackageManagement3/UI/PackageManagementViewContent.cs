@@ -6,14 +6,14 @@ namespace PackageManagement.UI
 	/// <summary>
 	/// Description of the view content
 	/// </summary>
-	public class PackagManagementViewContent : AbstractViewContent
+	public class PackageManagementViewContent : AbstractViewContent
 	{
-		readonly PackagManagementView packagManagementView = new PackagManagementView();
+		readonly PackageManagementView packageManagementView = new PackageManagementView();
 		
 		#region implemented abstract members of AbstractViewContent
 		public override object Control {
 			get {
-				return packagManagementView;
+				return packageManagementView;
 			}
 		}
 		#endregion

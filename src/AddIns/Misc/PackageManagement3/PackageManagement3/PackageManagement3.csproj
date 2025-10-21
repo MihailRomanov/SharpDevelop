@@ -169,9 +169,9 @@
   <ItemGroup>
     <Compile Include="Commands\ManagePackagesCommand.cs" />
     <Compile Include="Configuration\AssemblyInfo.cs" />
-    <Compile Include="UI\PackagManagementViewContent.cs" />
-    <Compile Include="UI\PackagManagementView.xaml.cs">
-      <DependentUpon>PackagManagementView.xaml</DependentUpon>
+    <Compile Include="UI\PackageManagementViewContent.cs" />
+    <Compile Include="UI\PackageManagementView.xaml.cs">
+      <DependentUpon>PackageManagementView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -186,7 +186,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="UI\PackagManagementView.xaml" />
+    <Page Include="UI\PackageManagementView.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
