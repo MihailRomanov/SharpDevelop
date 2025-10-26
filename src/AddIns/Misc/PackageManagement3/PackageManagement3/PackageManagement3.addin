@@ -21,5 +21,9 @@
 			label="ManagePackages3..."
 			class="PackageManagement.Commands.ManagePackagesCommand"/>
 	</Path>
-
+	
+	<Path name="/SharpDevelop/Services">
+		<Service id="PackageManagement.Services.INuGetManagementService"
+		         class="PackageManagement.Services.NuGetManagementService"/>
+	</Path>
 </AddIn>

@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
 using ICSharpCode.SharpDevelop;
+using PackageManagement.Services;
+using PackageManagement.UI;
 
 namespace PackageManagement.Commands
 {
@@ -13,7 +15,10 @@ namespace PackageManagement.Commands
 		public override void Execute(object parameter)
 		{
 			Debug.WriteLine("ManagePackagesCommand");
-			SD.Workbench.ShowView(new PackageManagement.UI.PackageManagementViewContent());
+			var nugetService = SD.Services.GetRequiredService<INuGetManagementService>();
+			var packageManagementViewContent = new PackageManagementViewContent(nugetService);
+			
+			SD.Workbench.ShowView(packageManagementViewContent);
 		}
 
 		#endregion

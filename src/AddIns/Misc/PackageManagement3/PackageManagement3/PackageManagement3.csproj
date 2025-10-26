@@ -201,14 +201,19 @@
   <ItemGroup>
     <Compile Include="Commands\ManagePackagesCommand.cs" />
     <Compile Include="Configuration\AssemblyInfo.cs" />
+    <Compile Include="Services\INuGetManagementService.cs" />
+    <Compile Include="Services\NuGetManagementService.cs" />
     <Compile Include="UI\PackageManagementViewContent.cs" />
     <Compile Include="UI\PackageManagementView.xaml.cs">
       <DependentUpon>PackageManagementView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\PackageManagementViewModel.cs" />
+    <Compile Include="UI\PackageSourceViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\Main\Base\Project\ICSharpCode.SharpDevelop.csproj">
       <Project>{2748ad25-9c63-4e12-877b-4dce96fbed54}</Project>
