@@ -4,21 +4,56 @@
              xmlns:pm="clr-namespace:PackageManagement.UI">
 	<DockPanel Margin="5">
 		<Grid DockPanel.Dock="Top">
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="*"/>
-			</Grid.RowDefinitions>
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-				<Label FontSize="16" Target="{Binding ElementName=PackageSources}">Package source:</Label>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Grid.Column="0" Orientation="Vertical" >
+				<TextBlock FontSize="26">Title</TextBlock>
+				<TextBox FontSize="16" x:Name="SearchString"></TextBox>
+			</StackPanel>
+			<StackPanel
+				Grid.Column="1"
+				Orientation="Horizontal"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Bottom"
+			>
+				<Label FontSize="16"
+				       Target="{Binding ElementName=PackageSources}">Package source:</Label>
 				<ComboBox Width="200" x:Name="PackageSources">
 					<ComboBox.ItemTemplate>
 						<DataTemplate DataType="{x:Type pm:PackageSourceViewModel}">
-							<TextBlock Text="{Binding Mode=OneWay, Path=Name}" />
+							<StackPanel>
+								<TextBlock
+									FontWeight="Bold"
+									Text="{Binding Mode=OneWay, Path=Name}" />
+								<TextBlock
+									FontStyle="Italic"
+									Text="{Binding Mode=OneWay, Path=Url}" />
+							</StackPanel>
 						</DataTemplate>
 					</ComboBox.ItemTemplate>
 				</ComboBox>
 				<Button>Conf</Button>
 			</StackPanel>
+		</Grid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" MinWidth="300" />
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			
+			<ListBox
+				Grid.Column="0" MinWidth="300" x:Name="PackageList">
+			
+			</ListBox>
+			<GridSplitter Grid.Column="1"
+			              Width="4"
+			              VerticalAlignment="Stretch"
+			              HorizontalAlignment="Center" />
+			<Grid Grid.Column="2" MinWidth="200">
+			</Grid>
 		</Grid>
 	</DockPanel>
 </UserControl>

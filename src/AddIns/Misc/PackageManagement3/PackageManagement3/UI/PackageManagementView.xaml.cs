@@ -23,7 +23,12 @@ namespace PackageManagement.UI
 						vm => vm.PackageSources,
 						view => view.PackageSources.ItemsSource)
 						.DisposeWith(disposable);
-						
+					
+					this.Bind(
+						ViewModel,
+						vm => vm.SearchString,
+						view => view.SearchString.Text)
+						.DisposeWith(disposable);
 			    });
 		}
 
