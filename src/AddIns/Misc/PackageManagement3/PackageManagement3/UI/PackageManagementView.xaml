@@ -1,28 +1,47 @@
-<UserControl x:Class="PackageManagement.UI.PackageManagementView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:pm="clr-namespace:PackageManagement.UI">
-	<DockPanel Margin="5">
-		<Grid DockPanel.Dock="Top">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+	x:Class="PackageManagement.UI.PackageManagementView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:pm="clr-namespace:PackageManagement.UI">
+	<UserControl.Resources>
+		<BitmapImage
+			x:Key="Gear"
+			UriSource="pack://application:,,,/PackageManagement3;component/Resources/gear.png" />
+	</UserControl.Resources>
+	<DockPanel
+		Margin="5">
+		<Grid
+			DockPanel.Dock="Top"
+			Margin="5">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" />
-				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition
+					Width="*" />
+				<ColumnDefinition
+					Width="10" />
+				<ColumnDefinition
+					Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.Column="0" Orientation="Vertical" >
-				<TextBlock FontSize="26">Title</TextBlock>
-				<TextBox FontSize="16" x:Name="SearchString"></TextBox>
+			<StackPanel
+				Grid.Column="0"
+				Orientation="Vertical">
+				<TextBlock
+					FontSize="26">Title</TextBlock>
+				<TextBox
+					FontSize="16"
+					x:Name="SearchString"></TextBox>
 			</StackPanel>
 			<StackPanel
-				Grid.Column="1"
+				Grid.Column="2"
 				Orientation="Horizontal"
 				HorizontalAlignment="Right"
-				VerticalAlignment="Bottom"
-			>
-				<Label FontSize="16"
-				       Target="{Binding ElementName=PackageSources}">Package source:</Label>
-				<ComboBox Width="200" x:Name="PackageSources">
+				VerticalAlignment="Bottom">
+				<Label
+					FontSize="16"
+					Target="{Binding ElementName=PackageSources}">Package source:</Label>
+				<ComboBox
+					Width="200"
+					x:Name="PackageSources">
 					<ComboBox.ItemTemplate>
-						<DataTemplate DataType="{x:Type pm:PackageSourceViewModel}">
+						<DataTemplate
+							DataType="{x:Type pm:PackageSourceViewModel}">
 							<StackPanel>
 								<TextBlock
 									FontWeight="Bold"
@@ -34,26 +53,40 @@
 						</DataTemplate>
 					</ComboBox.ItemTemplate>
 				</ComboBox>
-				<Button>Conf</Button>
+				<Button
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Margin="5,5,5,5"
+					Width="25"
+					Height="25">
+					<Image
+						Source="{StaticResource Gear}" />
+				</Button>
 			</StackPanel>
 		</Grid>
-		<Grid>
+		<Grid
+			Margin="5">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="*" MinWidth="300" />
-				<ColumnDefinition Width="Auto"/>
-				<ColumnDefinition Width="*" />
+				<ColumnDefinition
+					Width="*"
+					MinWidth="300" />
+				<ColumnDefinition
+					Width="Auto" />
+				<ColumnDefinition
+					Width="*" />
 			</Grid.ColumnDefinitions>
-			
 			<ListBox
-				Grid.Column="0" MinWidth="300" x:Name="PackageList">
-			
-			</ListBox>
-			<GridSplitter Grid.Column="1"
-			              Width="4"
-			              VerticalAlignment="Stretch"
-			              HorizontalAlignment="Center" />
-			<Grid Grid.Column="2" MinWidth="200">
-			</Grid>
+				Grid.Column="0"
+				MinWidth="300"
+				x:Name="PackageList"></ListBox>
+			<GridSplitter
+				Grid.Column="1"
+				Width="4"
+				VerticalAlignment="Stretch"
+				HorizontalAlignment="Center" />
+			<Grid
+				Grid.Column="2"
+				MinWidth="200"></Grid>
 		</Grid>
 	</DockPanel>
 </UserControl>

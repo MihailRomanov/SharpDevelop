@@ -197,6 +197,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <Resource Include="Resources\gear.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ManagePackagesCommand.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="UI\PackageSourceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources" />
     <Folder Include="Services" />
   </ItemGroup>
   <ItemGroup>
