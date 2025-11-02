@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NuGet.Configuration;
 using NuGet.Protocol.Core.Types;
 using NuGet.Protocol;
+using PackageManagement.Services;
 using ReactiveUI;
 using System.Linq;
 using System.Threading;
@@ -18,6 +19,7 @@ namespace PackageManagement.UI
 	public class PackageManagementViewModel : ReactiveObject
 	{
 		private readonly IPackageSourceProvider packageSourceProvider;
+		private readonly INuGetManagementService nugetService;
 		
 		private readonly ObservableAsPropertyHelper<IEnumerable<PackageSourceViewModel>> packageSources;
 		public IEnumerable<PackageSourceViewModel> PackageSources {
@@ -36,10 +38,11 @@ namespace PackageManagement.UI
 			}
 		}
 		
-		public PackageManagementViewModel(IPackageSourceProvider packageSourceProvider)
+		public PackageManagementViewModel(INuGetManagementService nugetService)
 		{
-			this.packageSourceProvider = packageSourceProvider;
-			
+			this.nugetService = nugetService;
+			packageSourceProvider = nugetService.GetPackageSourceProvider();
+						
 			packageSources = Observable
 				.FromEvent<EventHandler, IEnumerable<PackageSource>>(
 					handler => (sender, e) => handler(packageSourceProvider.LoadPackageSources()),

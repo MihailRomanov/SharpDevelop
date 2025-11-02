@@ -12,10 +12,8 @@ namespace PackageManagement.UI
 		readonly PackageManagementView packageManagementView;
 		
 		public PackageManagementViewContent(INuGetManagementService nugetService)
-		{
-			var packageSourceProvider = nugetService.GetPackageSourceProvider();
-			
-			var viewModel = new PackageManagementViewModel(packageSourceProvider);
+		{			
+			var viewModel = new PackageManagementViewModel(nugetService);
 			packageManagementView = new PackageManagementView 
 			{
 				ViewModel = viewModel,

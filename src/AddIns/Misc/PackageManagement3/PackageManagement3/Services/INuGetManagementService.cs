@@ -1,6 +1,6 @@
-﻿
-using System;
+﻿using System;
 using NuGet.Configuration;
+using NuGet.Protocol.Core.Types;
 
 namespace PackageManagement.Services
 {
@@ -10,5 +10,7 @@ namespace PackageManagement.Services
 	public interface INuGetManagementService
 	{
 		IPackageSourceProvider GetPackageSourceProvider();
+		
+		SourceRepository GetSourceRepository(PackageSource packageSource);
 	}
 }
