@@ -78,7 +78,17 @@
 			<ListBox
 				Grid.Column="0"
 				MinWidth="300"
-				x:Name="PackageList"></ListBox>
+				x:Name="PackageList">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<StackPanel>
+							<TextBlock
+								FontWeight="Bold"
+								Text="{Binding Mode=OneWay, Path=Name}" />
+						</StackPanel>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
 			<GridSplitter
 				Grid.Column="1"
 				Width="4"

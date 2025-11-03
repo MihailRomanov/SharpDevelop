@@ -16,14 +16,14 @@ namespace PackageManagement.UI
 			this.packageSource = packageSource;
 		}
 		
-		public string Name 
+		public string Name
 		{
 			get {
 				return packageSource.Name;
 			}
 		}
 		
-		public string Url 
+		public string Url
 		{
 			get {
 				return packageSource.Source;

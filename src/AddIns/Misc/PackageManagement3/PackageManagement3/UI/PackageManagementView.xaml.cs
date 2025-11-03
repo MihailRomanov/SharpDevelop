@@ -26,8 +26,20 @@ namespace PackageManagement.UI
 					
 					this.Bind(
 						ViewModel,
+						vm => vm.CurrentPackageSource,
+						view => view.PackageSources.SelectedItem)
+						.DisposeWith(disposable);
+					
+					this.Bind(
+						ViewModel,
 						vm => vm.SearchString,
 						view => view.SearchString.Text)
+						.DisposeWith(disposable);
+					
+					this.OneWayBind(
+						ViewModel,
+						vm => vm.SearchResults,
+						view => view.PackageList.ItemsSource)
 						.DisposeWith(disposable);
 			    });
 		}

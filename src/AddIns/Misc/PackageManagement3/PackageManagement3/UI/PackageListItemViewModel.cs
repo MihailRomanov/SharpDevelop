@@ -15,5 +15,11 @@ namespace PackageManagement.UI
 		{
 			this.packageMetadata = packageMetadata;
 		}
+		
+		public string Name {
+			get {
+				return packageMetadata.Title;
+			}
+		}
 	}
 }
