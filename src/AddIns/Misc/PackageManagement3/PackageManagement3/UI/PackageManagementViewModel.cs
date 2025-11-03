@@ -95,13 +95,14 @@ namespace PackageManagement.UI
 			var packageSource = packageSourceProvider.GetPackageSourceByName(CurrentPackageSource.Name);
 			var sourceRepository = nugetService.GetSourceRepository(packageSource);
 			
-			var searchResource = sourceRepository.GetResource<PackageSearchResource
+			var searchResource = sourceRepository.GetResource<PackageSearchResource>();
 			var searchResult = await searchResource.SearchAsync(
 				query, 
 				new SearchFilter(false),
-				0, 100, new NuGet.Common.NullLogger(), token).ConfigureAwait(false
-			Debug.WriteLine("Search result: " + searchResult.Count
-			return searchResult.Select(x => new SearchPackageListItemViewModel(x
+				0, 100, new NuGet.Common.NullLogger(), token).ConfigureAwait(false);
+			
+			Debug.WriteLine("Search result: " + searchResult.Count());
+			return searchResult.Select(x => new SearchPackageListItemViewModel(x));
 		}
 	}
 }
