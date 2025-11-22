@@ -7,18 +7,24 @@ namespace PackageManagement.UI
 	/// <summary>
 	/// Description of PackageListItemViewModel.
 	/// </summary>
-	public class SearchPackageListItemViewModel
+	public class PackageListItemViewModel
 	{
 		readonly IPackageSearchMetadata packageMetadata;
 
-		public SearchPackageListItemViewModel(IPackageSearchMetadata packageMetadata)
+		public PackageListItemViewModel(IPackageSearchMetadata packageMetadata)
 		{
 			this.packageMetadata = packageMetadata;
 		}
 		
-		public string Name {
+		public string Title {
 			get {
 				return packageMetadata.Title;
+			}
+		}
+		
+		public string Description {
+			get {
+				return packageMetadata.Description;
 			}
 		}
 	}

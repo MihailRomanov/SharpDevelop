@@ -48,8 +48,8 @@ namespace PackageManagement.UI
 			}
 		}
 		
-		private readonly ObservableAsPropertyHelper<IEnumerable<SearchPackageListItemViewModel>> searchResults;
-		public IEnumerable<SearchPackageListItemViewModel> SearchResults {
+		private readonly ObservableAsPropertyHelper<IEnumerable<PackageListItemViewModel>> searchResults;
+		public IEnumerable<PackageListItemViewModel> SearchResults {
 			get {
 				return searchResults.Value;
 			}
@@ -70,13 +70,12 @@ namespace PackageManagement.UI
 				.ToProperty(this, t => t.PackageSources);
 			
 			searchResults = this
-				//.WhenAnyValue(x => x.SearchString, x => x.CurrentPackageSource, (t1, t2) => t1)
 				.WhenAnyValue(x => x.SearchString)
 				.Throttle(TimeSpan.FromMilliseconds(800))
 				.Select(s => s?.Trim())
 				.DistinctUntilChanged()
 				.Where(s => !string.IsNullOrWhiteSpace(s))
-				.SelectMany(SearchPackages)
+				.SelectMany(SearchPackagesAsync)
 				.ObserveOn(RxApp.MainThreadScheduler)
 				.ToProperty(this, t => t.SearchResults);
 			
@@ -85,12 +84,12 @@ namespace PackageManagement.UI
 			this.PropertyChanging += (sender, e) => Debug.WriteLine("Changing: " + e.PropertyName);
 		}
 		
-		private async Task<IEnumerable<SearchPackageListItemViewModel>> SearchPackages(
+		private async Task<IEnumerable<PackageListItemViewModel>> SearchPackagesAsync(
 			string query, CancellationToken token)
 		{
 			Debug.WriteLine("SearchPackages: " + query);
 			if (CurrentPackageSource == null)
-				return Enumerable.Empty<SearchPackageListItemViewModel>();
+				return Enumerable.Empty<PackageListItemViewModel>();
 			
 			var packageSource = packageSourceProvider.GetPackageSourceByName(CurrentPackageSource.Name);
 			var sourceRepository = nugetService.GetSourceRepository(packageSource);
@@ -99,10 +98,10 @@ namespace PackageManagement.UI
 			var searchResult = await searchResource.SearchAsync(
 				query, 
 				new SearchFilter(false),
-				0, 100, new NuGet.Common.NullLogger(), token).ConfigureAwait(false);
+				0, 100, new NuGet.Common.NullLogger(), token);
 			
 			Debug.WriteLine("Search result: " + searchResult.Count());
-			return searchResult.Select(x => new SearchPackageListItemViewModel(x));
+			return searchResult.Select(x => new PackageListItemViewModel(x));
 		}
 	}
 }

@@ -204,6 +204,10 @@
     <Compile Include="Configuration\AssemblyInfo.cs" />
     <Compile Include="Services\INuGetManagementService.cs" />
     <Compile Include="Services\NuGetManagementService.cs" />
+    <Compile Include="UI\PackageListItemView.xaml.cs">
+      <DependentUpon>PackageListItemView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UI\PackageListItemViewModel.cs" />
     <Compile Include="UI\PackageManagementViewContent.cs" />
     <Compile Include="UI\PackageManagementView.xaml.cs">
@@ -224,6 +228,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\PackageListItemView.xaml" />
     <Page Include="UI\PackageManagementView.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
