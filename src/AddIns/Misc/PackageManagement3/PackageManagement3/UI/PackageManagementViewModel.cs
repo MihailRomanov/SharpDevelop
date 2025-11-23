@@ -105,7 +105,7 @@ namespace PackageManagement.UI
 				.WhenAnyValue(x => x.CurrentPackagListItem)
 				.Where(t => t != null)
 				.SelectMany(GetPackageDetailsAsync)
-				//.ObserveOn(RxApp.MainThreadScheduler)
+				.ObserveOn(RxApp.MainThreadScheduler)
 				.ToProperty(this, x => x.CurrentPackageDetails);
 			
 			this.PropertyChanging += (sender, e) => Debug.WriteLine("Changing: " + e.PropertyName);
