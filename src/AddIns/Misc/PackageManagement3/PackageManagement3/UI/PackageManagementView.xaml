@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <UserControl
-	x:Class="PackageManagement.UI.PackageManagementView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:pm="clr-namespace:PackageManagement.UI">
+	x:Class="PackageManagement.UI.PackageManagementView" 
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:pm="clr-namespace:PackageManagement.UI">
 	<UserControl.Resources>
 		<BitmapImage
 			x:Key="Gear"
@@ -36,22 +39,7 @@
 				<Label
 					FontSize="16"
 					Target="{Binding ElementName=PackageSources}">Package source:</Label>
-				<ComboBox
-					Width="200"
-					x:Name="PackageSources">
-					<ComboBox.ItemTemplate>
-						<DataTemplate
-							DataType="{x:Type pm:PackageSourceViewModel}">
-							<StackPanel>
-								<TextBlock
-									FontWeight="Bold"
-									Text="{Binding Mode=OneWay, Path=Name}" />
-								<TextBlock
-									FontStyle="Italic"
-									Text="{Binding Mode=OneWay, Path=Url}" />
-							</StackPanel>
-						</DataTemplate>
-					</ComboBox.ItemTemplate>
+				<ComboBox Width="200" x:Name="PackageSources">
 				</ComboBox>
 				<Button
 					HorizontalAlignment="Center"
@@ -87,7 +75,9 @@
 				HorizontalAlignment="Center" />
 			<Grid
 				Grid.Column="2"
-				MinWidth="200"></Grid>
+				MinWidth="200">
+				<pm:PackageDetailsView x:Name="PackageDetails"></pm:PackageDetailsView>
+			</Grid>
 		</Grid>
 	</DockPanel>
 </UserControl>

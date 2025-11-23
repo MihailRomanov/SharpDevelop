@@ -202,19 +202,28 @@
   <ItemGroup>
     <Compile Include="Commands\ManagePackagesCommand.cs" />
     <Compile Include="Configuration\AssemblyInfo.cs" />
+    <Compile Include="PackageManagementViewContent.cs" />
     <Compile Include="Services\INuGetManagementService.cs" />
     <Compile Include="Services\NuGetManagementService.cs" />
+    <Compile Include="UI\PackageDetailsView.xaml.cs">
+      <DependentUpon>PackageDetailsView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\PackageDetailsViewModel.cs" />
     <Compile Include="UI\PackageListItemView.xaml.cs">
       <DependentUpon>PackageListItemView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\PackageListItemViewModel.cs" />
-    <Compile Include="UI\PackageManagementViewContent.cs" />
     <Compile Include="UI\PackageManagementView.xaml.cs">
       <DependentUpon>PackageManagementView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\PackageManagementViewModel.cs" />
+    <Compile Include="UI\PackageSourceView.xaml.cs">
+      <DependentUpon>PackageSourceView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="UI\PackageSourceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -228,8 +237,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\PackageDetailsView.xaml" />
     <Page Include="UI\PackageListItemView.xaml" />
     <Page Include="UI\PackageManagementView.xaml" />
+    <Page Include="UI\PackageSourceView.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

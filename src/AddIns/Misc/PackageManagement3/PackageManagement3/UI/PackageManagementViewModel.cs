@@ -55,6 +55,25 @@ namespace PackageManagement.UI
 			}
 		}
 		
+		private PackageListItemViewModel currentPackageListItem;
+		public PackageListItemViewModel CurrentPackagListItem{
+			get {
+				return currentPackageListItem;
+			}
+			set {
+				this.RaiseAndSetIfChanged(ref currentPackageListItem, value);
+			}
+		}
+		
+		
+		private ObservableAsPropertyHelper<PackageDetailsViewModel> currentPackageDetails;
+		public PackageDetailsViewModel CurrentPackageDetails{
+			get {
+				return currentPackageDetails.Value;
+			}
+		}
+		
+		
 		public PackageManagementViewModel(INuGetManagementService nugetService)
 		{
 			this.nugetService = nugetService;
@@ -79,11 +98,19 @@ namespace PackageManagement.UI
 				.ObserveOn(RxApp.MainThreadScheduler)
 				.ToProperty(this, t => t.SearchResults);
 			
+			// TODO Разобраться с ошибкой - почему прерывается работа если ошибка
 			searchResults.ThrownExceptions.Subscribe(e => Debug.WriteLine("Error: " + e.Message));
+			
+			currentPackageDetails = this
+				.WhenAnyValue(x => x.CurrentPackagListItem)
+				.Where(t => t != null)
+				.SelectMany(GetPackageDetailsAsync)
+				//.ObserveOn(RxApp.MainThreadScheduler)
+				.ToProperty(this, x => x.CurrentPackageDetails);
 			
 			this.PropertyChanging += (sender, e) => Debug.WriteLine("Changing: " + e.PropertyName);
 		}
-		
+				
 		private async Task<IEnumerable<PackageListItemViewModel>> SearchPackagesAsync(
 			string query, CancellationToken token)
 		{
@@ -102,6 +129,12 @@ namespace PackageManagement.UI
 			
 			Debug.WriteLine("Search result: " + searchResult.Count());
 			return searchResult.Select(x => new PackageListItemViewModel(x));
+		}
+		
+		private async Task<PackageDetailsViewModel> GetPackageDetailsAsync(
+			PackageListItemViewModel listItem, CancellationToken token)
+		{
+			return new PackageDetailsViewModel(listItem.PackageMetadata);
 		}
 	}
 }

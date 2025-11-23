@@ -1,13 +1,14 @@
 ﻿
 using System;
 using NuGet.Configuration;
+using ReactiveUI;
 
 namespace PackageManagement.UI
 {
 	/// <summary>
 	/// Description of PackageSourceViewModel.
 	/// </summary>
-	public class PackageSourceViewModel
+	public class PackageSourceViewModel : ReactiveObject
 	{
 		private readonly PackageSource packageSource;
 

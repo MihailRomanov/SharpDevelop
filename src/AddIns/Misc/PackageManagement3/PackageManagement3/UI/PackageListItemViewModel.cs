@@ -1,13 +1,13 @@
-﻿
-using System;
+﻿using System;
 using NuGet.Protocol.Core.Types;
+using ReactiveUI;
 
 namespace PackageManagement.UI
 {
 	/// <summary>
 	/// Description of PackageListItemViewModel.
 	/// </summary>
-	public class PackageListItemViewModel
+	public class PackageListItemViewModel : ReactiveObject
 	{
 		readonly IPackageSearchMetadata packageMetadata;
 
@@ -25,6 +25,12 @@ namespace PackageManagement.UI
 		public string Description {
 			get {
 				return packageMetadata.Description;
+			}
+		}
+		
+		internal IPackageSearchMetadata PackageMetadata {
+			get {
+				return packageMetadata;
 			}
 		}
 	}

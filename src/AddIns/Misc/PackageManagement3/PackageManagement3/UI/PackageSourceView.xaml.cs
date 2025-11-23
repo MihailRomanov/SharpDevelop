@@ -6,35 +6,37 @@ using ReactiveUI;
 namespace PackageManagement.UI
 {
 	/// <summary>
-	/// Interaction logic for PackageListItemView.xaml
+	/// Interaction logic for PackageSourceView.xaml
 	/// </summary>
-	public partial class PackageListItemView : 
-		UserControl, IViewFor<PackageListItemViewModel>
+	public partial class PackageSourceView : 
+		UserControl, IViewFor<PackageSourceViewModel>
+
 	{
-		public PackageListItemView()
+		public PackageSourceView()
 		{
 			InitializeComponent();
 			
 			this.WhenActivated(
-				disposable =>
+				disposable => 
 				{
 					this.OneWayBind(
 						ViewModel,
-						vm => vm.Title,
-						view => view.Title.Text
+						vm => vm.Name,
+						view => view.Name.Text
 					).DisposeWith(disposable);
 					
 					this.OneWayBind(
 						ViewModel,
-						vm => vm.Description,
-						view => view.Description.Text
+						vm => vm.Url,
+						view => view.Url.Text
 					).DisposeWith(disposable);
-				});
+				}
+			);
 		}
 
 		#region IViewFor implementation
 
-		public PackageListItemViewModel ViewModel {
+		public PackageSourceViewModel ViewModel {
 			get ;
 			set ;
 		}
@@ -48,7 +50,7 @@ namespace PackageManagement.UI
 				return ViewModel;
 			}
 			set {
-				ViewModel = (PackageListItemViewModel)value;
+				ViewModel = (PackageSourceViewModel)value;
 			}
 		}
 
