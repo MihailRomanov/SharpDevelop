@@ -5,8 +5,8 @@
 	<Languages name="Brazilian Portuguese"          code="pt-br"    icon="brazil.png" />
 	<!--<Languages name="Bulgarian"                     code="bg"       icon="bulgaria.png" />-->
 	<!--<Languages name="Catalan"                       code="ca"       icon="catalonia.png" />-->
-	<!--<Languages name="Chinese (Traditional)"                code="cn-big"   icon="chinalg.png" />-->
-	<Languages name="Chinese"                  code="zh"    icon="chinalg.png" />
+	<Languages name="Chinese (Simplified)"      code="zh"       icon="chinalg.png" />
+	<Languages name="Chinese (Traditional)"     code="zh-TW"    icon="chinahk.png" />
 	<Languages name="Czech"                         code="cz"       icon="czech.png" />
 	<!--<Languages name="Danish"                        code="dk"       icon="denmark.png" />-->
 	<Languages name="Dutch"                         code="nl"       icon="netherlands.png" />
